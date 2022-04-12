@@ -1,7 +1,7 @@
 window.products = [
   // Category 1 - Roses
   {
-    id: "1" + Math.floor(Math.random()),
+    id: "1" + Math.floor(Math.random() * 100),
     title: "Red Rose Bouquet",
     description:
       "Nothing speaks of love so much as a bouquet of beautiful red roses. Arranged with seeded eucalyptus in a classic glass vase, this bouquet is a gift to her heart from yours.",
