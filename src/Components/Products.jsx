@@ -1,240 +1,246 @@
-window.products = [
-  // Category 1 - Roses
-  {
-    id: "1" + Math.floor(Math.random() * 100),
-    title: "Red Rose Bouquet",
-    description:
-      "Nothing speaks of love so much as a bouquet of beautiful red roses. Arranged with seeded eucalyptus in a classic glass vase, this bouquet is a gift to her heart from yours.",
-    price: 9999, // 100 dollars.
-    discontinued: false,
-    categories: ["c1"],
-  },
-  {
-    id: "p2",
-    title: "4 Red Roses",
-    description:
-      "4 red roses arranged in a glass vase with added greenery and baby's breath.",
-    price: 3999,
-    discontinued: false,
-    categories: ["c1"],
-  },
-  {
-    id: "p3",
-    title: "One Dozen Red Roses",
-    description:
-      "One dozen red roses are arranged with delicate white baby's breath in a clear glass vase. This romantic gift of 12 red roses is perfect for celebrating your love.",
-    price: 8999,
-    discontinued: false,
-    categories: ["c1"],
-  },
-  {
-    id: "p4",
-    title: "Contemporary White Roses",
-    description:
-      "Modern glass cube vase arrangement with six beautiful white roses in a bed of white waxflower and variegated pitt. A lovely, contemporary display of white roses that will perfectly express your sentiments of sympathy and support.",
-    price: 5999,
-    discontinued: false,
-    categories: ["c1"],
-  },
-  {
-    id: "p5",
-    title: "Lucky In Lavender Roses",
-    description:
-      "Fall in love with these stunning purple roses! Presented in a clear cube vase encased with delicate purple ribbon. Simply captivating!",
-    price: 6999,
-    discontinued: false,
-    categories: ["c1"],
-  },
-  {
-    id: "p6",
-    title: "Six Pink Roses and Balloon",
-    description:
-      "1/2 Dozen Pink Roses with Balloon. Precious bouquet of 6 pink roses, professionally arranged in a clear glass vase with baby's breath, foliage and matching bow PLUS a festive mylar birthday balloon. Celebrate!",
-    price: 5999,
-    discontinued: false,
-    categories: ["c1"],
-  },
-  // Category 2 - Lilies
-  {
-    id: "p7",
-    title: "Orange Lily Bouquet",
-    description:
-      "Freshly wrapped bouquet of orange lilies with purple Statice, tied with a matching orange bow. A simple yet captivating bouquet for any occasion.",
-    price: 6999,
-    discontinued: false,
-    categories: ["c2"],
-  },
-  {
-    id: "p8",
-    title: "Casablanca Lilies",
-    description:
-      "Demonstrate your thoughts of sympathy and condolence with this angelic vase arrangement of all-white Casablanca lilies.",
-    price: 7999,
-    discontinued: false,
-    categories: ["c2"],
-  },
-  {
-    id: "p9",
-    title: "Light In Your Honour Bouquet",
-    description:
-      "Light In Your Honour Bouquet is a beautifully bright arrangement bursting with elegant fragrance to convey your deepest sympathies for the loss of their loved one. A stunning bouquet of gorgeous Oriental lilies are accented with lush greens and seated in a clear glass vase to create a bouquet that is serenely sophisticated, offering comfort and peace in their time of need.",
-    price: 9999,
-    discontinued: false,
-    categories: ["c2"],
-  },
-  {
-    id: "p10",
-    title: "White Peruvian Lilies",
-    description:
-      "Splendid vase arrangement of white alstroemerias (also called Peruvian Lilies) with subtle accenting greens and matching white satin bow",
-    price: 6499,
-    discontinued: false,
-    categories: ["c2"],
-  },
-  // Category 3 - Carnations
-  {
-    id: "p11",
-    title: "12 White Carnations",
-    description:
-      "Give this affordable and thoughtful gift of 12 white carnations arranged in a glass vase with baby's breath and white satin bow.",
-    price: 5499,
-    discontinued: false,
-    categories: ["c3"],
-  },
-  {
-    id: "p12",
-    title: "6 White Carnations",
-    description:
-      "Let them know they are in your thoughts and prayers with this simple, affordable vase arrangement. Featuring six white carnations with baby's breath, greens and matching white bow.",
-    price: 3999,
-    discontinued: false,
-    categories: ["c3"],
-  },
-  {
-    id: "p13",
-    title: "One Dozen Yellow Carnations",
-    description:
-      "Beautiful floral arrangement of one dozen yellow carnations arranged with baby's breath and greenery and tied with a matching white bow.",
-    price: 5499,
-    discontinued: false,
-    categories: ["c3"],
-  },
-  {
-    id: "p14",
-    title: "Six Yellow Carnations",
-    description:
-      "Affordable, long lasting arrangement of six yellow carnations in a glass vase with added baby's breath and matching bow.",
-    price: 3999,
-    discontinued: false,
-    categories: ["c3"],
-  },
-  {
-    id: "p15",
-    title: "Pretty Carnations",
-    description:
-      "Say thank you with this long-lasting vase arrangement of six pink and six white carnations with baby's breath, presented with a matching bow.",
-    price: 5499,
-    discontinued: false,
-    categories: ["c3"],
-  },
-  {
-    id: "p16",
-    title: "Twelve Pink Carnations",
-    description:
-      "One dozen long lasting and popular pink carnations with added baby's breath and greens, arranged in a glass vase with matching pink bow.",
-    price: 5499,
-    discontinued: false,
-    categories: ["c3"],
-  },
-  {
-    id: "p17",
-    title: "Teleflora's Pink Notion Bouquet",
-    description:
-      "Pink carnations can say whatever the occasion calls for in such a pretty way. A lovely mix of 6 delicate blooms and rich greens, combine expertly to convey your best wishes.",
-    price: 3699,
-    discontinued: false,
-    categories: ["c3"],
-  },
-  // Category 4 - Mixed
-  {
-    id: "p18",
-    title: "Sympathies",
-    description:
-      "A pretty assortment of white and/or cream blooms rests in a clear glass bowl vase. Flowers include roses, carnations, alstroemeria and waxflower, plus complementary greenery.",
-    price: 7499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p19",
-    title: "Always True Bouquet",
-    description:
-      "Bouquet blossoms with love's tender message. Rich red roses and carnations are accented with fuchsia mini carnations and lush greens arranged to perfection in a classic clear glass vase to create an exceptional way to convey your heart's most intimate wishes.",
-    price: 6499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p20",
-    title: "For Your Loss",
-    description:
-      "A simple expression of your sympathies is reflected in this glass vase arrangement of white lilies with white daisies and greenery. An affordable and thoughtful gesture at a time of loss.",
-    price: 5499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p21",
-    title: "Teleflora's Peaceful White Lilies",
-    description:
-      "These gorgeous white lilies are so classically elegant, they're sure to provide an extra touch of beauty and serenity right when they're needed most. A tasteful arrangement suitable for the family home or funeral home. Gorgeous flowers such as white lilies, carnations and miniature carnations mix with vibrant greens in a large basket.",
-    price: 8499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p22",
-    title: "Pastel Passion",
-    description:
-      "A soft and delicate arrangement of beautiful yellow lilies, yellow daisies, purple statice and more in a stunning lavender cube. Perfect for any home or office.",
-    price: 5699,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p23",
-    title: "Favour",
-    description:
-      "Demonstrate your affection and best wishes with this pretty handled basket of pink and white flowers, including pink roses, miniature pink carnations, alstroemerias and delicate baby's breath.",
-    price: 7499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p24",
-    title: "Remember",
-    description:
-      "Remember them with this contemporary cube vase of white and cream flowers. Our Canada Flowers design features white lilies with white alstroemerias, white stock or snapdragons and white or cream roses.",
-    price: 8499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p25",
-    title: "Blissful Season",
-    description:
-      "A soft and delicate arrangement in a ceramic container of light pink lilies, soft pink carnations, white daisies and more!",
-    price: 6499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-  {
-    id: "p26",
-    title: "Teleflora's Full Of Love Bouquet",
-    description:
-      "Spring into pink! Delicate roses, tulips and carnations fill a graceful vase with a cheerful expression of your love. It's affection perfection! Includes pink roses, tulips, carnations and waxflower, accented with fresh pitta negra and variegated pittosporum. Delivered in a lovely glass vase.",
-    price: 6499,
-    discontinued: false,
-    categories: ["c4"],
-  },
-];
+import React from "react";
+
+export const Products = () => {
+  window.products = [
+    // Category 1 - Roses
+    {
+      id: "1" + Math.floor(Math.random() * 100),
+      title: "Red Rose Bouquet",
+      description:
+        "Nothing speaks of love so much as a bouquet of beautiful red roses. Arranged with seeded eucalyptus in a classic glass vase, this bouquet is a gift to her heart from yours.",
+      price: 9999, // 100 dollars.
+      image: require("../ListingPics/RedRoseBouquet.JPG"),
+      categories: ["c1"],
+    },
+    {
+      id: "p2",
+      title: "4 Red Roses",
+      description:
+        "4 red roses arranged in a glass vase with added greenery and baby's breath.",
+      price: 3999,
+      image: require("../ListingPics/4RedRoses.JPG"),
+      categories: ["c1"],
+    },
+    {
+      id: "p3",
+      title: "One Dozen Red Roses",
+      description:
+        "One dozen red roses are arranged with delicate white baby's breath in a clear glass vase. This romantic gift of 12 red roses is perfect for celebrating your love.",
+      price: 8999,
+      image: require("../ListingPics/OneDozenRedRoses.JPG"),
+      categories: ["c1"],
+    },
+    {
+      id: "p4",
+      title: "Contemporary White Roses",
+      description:
+        "Modern glass cube vase arrangement with six beautiful white roses in a bed of white waxflower and variegated pitt. A lovely, contemporary display of white roses that will perfectly express your sentiments of sympathy and support.",
+      price: 5999,
+      image: require("../ListingPics/ContemporaryWhiteRoses.JPG"),
+      categories: ["c1"],
+    },
+    {
+      id: "p5",
+      title: "Lucky In Lavender Roses",
+      description:
+        "Fall in love with these stunning purple roses! Presented in a clear cube vase encased with delicate purple ribbon. Simply captivating!",
+      price: 6999,
+      image: require("../ListingPics/LuckyInLavenderRoses.JPG"),
+      categories: ["c1"],
+    },
+    {
+      id: "p6",
+      title: "Six Pink Roses and Balloon",
+      description:
+        "1/2 Dozen Pink Roses with Balloon. Precious bouquet of 6 pink roses, professionally arranged in a clear glass vase with baby's breath, foliage and matching bow PLUS a festive mylar birthday balloon. Celebrate!",
+      price: 5999,
+      image: require("../ListingPics/SixPinkRosesandBalloon.JPG"),
+      categories: ["c1"],
+    },
+    // Category 2 - Lilies
+    {
+      id: "p7",
+      title: "Orange Lily Bouquet",
+      description:
+        "Freshly wrapped bouquet of orange lilies with purple Statice, tied with a matching orange bow. A simple yet captivating bouquet for any occasion.",
+      price: 6999,
+      image: require("../ListingPics/OrangeLilyBouquet.JPG"),
+      categories: ["c2"],
+    },
+    {
+      id: "p8",
+      title: "Casablanca Lilies",
+      description:
+        "Demonstrate your thoughts of sympathy and condolence with this angelic vase arrangement of all-white Casablanca lilies.",
+      price: 7999,
+      image: require("../ListingPics/CasablancaLilies.JPG"),
+      categories: ["c2"],
+    },
+    {
+      id: "p9",
+      title: "Light In Your Honour Bouquet",
+      description:
+        "Light In Your Honour Bouquet is a beautifully bright arrangement bursting with elegant fragrance to convey your deepest sympathies for the loss of their loved one. A stunning bouquet of gorgeous Oriental lilies are accented with lush greens and seated in a clear glass vase to create a bouquet that is serenely sophisticated, offering comfort and peace in their time of need.",
+      price: 9999,
+      image: require("../ListingPics/LightInYourHonourBouquet.JPG"),
+      categories: ["c2"],
+    },
+    {
+      id: "p10",
+      title: "White Peruvian Lilies",
+      description:
+        "Splendid vase arrangement of white alstroemerias (also called Peruvian Lilies) with subtle accenting greens and matching white satin bow",
+      price: 6499,
+      image: require("../ListingPics/WhitePeruvianLilies.JPG"),
+      categories: ["c2"],
+    },
+    // Category 3 - Carnations
+    {
+      id: "p11",
+      title: "12 White Carnations",
+      description:
+        "Give this affordable and thoughtful gift of 12 white carnations arranged in a glass vase with baby's breath and white satin bow.",
+      price: 5499,
+      image: require("../ListingPics/12WhiteCarnations.JPG"),
+      categories: ["c3"],
+    },
+    {
+      id: "p12",
+      title: "6 White Carnations",
+      description:
+        "Let them know they are in your thoughts and prayers with this simple, affordable vase arrangement. Featuring six white carnations with baby's breath, greens and matching white bow.",
+      price: 3999,
+      image: require("../ListingPics/6WhiteCarnations.JPG"),
+      categories: ["c3"],
+    },
+    {
+      id: "p13",
+      title: "One Dozen Yellow Carnations",
+      description:
+        "Beautiful floral arrangement of one dozen yellow carnations arranged with baby's breath and greenery and tied with a matching white bow.",
+      price: 5499,
+      image: require("../ListingPics/OneDozenYellowCarnations.JPG"),
+      categories: ["c3"],
+    },
+    {
+      id: "p14",
+      title: "Six Yellow Carnations",
+      description:
+        "Affordable, long lasting arrangement of six yellow carnations in a glass vase with added baby's breath and matching bow.",
+      price: 3999,
+      image: require("../ListingPics/SixYellowCarnations.JPG"),
+      categories: ["c3"],
+    },
+    {
+      id: "p15",
+      title: "Pretty Carnations",
+      description:
+        "Say thank you with this long-lasting vase arrangement of six pink and six white carnations with baby's breath, presented with a matching bow.",
+      price: 5499,
+      image: require("../ListingPics/PrettyCarnations.JPG"),
+      categories: ["c3"],
+    },
+    {
+      id: "p16",
+      title: "Twelve Pink Carnations",
+      description:
+        "One dozen long lasting and popular pink carnations with added baby's breath and greens, arranged in a glass vase with matching pink bow.",
+      price: 5499,
+      image: require("../ListingPics/TwelvePinkCarnations.JPG"),
+      categories: ["c3"],
+    },
+    {
+      id: "p17",
+      title: "Teleflora's Pink Notion Bouquet",
+      description:
+        "Pink carnations can say whatever the occasion calls for in such a pretty way. A lovely mix of 6 delicate blooms and rich greens, combine expertly to convey your best wishes.",
+      price: 3699,
+      image: require("../ListingPics/TeleflorasPinkNotionBouquet.JPG"),
+      categories: ["c3"],
+    },
+    // Category 4 - Mixed
+    {
+      id: "p18",
+      title: "Sympathies",
+      description:
+        "A pretty assortment of white and/or cream blooms rests in a clear glass bowl vase. Flowers include roses, carnations, alstroemeria and waxflower, plus complementary greenery.",
+      price: 7499,
+      image: require("../ListingPics/Sympathies.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p19",
+      title: "Always True Bouquet",
+      description:
+        "Bouquet blossoms with love's tender message. Rich red roses and carnations are accented with fuchsia mini carnations and lush greens arranged to perfection in a classic clear glass vase to create an exceptional way to convey your heart's most intimate wishes.",
+      price: 6499,
+      image: require("../ListingPics/AlwaysTrueBouquet.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p20",
+      title: "For Your Loss",
+      description:
+        "A simple expression of your sympathies is reflected in this glass vase arrangement of white lilies with white daisies and greenery. An affordable and thoughtful gesture at a time of loss.",
+      price: 5499,
+      image: require("../ListingPics/ForYourLoss.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p21",
+      title: "Teleflora's Peaceful White Lilies",
+      description:
+        "These gorgeous white lilies are so classically elegant, they're sure to provide an extra touch of beauty and serenity right when they're needed most. A tasteful arrangement suitable for the family home or funeral home. Gorgeous flowers such as white lilies, carnations and miniature carnations mix with vibrant greens in a large basket.",
+      price: 8499,
+      image: require("../ListingPics/TeleflorasPeacefulWhiteLilies.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p22",
+      title: "Pastel Passion",
+      description:
+        "A soft and delicate arrangement of beautiful yellow lilies, yellow daisies, purple statice and more in a stunning lavender cube. Perfect for any home or office.",
+      price: 5699,
+      image: require("../ListingPics/PastelPassion.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p23",
+      title: "Favour",
+      description:
+        "Demonstrate your affection and best wishes with this pretty handled basket of pink and white flowers, including pink roses, miniature pink carnations, alstroemerias and delicate baby's breath.",
+      price: 7499,
+      image: require("../ListingPics/Favour.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p24",
+      title: "Remember",
+      description:
+        "Remember them with this contemporary cube vase of white and cream flowers. Our Canada Flowers design features white lilies with white alstroemerias, white stock or snapdragons and white or cream roses.",
+      price: 8499,
+      image: require("../ListingPics/Remember.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p25",
+      title: "Blissful Season",
+      description:
+        "A soft and delicate arrangement in a ceramic container of light pink lilies, soft pink carnations, white daisies and more!",
+      price: 6499,
+      image: require("../ListingPics/BlissfulSeason.JPG"),
+      categories: ["c4"],
+    },
+    {
+      id: "p26",
+      title: "Teleflora's Full Of Love Bouquet",
+      description:
+        "Spring into pink! Delicate roses, tulips and carnations fill a graceful vase with a cheerful expression of your love. It's affection perfection! Includes pink roses, tulips, carnations and waxflower, accented with fresh pitta negra and variegated pittosporum. Delivered in a lovely glass vase.",
+      price: 6499,
+      image: require("../ListingPics/TeleflorasFullOfLoveBouquet.JPG"),
+      categories: ["c4"],
+    },
+  ];
+};
+
+export default Products;

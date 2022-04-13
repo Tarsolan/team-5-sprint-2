@@ -11,6 +11,7 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import CreateAccount from "./Components/CreateAccount";
 import AccountDetails from "./Components/AccountDetails";
 import ChangePassword from "./Components/ChangePassword";
+import Main from "./Components/Main";
 
 function App() {
   const [username, setUsername] = useState();
@@ -31,7 +32,7 @@ function App() {
                   id="basic-nav-dropdown"
                   menuVariant="dark"
                 >
-                  <NavDropdown.Item as={NavLink} to="/home">
+                  <NavDropdown.Item as={NavLink} to="/main">
                     All Products
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
@@ -73,6 +74,7 @@ function App() {
           <Route path="/changePass" element={<ChangePassword />}></Route>
           <Route path="/createAcc" element={<CreateAccount />}></Route>
           <Route path="/AccDetails" element={<AccountDetails />}></Route>
+          <Route path="/main" element={<Main />}></Route>
         </Routes>
       </div>
     </Router>
