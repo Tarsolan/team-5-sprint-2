@@ -54,8 +54,20 @@ html {
 
 /* Nav Bar */
 
+/* .logo,
+.logo a {
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 32pt;
+}
+
+.logo a:hover {
+  color: white;
+} */
+
 .navbar-flower {
-  background-color: rgba(154, 109, 109, 0);
+  /* background-color: rgba(154, 109, 109, 0); */
   padding: 0px;
 }
 
@@ -68,10 +80,6 @@ html {
 .navbar-flower a:hover {
   color: white;
 }
-
-/* #basic-nav-dropdown {
-  margin-left: 20px;
-} */
 
 .navbar-toggler-icon {
   border: 1px solid white;
@@ -86,7 +94,7 @@ html {
 
 .account-section {
   color: #ececec;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   margin: 3% 25% auto 25%;
   padding: 5%;
@@ -124,7 +132,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-size: 24px;
   font-weight: 400;
@@ -144,6 +152,17 @@ html {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.subDetail label {
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 800px) {
+  .subDetail,
+  .login-new-user {
+    flex-direction: column;
+  }
 }
 
 .account-section h3 {
@@ -171,11 +190,12 @@ html {
   padding: 0.75rem;
 }
 
-/* Change Password Form */
+/* Login & Change Password Form */
 
-.account-section-password {
+.account-section-password,
+.account-section-login {
   color: #ececec;
-  font-family: "Montserrat";
+  font-family: "Montserrat", sans-serif;
   font-style: normal;
   margin: 3% 35% auto 35%;
   padding: 5%;
@@ -186,7 +206,8 @@ html {
   border-radius: 16px;
 }
 
-.account-section-password h2 {
+.account-section-password h2,
+.account-section-login h2 {
   text-align: center;
   letter-spacing: 0.16em;
   margin-bottom: 2rem;
@@ -194,6 +215,40 @@ html {
   font-size: 32px;
 }
 
-.change-password-form {
+.change-password-form,
+.login-form {
   text-align: center;
+}
+
+.login-form .form-group input {
+  border-radius: 20px !important;
+}
+
+.login-form .form-group label {
+  font-weight: 500;
+  font-size: 16px;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.account-section-login {
+  padding-bottom: 3%;
+}
+
+.account-section-login button {
+  background: #45b3f1;
+  border-radius: 8px;
+  padding: 10px 30px;
+}
+
+.login-new-user {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-new-user a,
+.account-section a {
+  color: white;
+  font-style: italic;
 }

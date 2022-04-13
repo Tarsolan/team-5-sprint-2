@@ -1,10 +1,40 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 
 const CreateAccount = () => {
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [prov, setProv] = useState("");
+  const [postal, setPostal] = useState("");
+  const [captcha, setCaptcha] = useState(false);
+
+  // On Submit, save values to localstorage (to represent saving them to a server)
+  const submitData = (e) => {
+    e.preventDefault();
+    console.log(
+      email,
+      firstName,
+      lastName,
+      phone,
+      password,
+      address,
+      city,
+      prov,
+      postal
+    );
+    // This is where the sending happens
+    // Save
+  };
+
   return (
     <div className="account-section">
       <h2 className="create-acc-heading">Create Account</h2>
-      <form className="create-account-form">
+      <form className="create-account-form" onSubmit={submitData}>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label htmlFor="inputFirstName4">First Name</label>
@@ -12,7 +42,10 @@ const CreateAccount = () => {
               type="text"
               className="form-control"
               id="inputFirstName4"
-              placeholder="First Name"
+              onChange={(e) => {
+                setFirstName(e.target.value);
+              }}
+              value={firstName}
             />
           </div>
           <div className="form-group col-md-6">
@@ -21,7 +54,10 @@ const CreateAccount = () => {
               type="text"
               className="form-control"
               id="inputLastName4"
-              placeholder="Last Name"
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+              value={lastName}
             />
           </div>
         </div>
@@ -32,7 +68,10 @@ const CreateAccount = () => {
               type="email"
               className="form-control"
               id="inputEmail4"
-              placeholder="Email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
             />
           </div>
           <div className="form-group col-md-4">
@@ -41,7 +80,10 @@ const CreateAccount = () => {
               type="password"
               className="form-control"
               id="inputPassword4"
-              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              value={password}
             />
           </div>
           <div className="form-group col-md-4">
@@ -50,9 +92,27 @@ const CreateAccount = () => {
               type="password"
               className="form-control"
               id="inputPassword5"
-              placeholder="Confirm Password"
+              onChange={(e) => {
+                setPasswordConfirm(e.target.value);
+              }}
+              value={passwordConfirm}
             />
           </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="inputAddress2">Phone Number</label>
+          <input
+            type="text"
+            className="form-control"
+            id="phone"
+            onChange={(e) => {
+              setPhone(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <h3>Shipping Information</h3>
         </div>
         <div className="form-group">
           <label htmlFor="inputAddress">Address</label>
@@ -60,27 +120,33 @@ const CreateAccount = () => {
             type="text"
             className="form-control"
             id="inputAddress"
-            placeholder="1234 Main St"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="inputAddress2">Address 2</label>
-          <input
-            type="text"
-            className="form-control"
-            id="inputAddress2"
-            placeholder="Apartment, studio, or floor"
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
           />
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label htmlFor="inputCity">City</label>
-            <input type="text" className="form-control" id="inputCity" />
+            <input
+              type="text"
+              className="form-control"
+              id="inputCity"
+              onChange={(e) => {
+                setCity(e.target.value);
+              }}
+            />
           </div>
           <div className="form-group col-md-4">
             <label htmlFor="inputState">Province</label>
-            <select id="inputState" className="form-control">
-              <option disabled>Choose...</option>
+            <select
+              id="inputState"
+              className="form-control"
+              onChange={(e) => {
+                setProv(e.target.value);
+              }}
+            >
+              <option></option>
               <option>NL</option>
               <option>PE</option>
               <option>NS</option>
@@ -98,7 +164,14 @@ const CreateAccount = () => {
           </div>
           <div className="form-group col-md-2">
             <label htmlFor="inputZip">Postal Code</label>
-            <input type="text" className="form-control" id="inputZip" />
+            <input
+              type="text"
+              className="form-control"
+              id="inputZip"
+              onChange={(e) => {
+                setPostal(e.target.value);
+              }}
+            />
           </div>
         </div>
         <div className="form-group">
@@ -107,9 +180,12 @@ const CreateAccount = () => {
               className="form-check-input"
               type="checkbox"
               id="gridCheck"
+              onChange={() => {
+                setCaptcha(!captcha);
+              }}
             />
             <label className="form-check-label" htmlFor="gridCheck">
-              I don't do anything yet, but check me out
+              I am not a robot!
             </label>
           </div>
         </div>
