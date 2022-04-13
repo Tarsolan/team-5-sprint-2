@@ -36,3 +36,87 @@
     transform: rotate(360deg);
   }
 }
+
+/* Body CSS */
+html {
+  background: rgba(128, 172, 172, 0.7) 100%;
+}
+
+#root {
+  background: rgb(154, 109, 109);
+  background: linear-gradient(
+    180deg,
+    rgba(154, 109, 109, 1) 5%,
+    rgba(128, 172, 172, 0.7) 100%
+  );
+  margin: auto;
+}
+
+/* Nav Bar */
+
+.navbar-flower {
+  background-color: rgba(154, 109, 109, 0);
+  padding: 0px;
+}
+
+.navbar-flower a:hover,
+.navbar-flower a:focus {
+  color: white;
+}
+
+.navbar-flower a,
+.navbar-flower a:hover {
+  color: white;
+}
+
+/* #basic-nav-dropdown {
+  margin-left: 20px;
+} */
+
+.navbar-toggler-icon {
+  border: 1px solid white;
+  background-color: blueviolet;
+}
+
+.navbar-nav a {
+  margin-right: 100px;
+}
+
+/* Create Account Form */
+
+.account-section {
+  color: #ececec;
+  font-family: "Montserrat";
+  font-style: normal;
+  margin: 3% 25% auto 25%;
+  padding: 5%;
+  background: #9a6d6d;
+  border: 1px solid #5f5f5f;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .account-section {
+    margin: 3% 12.5%;
+  }
+}
+
+.create-acc-heading {
+  text-align: center;
+  letter-spacing: 0.16em;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 51px;
+}
+
+.form-control {
+  background: rgba(196, 196, 196, 0.75) !important;
+  border: 0.5px solid #000000 !important;
+  box-sizing: border-box !important;
+  border-radius: 4px !important;
+}
+
+.create-account-form {
+}
