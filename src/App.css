@@ -103,7 +103,7 @@ html {
   }
 }
 
-.create-acc-heading {
+.account-section h2 {
   text-align: center;
   letter-spacing: 0.16em;
   margin-bottom: 2rem;
@@ -118,5 +118,82 @@ html {
   border-radius: 4px !important;
 }
 
-.create-account-form {
+/* Account Details Form */
+
+.detailsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 400;
+  column-gap: 2rem;
+}
+
+.detailsRow label {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.detailsRow span {
+  font-size: 20px;
+  font-family: "Inter";
+}
+.subDetail {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.account-section h3 {
+  margin-top: 30px;
+  text-decoration: underline;
+  text-align: left;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 0.11em;
+}
+
+.detailBottom {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.editAccount {
+  font-style: normal;
+  background: #45b3f1;
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 24px;
+  padding: 0.75rem;
+}
+
+/* Change Password Form */
+
+.account-section-password {
+  color: #ececec;
+  font-family: "Montserrat";
+  font-style: normal;
+  margin: 3% 35% auto 35%;
+  padding: 5%;
+  background: #9a6d6d;
+  border: 1px solid #5f5f5f;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+}
+
+.account-section-password h2 {
+  text-align: center;
+  letter-spacing: 0.16em;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.change-password-form {
+  text-align: center;
 }
