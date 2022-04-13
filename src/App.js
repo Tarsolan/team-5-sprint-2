@@ -9,6 +9,8 @@ import {
 import { useState } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import CreateAccount from "./Components/CreateAccount";
+import AccountDetails from "./Components/AccountDetails";
+import ChangePassword from "./Components/ChangePassword";
 
 function App() {
   const [username, setUsername] = useState();
@@ -16,7 +18,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar bg="custom" expand="lg" sticky="top" variant="flower">
+        <Navbar bg="custom" expand="lg" variant="flower">
           <Container>
             <Navbar.Brand as={NavLink} to="/home">
               Store Name and Icon will go here
@@ -46,12 +48,21 @@ function App() {
                 <Nav.Link as={NavLink} to="/home">
                   Shopping Cart
                 </Nav.Link>
-                <Nav.Link as={NavLink} to="/login">
-                  Account
-                </Nav.Link>
-                <Nav.Link as={NavLink} to="/home">
-                  Login
-                </Nav.Link>
+                <NavDropdown
+                  title="Account Management"
+                  id="basic-nav-dropdown"
+                  menuVariant="dark"
+                >
+                  <NavDropdown.Item as={NavLink} to="/createAcc">
+                    Create New Account
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/AccDetails">
+                    View Account Details
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/home">
+                    Login
+                  </NavDropdown.Item>
+                </NavDropdown>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -59,7 +70,9 @@ function App() {
 
         <Routes>
           <Route path="/home" element={<></>}></Route>
-          <Route path="/login" element={<CreateAccount />}></Route>
+          <Route path="/changePass" element={<ChangePassword />}></Route>
+          <Route path="/createAcc" element={<CreateAccount />}></Route>
+          <Route path="/AccDetails" element={<AccountDetails />}></Route>
         </Routes>
       </div>
     </Router>
