@@ -57,19 +57,23 @@ const AccountDetails = ({
             <label>Province:</label>
             <span>{province}</span>
           </div>
-        </div>
-        <div className="detailsRow">
-          <label>Postal Code:</label>
-          <span>{postalCode}</span>
+          <div className="subDetail">
+            <label>Postal Code:</label>
+            <span>{postalCode}</span>
+          </div>
         </div>
       </div>
+      <hr />
       <br />
       <div className="detailBottom">
         <div>
           <Link to="/changePass">Change Password</Link>
         </div>
+        <br />
         <div>
-          <button className="editAccount">Edit Account Details</button>
+          <Link to="/createAcc">
+            <button className="editAccount">Edit Account Details</button>
+          </Link>
         </div>
       </div>
     </div>

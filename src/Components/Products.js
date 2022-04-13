@@ -1,4 +1,4 @@
-window.products = [
+const products = [
   // Category 1 - Roses
   {
     id: "1" + Math.floor(Math.random() * 100),
