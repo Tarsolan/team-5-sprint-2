@@ -110,10 +110,17 @@ function App() {
     }
   };
 
+  // Logs a user out
+  const logOut = () => {
+    setLoggedIn(false);
+    alert("Logging out. Thank you for visiting.");
+    setCurrentUser([]);
+  };
+
   return (
     <Router>
       <header>
-        <Navigation loginCheck={loggedIn} />
+        <Navigation loginCheck={loggedIn} logOut={logOut} />
       </header>
 
       <div>
