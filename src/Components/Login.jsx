@@ -30,6 +30,9 @@ const Login = ({ logIn }) => {
               setEmail(e.target.value);
             }}
           />
+          <small id="emailHelp" className="form-text text-light">
+            Forgot your email?
+          </small>
         </div>
         <div className="form-group">
           <label htmlFor="InputPassword2">Password</label>
@@ -41,6 +44,9 @@ const Login = ({ logIn }) => {
               setPassword(e.target.value);
             }}
           />
+          <small id="passwordHelp" className="form-text text-light">
+            Forgot your password?
+          </small>
         </div>
         <br />
         <div className="form-check">
@@ -65,7 +71,7 @@ const Login = ({ logIn }) => {
       <div className="login-new-user">
         <div>New User?</div>
         <div>
-          <Link to="/createAcc">Create an account now!</Link>
+          <Link to="/createAcc">Create an account!</Link>
         </div>
       </div>
     </div>

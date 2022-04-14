@@ -9,6 +9,7 @@ const AccountDetails = ({ user }) => {
     <div className="account-section">
       <h2>Account Details</h2>
 
+      <h3>Contact Information</h3>
       {/* Name, Email, Phone */}
       <div>
         <div className="detailsRow">
@@ -27,6 +28,8 @@ const AccountDetails = ({ user }) => {
         </div>
       </div>
 
+      <hr />
+
       <h3>Shipping Information</h3>
       {/* Address */}
       <div>
@@ -37,18 +40,16 @@ const AccountDetails = ({ user }) => {
 
         {/* City, Province, Postal */}
         <div className="detailsRow">
-          <div className="subDetail">
-            <label>City:</label>
-            <span>{city}</span>
-          </div>
-          <div className="subDetail">
-            <label>Province:</label>
-            <span>{prov}</span>
-          </div>
-          <div className="subDetail">
-            <label>Postal Code:</label>
-            <span>{postal}</span>
-          </div>
+          <label>City:</label>
+          <span>{city}</span>
+        </div>
+        <div className="detailsRow">
+          <label>Province:</label>
+          <span>{prov}</span>
+        </div>
+        <div className="detailsRow">
+          <label>Postal Code:</label>
+          <span>{postal}</span>
         </div>
       </div>
       <hr />
