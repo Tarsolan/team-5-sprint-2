@@ -264,63 +264,27 @@
   "users": [
     {
       "email": "aridgeley@msn.com",
-      "firstName": "Alex",
-      "lastName": "Ridgeley",
-      "phone": "7095670540",
-      "password": "123",
-      "address": "19",
-      "city": "St. John's",
-      "prov": "NL",
-      "postal": "A1B 4S3",
-      "id": 1
-    },
-    {
-      "email": "aridgeley@msn.com",
       "firstName": "Alexander",
       "lastName": "Ridgeley",
       "phone": "7095670540",
-      "password": "123",
+      "password": "1234",
       "address": "10A, Kildare Place",
       "city": "St. John's",
-      "prov": "NL",
+      "prov": "",
       "postal": "A1B 5A9",
-      "id": 2
+      "id": 1
     },
     {
-      "email": "aridgeley@msn.com",
-      "firstName": "Alex",
-      "lastName": "Ridgeley",
-      "phone": "7095670540",
-      "password": "abc",
-      "address": "51A",
-      "city": "St. John's",
-      "prov": "NL",
-      "postal": "A1E 3J3",
-      "id": 3
-    },
-    {
-      "email": "aridgeley@msn.com",
-      "firstName": "Alex",
-      "lastName": "Ridgeley",
-      "phone": "7095670540",
-      "password": "1234",
-      "address": "51A",
-      "city": "St. John's",
-      "prov": "NL",
-      "postal": "A1E 3J3",
-      "id": 4
-    },
-    {
-      "email": "aridgeley@msn.com",
-      "firstName": "John",
+      "email": "john_smith@gmail.com",
+      "firstName": "John ",
       "lastName": "Smith",
-      "phone": "7095670540",
-      "password": "123",
-      "address": "10A",
-      "city": "St. John's",
-      "prov": "NL",
-      "postal": "A1B 5A9",
-      "id": 5
+      "phone": "",
+      "password": "abc",
+      "address": "",
+      "city": "",
+      "prov": "",
+      "postal": "",
+      "id": 2
     }
   ]
 }
