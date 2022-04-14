@@ -31,7 +31,14 @@
 import React from "react";
 
 const Main = ({ products }) => {
-  return <div>Main</div>;
+  return (
+    <div className="background">
+      <div className="mainContainer">
+        <h1>Weapons... of love</h1>
+        <hr />
+      </div>
+    </div>
+  );
 };
 
 export default Main;

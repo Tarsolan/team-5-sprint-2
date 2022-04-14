@@ -19,17 +19,20 @@ const Navigation = ({ loginCheck }) => {
                 menuVariant="dark"
               >
                 <NavDropdown.Item as={NavLink} to="/main">
-                  All Products
+                  All Flowers
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item as={NavLink} to="/home">
-                  Flowers
+                  Roses
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/home">
-                  Gardening Accessories
+                  Lilies
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/home">
-                  Plantwear
+                  Carnations
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/home">
+                  Mixed
                 </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link as={NavLink} to="/home">
