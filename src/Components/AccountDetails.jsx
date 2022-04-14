@@ -2,17 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const AccountDetails = ({
-  firstName,
-  lastName,
-  email,
-  phoneNumber,
-  address1,
-  address2,
-  city,
-  province,
-  postalCode,
-}) => {
+const AccountDetails = ({ user }) => {
+  const { firstName, lastName, email, phone, address, city, prov, postal } =
+    user;
   return (
     <div className="account-section">
       <h2>Account Details</h2>
@@ -31,7 +23,7 @@ const AccountDetails = ({
         </div>
         <div className="detailsRow">
           <label>Phone Number:</label>
-          <span>{phoneNumber}</span>
+          <span>{phone}</span>
         </div>
       </div>
 
@@ -39,12 +31,8 @@ const AccountDetails = ({
       {/* Address */}
       <div>
         <div className="detailsRow">
-          <label>Street Address Line 1:</label>
-          <span>{address1}</span>
-        </div>
-        <div className="detailsRow">
-          <label>Street Address Line 2:</label>
-          <span>{address2}</span>
+          <label>Street Address:</label>
+          <span>{address}</span>
         </div>
 
         {/* City, Province, Postal */}
@@ -55,11 +43,11 @@ const AccountDetails = ({
           </div>
           <div className="subDetail">
             <label>Province:</label>
-            <span>{province}</span>
+            <span>{prov}</span>
           </div>
           <div className="subDetail">
             <label>Postal Code:</label>
-            <span>{postalCode}</span>
+            <span>{postal}</span>
           </div>
         </div>
       </div>
@@ -82,17 +70,18 @@ const AccountDetails = ({
 
 export default AccountDetails;
 
-AccountDetails.defaultProps = {
+let defaultUser = {
   firstName: "Alex",
   lastName: "Ridgeley",
   email: "aridgeley@msn.com",
-  phoneNumber: "(709) 567-0540",
-  address1: "51A Amherst Heights",
-  address2: "N/A",
+  phone: "(709) 567-0540",
+  address: "51A Amherst Heights",
   city: "St. John's",
-  province: "NL",
-  postalCode: "A1E 3J3",
+  prov: "NL",
+  postal: "A1E 3J3",
 };
+
+AccountDetails.defaultProps = defaultUser;
 
 // AccountDetails.propTypes = {
 //   firstName: PropTypes.string,

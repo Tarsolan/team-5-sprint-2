@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
-const Navigation = () => {
+const Navigation = ({ loginCheck }) => {
   return (
     <nav>
       <Navbar bg="custom" expand="lg" variant="flower">
@@ -18,7 +18,7 @@ const Navigation = () => {
                 id="basic-nav-dropdown"
                 menuVariant="dark"
               >
-                <NavDropdown.Item as={NavLink} to="/home">
+                <NavDropdown.Item as={NavLink} to="/main">
                   All Products
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
@@ -40,15 +40,32 @@ const Navigation = () => {
                 id="basic-nav-dropdown"
                 menuVariant="dark"
               >
-                <NavDropdown.Item as={NavLink} to="/createAcc">
-                  Create New Account
-                </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/AccDetails">
-                  View Account Details
-                </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/login">
-                  Login
-                </NavDropdown.Item>
+                {loginCheck ? (
+                  <></>
+                ) : (
+                  <NavDropdown.Item as={NavLink} to="/createAcc">
+                    Create New Account
+                  </NavDropdown.Item>
+                )}
+
+                {/* If no user is logged in, the nav bar will display the option to log in or create a user */}
+                {loginCheck ? (
+                  <NavDropdown.Item as={NavLink} to="/AccDetails">
+                    View Account Details
+                  </NavDropdown.Item>
+                ) : (
+                  <NavDropdown.Item as={NavLink} to="/login">
+                    Login
+                  </NavDropdown.Item>
+                )}
+                {/* If a user is currently logged in, the nav bar will display the option to log out */}
+                {loginCheck ? (
+                  <NavDropdown.Item as={NavLink} to="/login">
+                    Logout
+                  </NavDropdown.Item>
+                ) : (
+                  <></>
+                )}
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

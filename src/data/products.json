@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": "111",
+      "id": "p1",
       "title": "Red Rose Bouquet",
       "description": "Nothing speaks of love so much as a bouquet of beautiful red roses. Arranged with seeded eucalyptus in a classic glass vase, this bouquet is a gift to her heart from yours.",
       "price": 9999,
@@ -207,6 +207,20 @@
       "price": 6499,
       "discontinued": false,
       "categories": ["c4"]
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "password": "123password",
+      "email": "alex.ridgeley@keyin.com",
+      "firstName": "Alex",
+      "lastName": "Ridgeley",
+      "phone": "(709) 567-0540",
+      "address": "51B Amherst Heights",
+      "city": "Townton",
+      "province": "NL",
+      "postal": "A1E 3J3"
     }
   ]
 }
