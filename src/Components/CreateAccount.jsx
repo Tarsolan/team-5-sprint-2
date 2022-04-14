@@ -22,21 +22,21 @@ const CreateAccount = ({ onAdd }) => {
     e.preventDefault();
     if (password !== passwordConfirm) {
       alert("Invalid entry. The two passwords do not match.");
-    } else {
-      onAdd({
-        email,
-        firstName,
-        lastName,
-        phone,
-        password,
-        address,
-        city,
-        prov,
-        postal,
-      });
-
-      goToAccountDetail();
+      return;
     }
+    onAdd({
+      email,
+      firstName,
+      lastName,
+      phone,
+      password,
+      address,
+      city,
+      prov,
+      postal,
+    });
+
+    goToAccountDetail();
   };
 
   return (

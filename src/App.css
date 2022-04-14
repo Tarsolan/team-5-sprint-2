@@ -182,6 +182,18 @@ html {
   font-size: 32px;
 }
 
+@media only screen and (max-width: 1000px) {
+  .account-section-login {
+    margin: 3% 25% auto 25%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .account-section-login {
+    margin: 3% 20% auto 20%;
+  }
+}
+
 .change-password-form,
 .login-form {
   text-align: center;

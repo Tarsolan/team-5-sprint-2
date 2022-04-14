@@ -5,6 +5,7 @@ import {
   Route,
   Link,
   NavLink,
+  useNavigate,
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -78,14 +79,35 @@ function App() {
     addNewUser(user);
   };
 
-  //Delete User
+  //Delete User - NEEDS UPDATE
   const deleteUser = async (id) => {
     await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
   };
 
-  // Changes Password
+  // Changes Password - NEEDS UPDATE
   const updatePassword = (id, newPass) => {
     console.log(id, newPass);
+  };
+
+  // Logs a user in
+  const logIn = (email, password) => {
+    console.log("email:", email);
+    console.log("password:", password);
+    let user_found = false;
+    users.map((user) => {
+      if (user.email === email && user.password === password) {
+        setCurrentUser(user);
+        setLoggedIn(true);
+        user_found = true;
+        alert(`Welcome ${user.firstName}.`);
+      }
+    });
+    if (user_found === false) {
+      alert(
+        "No users found with those credentials. Please check your username and password and try again."
+      );
+      return;
+    }
   };
 
   return (
@@ -114,7 +136,7 @@ function App() {
             path="/AccDetails"
             element={<AccountDetails user={currentUser} />}
           ></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/login" element={<Login logIn={logIn} />}></Route>
           <Route path="/main" element={<Main products={products} />}></Route>
         </Routes>
       </div>
