@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
-const Navigation = ({ loginCheck }) => {
+const Navigation = ({ loginCheck, logOut }) => {
   return (
     <nav>
       <Navbar bg="custom" expand="lg" variant="flower">
@@ -38,6 +38,7 @@ const Navigation = ({ loginCheck }) => {
               <Nav.Link as={NavLink} to="/home">
                 Shopping Cart
               </Nav.Link>
+              <span className="material-icons-outlined">person</span>
               <NavDropdown
                 title="Account Management"
                 id="basic-nav-dropdown"
@@ -63,8 +64,8 @@ const Navigation = ({ loginCheck }) => {
                 )}
                 {/* If a user is currently logged in, the nav bar will display the option to log out */}
                 {loginCheck ? (
-                  <NavDropdown.Item as={NavLink} to="/login">
-                    Logout
+                  <NavDropdown.Item as={NavLink} to="/login" onClick={logOut}>
+                    Log Out
                   </NavDropdown.Item>
                 ) : (
                   <></>
