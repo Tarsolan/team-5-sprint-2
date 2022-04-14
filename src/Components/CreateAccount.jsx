@@ -1,6 +1,7 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useCallback } from "react";
+import { useResolvedPath, Link, useNavigate } from "react-router-dom";
 
-const CreateAccount = () => {
+const CreateAccount = ({ onAdd }) => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -13,22 +14,29 @@ const CreateAccount = () => {
   const [postal, setPostal] = useState("");
   const [captcha, setCaptcha] = useState(false);
 
+  const navigate = useNavigate();
+  const goToAccountDetail = () => navigate("/AccDetails");
+
   // On Submit, save values to localstorage (to represent saving them to a server)
   const submitData = (e) => {
     e.preventDefault();
-    console.log(
-      email,
-      firstName,
-      lastName,
-      phone,
-      password,
-      address,
-      city,
-      prov,
-      postal
-    );
-    // This is where the sending happens
-    // Save
+    if (password !== passwordConfirm) {
+      alert("Invalid entry. The two passwords do not match.");
+    } else {
+      onAdd({
+        email,
+        firstName,
+        lastName,
+        phone,
+        password,
+        address,
+        city,
+        prov,
+        postal,
+      });
+
+      goToAccountDetail();
+    }
   };
 
   return (
