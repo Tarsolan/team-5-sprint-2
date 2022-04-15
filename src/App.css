@@ -19,6 +19,14 @@ html {
   margin: auto;
 }
 
+.background {
+  background: linear-gradient(
+    180deg,
+    rgba(140, 200, 224, 0.75) 0%,
+    rgba(140, 200, 224, 0.25) 67.09%
+  );
+}
+
 /* Nav Bar */
 
 /* .logo,
@@ -233,4 +241,23 @@ html {
 .account-section a {
   color: white;
   font-style: italic;
+}
+
+/* Main Page + Categories */
+
+.mainContainer {
+  position: absolute;
+  left: 156px;
+  right: 156px;
+  border: 1px solid rgba(82, 78, 78, 0.5);
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-areas:
+    "picture"
+    "title"
+    "text";
+  column-gap: 64px;
+  row-gap: 32px;
 }

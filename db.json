@@ -5,9 +5,8 @@
       "title": "Red Rose Bouquet",
       "description": "Nothing speaks of love so much as a bouquet of beautiful red roses. Arranged with seeded eucalyptus in a classic glass vase, this bouquet is a gift to her heart from yours.",
       "price": 9999,
-      "discontinued": false,
-      "categories": ["c1"],
-      "image": "4RedRoses.JPG"
+      "image": "/ListingPics/RedRoseBouquet.JPG",
+      "categories": ["c1"]
     },
     {
       "id": "p2",
