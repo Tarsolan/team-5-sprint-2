@@ -65,6 +65,21 @@ html {
   margin-right: 100px;
 }
 
+/* Captcha Button */
+
+/* .form-check {
+  align-items: center;
+}
+
+.form-check-input {
+  height: 2em !important;
+  width: 2em !important;
+}
+
+.form-check-label {
+  margin-left: 10%;
+  align-items: center;
+} */
 /* Create Account Form */
 
 .account-section {
@@ -161,6 +176,21 @@ html {
   padding: 0.75rem;
 }
 
+.logout-btn {
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 16px;
+  color: white;
+  background-color: #5f5f5f;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  transition: 0.2s;
+  background-color: white;
+  color: #000000;
+}
+
 /* Login & Change Password Form */
 
 .account-section-password,
@@ -187,20 +217,26 @@ html {
 }
 
 @media only screen and (max-width: 1500px) {
-  .account-section-login {
+  .account-section-login,
+  .account-section-password {
     margin: 3% 25% auto 25%;
   }
 }
 
 @media only screen and (max-width: 1000px) {
-  .account-section-login {
+  .account-section-login,
+  .account-section-password {
     margin: 3% 20% auto 20%;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .account-section-login {
+  .account-section-login,
+  .account-section-password {
     margin: 3% 20% auto 20%;
+  }
+  .account-section-password h2 {
+    font-size: 2rem;
   }
 }
 
