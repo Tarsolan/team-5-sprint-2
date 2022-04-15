@@ -32,7 +32,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import products from "../data/products.json";
 
-const Main = () => {
+const Main = ({ handleSelect }) => {
   const navigate = useNavigate();
   const goToAccountDetail = () => navigate("/Lilies");
 
@@ -48,14 +48,19 @@ const Main = () => {
 
         {products.map((item) => {
           return (
-            <div className="mainGrid" key={item.id}>
+            <div
+              className="mainGrid"
+              key={item.id}
+              onClick={function () {
+                handleSelect(item);
+              }}
+            >
               <figure>
                 <img
                   src={item.image}
                   alt="image-JPG"
                   style={{ width: "200px" }}
                 />
-                {console.log(item.image)}
               </figure>
               <h2>{item.title}</h2>
               <p>{item.description}</p>
