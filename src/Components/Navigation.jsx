@@ -2,10 +2,10 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
-const Navigation = ({ loginCheck }) => {
+const Navigation = ({ loginCheck, logOut, name }) => {
   return (
     <nav>
-      <Navbar bg="custom" expand="lg" variant="flower">
+      <Navbar bg="custom" expand="xl" variant="flower">
         <Container>
           <Navbar.Brand>
             <Link to="/home">Store Name and Icon will go here</Link>
@@ -38,38 +38,39 @@ const Navigation = ({ loginCheck }) => {
               <Nav.Link as={NavLink} to="/home">
                 Shopping Cart
               </Nav.Link>
-              <NavDropdown
+              {/* <span className="material-icons-outlined">person</span> */}
+              {/* <NavDropdown
                 title="Account Management"
                 id="basic-nav-dropdown"
                 menuVariant="dark"
-              >
-                {loginCheck ? (
+              > */}
+              {/* {loginCheck ? (
                   <></>
                 ) : (
                   <NavDropdown.Item as={NavLink} to="/createAcc">
                     Create New Account
                   </NavDropdown.Item>
-                )}
+                )} */}
 
-                {/* If no user is logged in, the nav bar will display the option to log in or create a user */}
-                {loginCheck ? (
-                  <NavDropdown.Item as={NavLink} to="/AccDetails">
-                    View Account Details
-                  </NavDropdown.Item>
-                ) : (
-                  <NavDropdown.Item as={NavLink} to="/login">
-                    Login
-                  </NavDropdown.Item>
-                )}
-                {/* If a user is currently logged in, the nav bar will display the option to log out */}
-                {loginCheck ? (
-                  <NavDropdown.Item as={NavLink} to="/login">
-                    Logout
-                  </NavDropdown.Item>
-                ) : (
-                  <></>
-                )}
-              </NavDropdown>
+              {/* If no user is logged in, the nav bar will display the option to log in or create a user */}
+              {loginCheck ? (
+                <Nav.Link as={NavLink} to="/AccDetails">
+                  View Account Details
+                </Nav.Link>
+              ) : (
+                <Nav.Link as={NavLink} to="/login">
+                  Login
+                </Nav.Link>
+              )}
+              {/* If a user is currently logged in, the nav bar will display the option to log out */}
+              {loginCheck ? (
+                <Nav.Link as={NavLink} to="/login" onClick={logOut}>
+                  Log Out
+                </Nav.Link>
+              ) : (
+                <></>
+              )}
+              {/* </NavDropdown> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

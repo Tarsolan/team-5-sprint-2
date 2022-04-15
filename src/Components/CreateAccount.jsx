@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useCallback } from "react";
-import { useResolvedPath, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateAccount = ({ onAdd }) => {
   const [email, setEmail] = useState("");
@@ -20,6 +20,12 @@ const CreateAccount = ({ onAdd }) => {
   // On Submit, save values to localstorage (to represent saving them to a server)
   const submitData = (e) => {
     e.preventDefault();
+    if (!captcha) {
+      alert(
+        "You, my friend, are a robot. We don't take kindly to your kind around here."
+      );
+      return;
+    }
     if (password !== passwordConfirm) {
       alert("Invalid entry. The two passwords do not match.");
       return;

@@ -119,18 +119,14 @@ html {
   font-weight: 500;
 }
 
+.dots::after {
+  content: " ";
+  border-bottom: 1px dotted black;
+}
+
 .detailsRow span {
   font-size: 20px;
   font-family: "Inter";
-}
-.subDetail {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.subDetail label {
-  font-weight: 700;
 }
 
 @media only screen and (max-width: 800px) {
@@ -187,12 +183,18 @@ html {
   letter-spacing: 0.16em;
   margin-bottom: 2rem;
   font-weight: 600;
-  font-size: 32px;
+  font-size: 44pt;
+}
+
+@media only screen and (max-width: 1500px) {
+  .account-section-login {
+    margin: 3% 25% auto 25%;
+  }
 }
 
 @media only screen and (max-width: 1000px) {
   .account-section-login {
-    margin: 3% 25% auto 25%;
+    margin: 3% 20% auto 20%;
   }
 }
 
@@ -213,7 +215,7 @@ html {
 
 .login-form .form-group label {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 18px;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -229,6 +231,7 @@ html {
 
 .login-new-user {
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18pt;
   margin-top: 20px;
   display: flex;
   justify-content: space-between;

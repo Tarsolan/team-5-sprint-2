@@ -233,6 +233,30 @@
       "prov": "",
       "postal": "",
       "id": 2
+    },
+    {
+      "email": "aridgeley@msn.com",
+      "firstName": "Alex",
+      "lastName": "Ridgeley",
+      "phone": "7095670540",
+      "password": "123",
+      "address": "19",
+      "city": "St. John's",
+      "prov": "NL",
+      "postal": "A1B 4S3",
+      "id": 3
+    },
+    {
+      "email": "jb@gmail.com",
+      "firstName": "John",
+      "lastName": "Byron",
+      "phone": "phone",
+      "password": "12345",
+      "address": "22 here ave",
+      "city": "Town",
+      "prov": "NL",
+      "postal": "a1e1a1",
+      "id": 4
     }
   ]
 }
