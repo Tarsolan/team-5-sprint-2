@@ -21,14 +21,15 @@ function App() {
   const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
+  const [authenticated, setAuthentication] = useState(false);
 
   // Gets Products once, pass it to the main display component
   useEffect(() => {
-    const getProducts = async () => {
-      const productsFromServer = await fetchProducts();
-      setProducts(productsFromServer);
-    };
-    getProducts();
+    // const getProducts = async () => {
+    //   const productsFromServer = await fetchProducts();
+    //   setProducts(productsFromServer);
+    // };
+    // getProducts();
     const getUsers = async () => {
       const usersFromServer = await fetchUsers();
       setUsers(usersFromServer);
@@ -37,13 +38,13 @@ function App() {
   }, []);
 
   // Fetch Products from server
-  const fetchProducts = async () => {
-    const res = await fetch("http://localhost:5000/products");
-    const data = await res.json();
-    console.log(data);
+  // const fetchProducts = async () => {
+  //   const res = await fetch("http://localhost:5000/products");
+  //   const data = await res.json();
+  //   console.log(data);
 
-    return data;
-  };
+  //   return data;
+  // };
 
   // Fetch Users from server
   const fetchUsers = async () => {
@@ -84,7 +85,7 @@ function App() {
     await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
   };
 
-  // Changes Password - NEEDS UPDATE
+  // Changes Password - NEEDS WORK
   const updatePassword = (id, newPass) => {
     console.log(id, newPass);
   };
