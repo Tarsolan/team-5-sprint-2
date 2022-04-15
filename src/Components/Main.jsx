@@ -46,6 +46,7 @@ const Main = ({ handleSelect }) => {
         <h1>Weapons... of love</h1>
         <hr />
 
+<<<<<<< HEAD
         <h2>Roses</h2>
         <Lilies products={products} handleSelect={handleSelect} />
         <h2>Lilies</h2>
@@ -82,6 +83,30 @@ const Main = ({ handleSelect }) => {
             );
           })}
         </div> */}
+=======
+
+        {products.map((item) => {
+          return (
+            <div
+              className="mainGrid"
+              key={item.id}
+              onClick={function () {
+                handleSelect(item);
+              }}
+            >
+              <figure>
+                <img
+                  src={item.image}
+                  alt="image-JPG"
+                  style={{ width: "200px" }}
+                />
+              </figure>
+              <h2>{item.title}</h2>
+              <p>{item.description}</p>
+            </div>
+          );
+        })}
+>>>>>>> 15ab85021c8f3e85b05ebd7504627a9a64699dce
       </div>
     </div>
   );

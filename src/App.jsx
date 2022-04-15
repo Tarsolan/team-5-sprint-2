@@ -25,6 +25,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [authenticated, setAuthentication] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState([]);
 
   // Gets Products once, pass it to the main display component
   useEffect(() => {
@@ -160,6 +161,12 @@ function App() {
     setCurrentUser([]);
   };
 
+  // Handle which product is selected in main.js to pass to info.js
+  const handleSelect = (product) => {
+    console.log(product);
+    setCurrentProduct(product);
+  };
+
   return (
     <Router>
       <header>
@@ -186,7 +193,10 @@ function App() {
             path="/createAcc"
             element={<CreateAccount onAdd={addUser} />}
           ></Route>
-          <Route path="/info" element={<ProductInfo />}></Route>
+          <Route
+            path="/info"
+            element={<ProductInfo product={currentProduct} />}
+          ></Route>
           {/* Kind of a security thing, to prevent account details from being accessed if no one is logged in */}
           {loggedIn ? (
             <Route
@@ -211,7 +221,10 @@ function App() {
             <Route path="/login" element={<Login logIn={logIn} />}></Route>
           )}
 
-          <Route path="/main" element={<Main products={products} />}></Route>
+          <Route
+            path="/main"
+            element={<Main products={products} handleSelect={handleSelect} />}
+          ></Route>
         </Routes>
       </div>
     </Router>
