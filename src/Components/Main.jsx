@@ -29,31 +29,29 @@
 // export default Main;
 
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import products from "../data/products.json";
+import Roses from "./Roses";
 import Lilies from "./Lilies";
-import Lilies from "./Lilies";
-import Lilies from "./Lilies";
-import Lilies from "./Lilies";
+import Carnations from "./Carnations";
+import Mixed from "./Mixed";
 
 const Main = ({ handleSelect }) => {
-  const navigate = useNavigate();
-  const goToAccountDetail = () => navigate("/Lilies");
-
   return (
     <div className="background">
       <div className="mainContainer">
         <h1>Weapons... of love</h1>
         <hr />
 
-        <h2>Roses</h2>
-        <Lilies products={products} handleSelect={handleSelect} />
-        <h2>Lilies</h2>
-        <Lilies products={products} handleSelect={handleSelect} />
-        <h2>Carnations</h2>
-        <Lilies products={products} handleSelect={handleSelect} />
-        <h2>Mixed</h2>
-        <Lilies products={products} handleSelect={handleSelect} />
+        <div className="gridContainer">
+          <h2>Roses</h2>
+          <Roses products={products} handleSelect={handleSelect} />
+          <h2>Lilies</h2>
+          <Lilies products={products} handleSelect={handleSelect} />
+          <h2>Carnations</h2>
+          <Carnations products={products} handleSelect={handleSelect} />
+          <h2>Mixed</h2>
+          <Mixed products={products} handleSelect={handleSelect} />
+        </div>
 
         {/* <div className="gridContainer">
         <div className="gridContainer">
