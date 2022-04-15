@@ -42,33 +42,28 @@ const Main = ({ handleSelect }) => {
         <h1>Weapons... of love</h1>
         <hr />
 
-        <div className="gridContainer">
-          {products.map((item) => {
-            return (
-              <div
-                className="mainGrid"
-                key={item.id}
-                onClick={goToAccountDetail}
-              >
-                <figure>
-                  <img
-                    src={item.image}
-                    alt="image-JPG"
-                    style={{ width: "200px" }}
-                  />
-                  {console.log(item.image)}
-                </figure>
-                <h2>{item.title}</h2>
-                <p>
-                  {new Intl.NumberFormat("en-CA", {
-                    style: "currency",
-                    currency: "CAD",
-                  }).format(item.price / 100)}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+
+        {products.map((item) => {
+          return (
+            <div
+              className="mainGrid"
+              key={item.id}
+              onClick={function () {
+                handleSelect(item);
+              }}
+            >
+              <figure>
+                <img
+                  src={item.image}
+                  alt="image-JPG"
+                  style={{ width: "200px" }}
+                />
+              </figure>
+              <h2>{item.title}</h2>
+              <p>{item.description}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -34,6 +34,9 @@ const Navigation = ({ loginCheck, name }) => {
                 <NavDropdown.Item as={NavLink} to="/home">
                   Mixed
                 </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/info">
+                  Info - tester
+                </NavDropdown.Item>
               </NavDropdown>
               <Nav.Link as={NavLink} to="/home">
                 Shopping Cart

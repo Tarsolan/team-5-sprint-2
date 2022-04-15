@@ -9,6 +9,7 @@ const ProductInfo = ({
   price,
   discontinued,
   categories,
+  product,
 }) => {
   return (
     <div>
@@ -21,6 +22,7 @@ const ProductInfo = ({
           currency: "CAD",
         }).format(price / 100)}
       </p>
+      <p>{product.title}</p>
     </div>
   );
 };
