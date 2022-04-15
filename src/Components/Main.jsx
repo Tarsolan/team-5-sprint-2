@@ -41,29 +41,29 @@ const Main = ({ handleSelect }) => {
       <div className="mainContainer">
         <h1>Weapons... of love</h1>
         <hr />
-
-
-        {products.map((item) => {
-          return (
-            <div
-              className="mainGrid"
-              key={item.id}
-              onClick={function () {
-                handleSelect(item);
-              }}
-            >
-              <figure>
-                <img
-                  src={item.image}
-                  alt="image-JPG"
-                  style={{ width: "200px" }}
-                />
-              </figure>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-            </div>
-          );
-        })}
+        <div className="gridContainer">
+          {products.map((item) => {
+            return (
+              <div
+                className="mainGrid"
+                key={item.id}
+                onClick={function () {
+                  handleSelect(item);
+                }}
+              >
+                <figure>
+                  <img
+                    src={item.image}
+                    alt="image-JPG"
+                    style={{ width: "200px" }}
+                  />
+                </figure>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
