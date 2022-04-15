@@ -288,6 +288,11 @@ html {
   border: 1px solid rgba(82, 78, 78, 0.5);
 }
 
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 0.3fr);
+}
+
 .mainGrid {
   display: grid;
   grid-template-areas:

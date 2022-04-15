@@ -36,15 +36,12 @@ const Main = ({ handleSelect }) => {
   const navigate = useNavigate();
   const goToAccountDetail = () => navigate("/Lilies");
 
-  // const load = products.onClick() => {
-  //   goToAccountDetail()
-  // };
-
   return (
     <div className="background">
       <div className="mainContainer">
         <h1>Weapons... of love</h1>
         <hr />
+
 
         {products.map((item) => {
           return (
