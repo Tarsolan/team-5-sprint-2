@@ -295,10 +295,10 @@ html {
 
 .mainGrid {
   display: grid;
-  grid-template-areas:
+  /* grid-template-areas:
     "picture"
     "title"
-    "text";
+    "text"; */
   column-gap: 64px;
   row-gap: 32px;
 }

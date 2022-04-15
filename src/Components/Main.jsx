@@ -31,6 +31,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import products from "../data/products.json";
+import Lilies from "./Lilies";
+import Lilies from "./Lilies";
+import Lilies from "./Lilies";
+import Lilies from "./Lilies";
 
 const Main = ({ handleSelect }) => {
   const navigate = useNavigate();
@@ -41,6 +45,17 @@ const Main = ({ handleSelect }) => {
       <div className="mainContainer">
         <h1>Weapons... of love</h1>
         <hr />
+
+        <h2>Roses</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+        <h2>Lilies</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+        <h2>Carnations</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+        <h2>Mixed</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+
+        {/* <div className="gridContainer">
         <div className="gridContainer">
           {products.map((item) => {
             return (
@@ -57,13 +72,19 @@ const Main = ({ handleSelect }) => {
                     alt="image-JPG"
                     style={{ width: "200px" }}
                   />
+                  {console.log(item.image)}
                 </figure>
                 <h2>{item.title}</h2>
-                <p>{item.description}</p>
+                <p>
+                  {new Intl.NumberFormat("en-CA", {
+                    style: "currency",
+                    currency: "CAD",
+                  }).format(item.price / 100)}
+                </p>
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </div>
   );
