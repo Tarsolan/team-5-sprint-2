@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
-const Navigation = ({ loginCheck, logOut, name }) => {
+const Navigation = ({ loginCheck, name }) => {
   return (
     <nav>
       <Navbar bg="custom" expand="xl" variant="flower">
@@ -38,39 +38,16 @@ const Navigation = ({ loginCheck, logOut, name }) => {
               <Nav.Link as={NavLink} to="/home">
                 Shopping Cart
               </Nav.Link>
-              {/* <span className="material-icons-outlined">person</span> */}
-              {/* <NavDropdown
-                title="Account Management"
-                id="basic-nav-dropdown"
-                menuVariant="dark"
-              > */}
-              {/* {loginCheck ? (
-                  <></>
-                ) : (
-                  <NavDropdown.Item as={NavLink} to="/createAcc">
-                    Create New Account
-                  </NavDropdown.Item>
-                )} */}
-
-              {/* If no user is logged in, the nav bar will display the option to log in or create a user */}
+              {/* Depending on if a user is logged in, the account button will take you to either the login page or the details page */}
               {loginCheck ? (
                 <Nav.Link as={NavLink} to="/AccDetails">
-                  View Account Details
+                  <i className="fas fa-user-alt"></i> {name}'s Account
                 </Nav.Link>
               ) : (
                 <Nav.Link as={NavLink} to="/login">
-                  Login
+                  <i className="fas fa-user-alt"></i> Account Management
                 </Nav.Link>
               )}
-              {/* If a user is currently logged in, the nav bar will display the option to log out */}
-              {loginCheck ? (
-                <Nav.Link as={NavLink} to="/login" onClick={logOut}>
-                  Log Out
-                </Nav.Link>
-              ) : (
-                <></>
-              )}
-              {/* </NavDropdown> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

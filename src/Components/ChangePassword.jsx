@@ -1,9 +1,19 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ChangePassword = ({ currentUser, updatePass }) => {
   const [oldPass, setOldPass] = useState("");
   const [newPass, setNewPass] = useState("");
   const [newPassConfirm, setNewPassConfirm] = useState("");
+
+  const resetValues = () => {
+    setOldPass("");
+    setNewPass("");
+    setNewPassConfirm("");
+  };
+
+  const navigate = useNavigate();
+  const goToAccountDetail = () => navigate("/AccDetails");
 
   const changePass = (e) => {
     e.preventDefault();
@@ -15,13 +25,20 @@ const ChangePassword = ({ currentUser, updatePass }) => {
       alert(
         "Invalid entry. You failed to correctly confirm your current password. Please try again."
       );
-    } else if (newPass !== newPassConfirm) {
+      resetValues();
+      return;
+    }
+    if (newPass !== newPassConfirm) {
       alert(
         "Invalid entry. Your new password does not match the confirmation. Please try again."
       );
-    } else {
-      updatePass(currentUser.id, newPass);
+      resetValues();
+      return;
     }
+    updatePass(currentUser.id, newPass);
+
+    alert("Password successfully changed.");
+    goToAccountDetail();
   };
 
   return (
@@ -39,6 +56,7 @@ const ChangePassword = ({ currentUser, updatePass }) => {
             onChange={(e) => {
               setOldPass(e.target.value);
             }}
+            value={oldPass}
           />
         </div>
         <div className="form-group">
@@ -51,6 +69,7 @@ const ChangePassword = ({ currentUser, updatePass }) => {
             onChange={(e) => {
               setNewPass(e.target.value);
             }}
+            value={newPass}
           />
         </div>
         <div className="form-group">
@@ -63,6 +82,7 @@ const ChangePassword = ({ currentUser, updatePass }) => {
             onChange={(e) => {
               setNewPassConfirm(e.target.value);
             }}
+            value={newPassConfirm}
           />
         </div>
 

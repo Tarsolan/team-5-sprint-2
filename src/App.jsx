@@ -6,6 +6,7 @@ import {
   Link,
   NavLink,
   useNavigate,
+  useHistory,
 } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -15,6 +16,7 @@ import ChangePassword from "./Components/ChangePassword";
 import Login from "./Components/Login";
 import Navigation from "./Components/Navigation";
 import Main from "./Components/Main";
+import EditAccount from "./Components/EditAccount";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -55,6 +57,15 @@ function App() {
     return data;
   };
 
+  // Fetch a single User from server
+  const fetchUser = async (id) => {
+    const res = await fetch(`http://localhost:5000/users/${id}`);
+    const data = await res.json();
+    console.log(data);
+
+    return data;
+  };
+
   // Set current user
   const chooseCurrentUser = () => {};
 
@@ -80,20 +91,49 @@ function App() {
     addNewUser(user);
   };
 
+  // Edit User
+  const editUser = async (userData) => {
+    const userToEdit = await fetchUser(userData.id);
+    const updUser = { ...userData };
+
+    const res = await fetch(`http://localhost:5000/users/${userData.id}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(updUser),
+    });
+
+    const data = await res.json();
+    setUsers(users.map((user) => (user.id === userData.id ? data : user)));
+    setCurrentUser(data);
+  };
+
   //Delete User - NEEDS UPDATE
   const deleteUser = async (id) => {
     await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
   };
 
-  // Changes Password - NEEDS WORK
-  const updatePassword = (id, newPass) => {
-    console.log(id, newPass);
+  // Changes Password
+  const updatePassword = async (id, newPass) => {
+    const userToEdit = await fetchUser(id);
+    const updPass = { ...userToEdit, password: newPass };
+
+    const res = await fetch(`http://localhost:5000/users/${id}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(updPass),
+    });
+
+    const data = await res.json();
+    setUsers(
+      users.map((user) =>
+        user.id === id ? { ...user, password: data.password } : user
+      )
+    );
+    setCurrentUser(data);
   };
 
   // Logs a user in
   const logIn = (email, password) => {
-    console.log("email:", email);
-    console.log("password:", password);
     let user_found = false;
     users.map((user) => {
       if (user.email === email && user.password === password) {
@@ -101,6 +141,7 @@ function App() {
         setLoggedIn(true);
         user_found = true;
         alert(`Welcome ${user.firstName}.`);
+        return;
       }
     });
     if (user_found === false) {
@@ -121,7 +162,11 @@ function App() {
   return (
     <Router>
       <header>
-        <Navigation loginCheck={loggedIn} logOut={logOut} />
+        <Navigation
+          loginCheck={loggedIn}
+          logOut={logOut}
+          name={currentUser.firstName}
+        />
       </header>
 
       <div>
@@ -140,11 +185,30 @@ function App() {
             path="/createAcc"
             element={<CreateAccount onAdd={addUser} />}
           ></Route>
+          {/* Kind of a security thing, to prevent account details from being accessed if no one is logged in */}
+          {loggedIn ? (
+            <Route
+              path="/AccDetails"
+              element={<AccountDetails user={currentUser} logOut={logOut} />}
+            ></Route>
+          ) : (
+            <Route path="/AccDetails" element={<Login logIn={logIn} />}></Route>
+          )}
           <Route
-            path="/AccDetails"
-            element={<AccountDetails user={currentUser} />}
+            path="/EditAcc"
+            element={<EditAccount user={currentUser} onEdit={editUser} />}
           ></Route>
-          <Route path="/login" element={<Login logIn={logIn} />}></Route>
+
+          {/* Not sure if this was the right way to handle this - once logged in, the login path leads to the account details page */}
+          {loggedIn ? (
+            <Route
+              path="/login"
+              element={<AccountDetails user={currentUser} logOut={logOut} />}
+            ></Route>
+          ) : (
+            <Route path="/login" element={<Login logIn={logIn} />}></Route>
+          )}
+
           <Route path="/main" element={<Main products={products} />}></Route>
         </Routes>
       </div>
@@ -153,16 +217,3 @@ function App() {
 }
 
 export default App;
-
-// Old Nav
-{
-  /* <nav>
-          <ul>
-            <li id="storeName">Store Name</li>
-            <li>Flowers</li>
-            <li>Cart</li>
-            <li>Login</li>
-            <li>Account Management</li>
-          </ul>
-        </nav> */
-}

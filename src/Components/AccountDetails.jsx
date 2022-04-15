@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const AccountDetails = ({ user }) => {
+const AccountDetails = ({ user, logOut }) => {
   const { firstName, lastName, email, phone, address, city, prov, postal } =
     user;
   return (
@@ -58,11 +58,25 @@ const AccountDetails = ({ user }) => {
         <div>
           <Link to="/changePass">Change Password</Link>
         </div>
-        <br />
         <div>
-          <Link to="/createAcc">
-            <button className="editAccount">Edit Account Details</button>
-          </Link>
+          <Link to="/changePass">Order History?</Link>
+        </div>
+        <br />
+        <div className="detailsRow">
+          <div>
+            <Link to="/Login" onClick={logOut}>
+              <button className="logout-btn">
+                <i className="fas fa-user-alt-slash"></i> Log Out
+              </button>
+            </Link>
+          </div>
+          <div>
+            <Link to="/editAcc">
+              <button className="editAccount">
+                <i className="fas fa-user-edit"></i> Edit Account Details
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

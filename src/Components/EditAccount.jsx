@@ -1,36 +1,30 @@
 import { React, useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const CreateAccount = ({ onAdd }) => {
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
+const EditAccount = ({ user, onEdit }) => {
+  const id = user.id;
+  const [email, setEmail] = useState(user.email);
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [phone, setPhone] = useState(user.phone);
+  const [password, setPassword] = useState(user.password);
+
+  // Might be fun to add a pop-up window that includes a 'confirm password to confirm changes' prompt.
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [prov, setProv] = useState("");
-  const [postal, setPostal] = useState("");
+  const [address, setAddress] = useState(user.address);
+  const [city, setCity] = useState(user.city);
+  const [prov, setProv] = useState(user.prov);
+  const [postal, setPostal] = useState(user.postal);
   const [captcha, setCaptcha] = useState(false);
 
   const navigate = useNavigate();
   const goToAccountDetail = () => navigate("/AccDetails");
 
   // On Submit, save values to localstorage (to represent saving them to a server)
-  const submitData = (e) => {
+  const editData = (e) => {
     e.preventDefault();
-    if (!captcha) {
-      alert(
-        "You, my friend, are a robot. We don't take kindly to your kind around here."
-      );
-      return;
-    }
-    if (password !== passwordConfirm) {
-      alert("Invalid entry. The two passwords do not match.");
-      return;
-    }
-    onAdd({
+    onEdit({
+      id,
       email,
       firstName,
       lastName,
@@ -47,8 +41,8 @@ const CreateAccount = ({ onAdd }) => {
 
   return (
     <div className="account-section">
-      <h2 className="create-acc-heading">Create Account</h2>
-      <form className="create-account-form" onSubmit={submitData}>
+      <h2 className="create-acc-heading">Edit Account Details</h2>
+      <form className="create-account-form" onSubmit={editData}>
         <div className="form-row">
           <div className="form-group col-md-6">
             <label htmlFor="inputFirstName4">First Name</label>
@@ -88,30 +82,6 @@ const CreateAccount = ({ onAdd }) => {
               value={email}
             />
           </div>
-          <div className="form-group col-md-4">
-            <label htmlFor="inputPassword4">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="inputPassword4"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              value={password}
-            />
-          </div>
-          <div className="form-group col-md-4">
-            <label htmlFor="inputPassword5"> Confirm Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="inputPassword5"
-              onChange={(e) => {
-                setPasswordConfirm(e.target.value);
-              }}
-              value={passwordConfirm}
-            />
-          </div>
         </div>
 
         <div className="form-group">
@@ -123,6 +93,7 @@ const CreateAccount = ({ onAdd }) => {
             onChange={(e) => {
               setPhone(e.target.value);
             }}
+            value={phone}
           />
         </div>
         <hr />
@@ -138,6 +109,7 @@ const CreateAccount = ({ onAdd }) => {
             onChange={(e) => {
               setAddress(e.target.value);
             }}
+            value={address}
           />
         </div>
         <div className="form-row">
@@ -150,6 +122,7 @@ const CreateAccount = ({ onAdd }) => {
               onChange={(e) => {
                 setCity(e.target.value);
               }}
+              value={city}
             />
           </div>
           <div className="form-group col-md-4">
@@ -160,6 +133,7 @@ const CreateAccount = ({ onAdd }) => {
               onChange={(e) => {
                 setProv(e.target.value);
               }}
+              value={prov}
             >
               <option></option>
               <option>NL</option>
@@ -186,31 +160,18 @@ const CreateAccount = ({ onAdd }) => {
               onChange={(e) => {
                 setPostal(e.target.value);
               }}
+              value={postal}
             />
           </div>
         </div>
         <hr />
-        <div className="form-group">
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="gridCheck"
-              onChange={() => {
-                setCaptcha(!captcha);
-              }}
-            />
-            <label className="form-check-label" htmlFor="gridCheck">
-              I am not a robot!
-            </label>
-          </div>
-        </div>
         <button type="submit" className="btn btn-primary">
-          Create Account!
+          Confirm Edit
         </button>
+        <Link to="/AccDetails">Cancel Changes</Link>
       </form>
     </div>
   );
 };
 
-export default CreateAccount;
+export default EditAccount;
