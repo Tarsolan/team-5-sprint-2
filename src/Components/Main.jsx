@@ -31,6 +31,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import products from "../data/products.json";
+import Lilies from "./Lilies";
+import Lilies from "./Lilies";
+import Lilies from "./Lilies";
+import Lilies from "./Lilies";
 
 const Main = ({ handleSelect }) => {
   const navigate = useNavigate();
@@ -42,7 +46,16 @@ const Main = ({ handleSelect }) => {
         <h1>Weapons... of love</h1>
         <hr />
 
-        <div className="gridContainer">
+        <h2>Roses</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+        <h2>Lilies</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+        <h2>Carnations</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+        <h2>Mixed</h2>
+        <Lilies products={products} handleSelect={handleSelect} />
+
+        {/* <div className="gridContainer">
           {products.map((item) => {
             return (
               <div
@@ -68,7 +81,7 @@ const Main = ({ handleSelect }) => {
               </div>
             );
           })}
-        </div>
+        </div> */}
       </div>
     </div>
   );

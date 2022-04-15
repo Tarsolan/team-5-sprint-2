@@ -1,20 +1,17 @@
 import React from "react";
 
-export const Lilies = ({ products }) => {
+export const Lilies = ({ products, handleSelect }) => {
+  let Lilies = products.filter((item) => {
+    return item.categories === "c2";
+  });
+
   return (
     <div className="background">
       <div className="mainContainer">
-        <h1>Weapons... of love</h1>
-        <hr />
-
         <div className="gridContainer">
-          {products.map((item) => {
-            if === item["c2"] return (
-              <div
-                className="mainGrid"
-                key={item.id}
-                onClick={goToAccountDetail}
-              >
+          {Lilies.map((item) => {
+            return (
+              <div className="mainGrid" key={item.id} onClick={handleSelect}>
                 <figure>
                   <img
                     src={item.image}
