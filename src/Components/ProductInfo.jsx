@@ -1,5 +1,5 @@
 import React from "react";
-import RedRose from "./4RedRoses.JPG";
+import products from "../data/products.json";
 
 const ProductInfo = ({
   id,
@@ -9,6 +9,7 @@ const ProductInfo = ({
   price,
   discontinued,
   categories,
+  product,
 }) => {
   return (
     <div>
@@ -21,6 +22,7 @@ const ProductInfo = ({
           currency: "CAD",
         }).format(price / 100)}
       </p>
+      <p>{product.title}</p>
     </div>
   );
 };
@@ -29,7 +31,7 @@ export default ProductInfo;
 
 ProductInfo.defaultProps = {
   id: "1",
-  image: RedRose,
+  image: products[0].image,
   title: "Red Rose Bouquet",
   description:
     "Nothing speaks of love so much as a bouquet of beautiful red roses. Arranged with seeded eucalyptus in a classic glass vase, this bouquet is a gift to her heart from yours.",
