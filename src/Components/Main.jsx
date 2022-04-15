@@ -32,13 +32,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import products from "../data/products.json";
 
-const Main = () => {
+const Main = ({ handleSelect }) => {
   const navigate = useNavigate();
   const goToAccountDetail = () => navigate("/Lilies");
-
-  // const load = products.onClick() => {
-  //   goToAccountDetail()
-  // };
 
   return (
     <div className="background">
@@ -46,22 +42,33 @@ const Main = () => {
         <h1>Weapons... of love</h1>
         <hr />
 
-        {products.map((item) => {
-          return (
-            <div className="mainGrid" key={item.id}>
-              <figure>
-                <img
-                  src={item.image}
-                  alt="image-JPG"
-                  style={{ width: "200px" }}
-                />
-                {console.log(item.image)}
-              </figure>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-            </div>
-          );
-        })}
+        <div className="gridContainer">
+          {products.map((item) => {
+            return (
+              <div
+                className="mainGrid"
+                key={item.id}
+                onClick={goToAccountDetail}
+              >
+                <figure>
+                  <img
+                    src={item.image}
+                    alt="image-JPG"
+                    style={{ width: "200px" }}
+                  />
+                  {console.log(item.image)}
+                </figure>
+                <h2>{item.title}</h2>
+                <p>
+                  {new Intl.NumberFormat("en-CA", {
+                    style: "currency",
+                    currency: "CAD",
+                  }).format(item.price / 100)}
+                </p>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
