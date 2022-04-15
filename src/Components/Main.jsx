@@ -42,10 +42,12 @@ const Main = ({ handleSelect }) => {
         <h1>Weapons... of love</h1>
         <hr />
 
-        <Roses products={products} handleSelect={handleSelect} />
-        <Lilies products={products} handleSelect={handleSelect} />
-        <Carnations products={products} handleSelect={handleSelect} />
-        <Mixed products={products} handleSelect={handleSelect} />
+        <div className="gridContainer">
+          <Roses products={products} handleSelect={handleSelect} />
+          <Lilies products={products} handleSelect={handleSelect} />
+          <Carnations products={products} handleSelect={handleSelect} />
+          <Mixed products={products} handleSelect={handleSelect} />
+        </div>
 
         {/* <div className="gridContainer">
         <div className="gridContainer">

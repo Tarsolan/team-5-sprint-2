@@ -282,30 +282,41 @@ html {
 /* Main Page + Categories */
 
 .mainContainer {
-  position: absolute;
-  left: 156px;
-  right: 156px;
+  position: relative;
+  margin: auto 383px auto 383px;
+  padding-left: 48px;
+  padding-right: 48px;
   border: 1px solid rgba(82, 78, 78, 0.5);
-}
-
-.mainContainer .category-head {
-  text-align: center;
-  font-size: 32pt;
-  text-decoration: underline;
-  margin-bottom: 3%;
 }
 
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(3, 0.3333fr);
+  /* grid-template-columns: repeat(3, 0.3333fr); */
+  /* grid-auto-flow: column; */
+  grid-template-columns: 304px 304px 304px;
+  grid-template-rows: 424px 424px 424px;
+  grid-column-gap: 64px;
+  /* grid-row-gap: 32px; */
+}
+/* top, right, bottom, left */
+.mainGrid {
+  display: block;
+  background-color: rgba(244, 244, 244, 0.5);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 304px;
+  height: 424px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid #2b54bc;
 }
 
-.mainGrid {
-  display: grid;
-  /* grid-template-areas:
-    "picture"
-    "title"
-    "text"; */
-  column-gap: 64px;
-  row-gap: 32px;
+.mainGrid img {
+  width: 256px;
+  height: auto;
+}
+
+.mainGrid h2 {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
 }

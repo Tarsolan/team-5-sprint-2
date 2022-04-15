@@ -7,33 +7,26 @@ export const Lilies = ({ products, handleSelect }) => {
 
   return (
     <>
-      <h2 className="category-head">Lillies</h2>
-      <div className="gridContainer">
-        {Lilies.map((item) => {
-          return (
-            <div
-              className="mainGrid"
-              key={item.id}
-              onClick={() => handleSelect(item)}
-            >
-              <figure>
-                <img
-                  src={item.image}
-                  alt="image-JPG"
-                  style={{ width: "200px" }}
-                />
-              </figure>
-              <h2>{item.title}</h2>
-              <p>
-                {new Intl.NumberFormat("en-CA", {
-                  style: "currency",
-                  currency: "CAD",
-                }).format(item.price / 100)}
-              </p>
-            </div>
-          );
-        })}
-      </div>
+      {Lilies.map((item) => {
+        return (
+          <div
+            className="mainGrid"
+            key={item.id}
+            onClick={() => handleSelect(item)}
+          >
+            <figure>
+              <img src={item.image} alt="image-JPG" />
+            </figure>
+            <h2>{item.title}</h2>
+            <p>
+              {new Intl.NumberFormat("en-CA", {
+                style: "currency",
+                currency: "CAD",
+              }).format(item.price / 100)}
+            </p>
+          </div>
+        );
+      })}
     </>
   );
 };
