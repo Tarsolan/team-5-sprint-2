@@ -56,12 +56,15 @@ const Main = ({ handleSelect }) => {
         <Lilies products={products} handleSelect={handleSelect} />
 
         {/* <div className="gridContainer">
+        <div className="gridContainer">
           {products.map((item) => {
             return (
               <div
                 className="mainGrid"
                 key={item.id}
-                onClick={goToAccountDetail}
+                onClick={function () {
+                  handleSelect(item);
+                }}
               >
                 <figure>
                   <img
