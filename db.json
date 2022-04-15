@@ -274,6 +274,18 @@
       "city": "St. John's",
       "prov": "NL",
       "postal": "A1B 4S3"
+    },
+    {
+      "id": 2,
+      "email": "jb@gmail.com",
+      "firstName": "Jacob",
+      "lastName": "Pritchett",
+      "phone": "7095670540",
+      "password": "123",
+      "address": "19 Townton Street the second",
+      "city": "Town",
+      "prov": "NL",
+      "postal": "A1B 4S3"
     }
   ]
 }

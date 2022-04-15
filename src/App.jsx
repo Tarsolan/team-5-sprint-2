@@ -17,6 +17,7 @@ import Login from "./Components/Login";
 import Navigation from "./Components/Navigation";
 import Main from "./Components/Main";
 import EditAccount from "./Components/EditAccount";
+import ProductInfo from "./Components/ProductInfo";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -185,6 +186,7 @@ function App() {
             path="/createAcc"
             element={<CreateAccount onAdd={addUser} />}
           ></Route>
+          <Route path="/info" element={<ProductInfo />}></Route>
           {/* Kind of a security thing, to prevent account details from being accessed if no one is logged in */}
           {loggedIn ? (
             <Route
