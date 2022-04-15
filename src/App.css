@@ -178,9 +178,15 @@ html {
   font-size: 44pt;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1500px) {
   .account-section-login {
     margin: 3% 25% auto 25%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .account-section-login {
+    margin: 3% 20% auto 20%;
   }
 }
 
