@@ -289,6 +289,14 @@ html {
   border: 1px solid rgba(82, 78, 78, 0.5);
 }
 
+.mainContainer h1 {
+  margin: 0;
+}
+
+.mainContainer hr {
+  margin: 8px auto 24px auto;
+}
+
 .gridContainer {
   display: grid;
   /* grid-template-columns: repeat(3, 0.3333fr); */
@@ -298,6 +306,7 @@ html {
   grid-column-gap: 64px;
   /* grid-row-gap: 32px; */
 }
+
 /* top, right, bottom, left */
 .mainGrid {
   display: block;
