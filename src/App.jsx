@@ -19,10 +19,15 @@ import Main from "./Components/Main";
 import EditAccount from "./Components/EditAccount";
 import ProductInfo from "./Components/ProductInfo";
 import ShoppingCart from "./Components/ShoppingCart";
+import products from "./data/products.json";
+import Lilies from "./Components/Lilies";
+import Roses from "./Components/Roses";
+import Carnations from "./Components/Carnations";
+import Mixed from "./Components/Mixed";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [authenticated, setAuthentication] = useState(false);
@@ -227,7 +232,25 @@ function App() {
 
           <Route
             path="/main"
-            element={<Main products={products} handleSelect={handleSelect} />}
+            element={<Main handleSelect={handleSelect} />}
+          ></Route>
+          <Route
+            path="/lilies"
+            element={<Lilies products={products} handleSelect={handleSelect} />}
+          ></Route>
+          <Route
+            path="/mixed"
+            element={<Mixed products={products} handleSelect={handleSelect} />}
+          ></Route>
+          <Route
+            path="/carnations"
+            element={
+              <Carnations products={products} handleSelect={handleSelect} />
+            }
+          ></Route>
+          <Route
+            path="/roses"
+            element={<Roses products={products} handleSelect={handleSelect} />}
           ></Route>
         </Routes>
       </div>
