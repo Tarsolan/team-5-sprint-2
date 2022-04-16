@@ -10,7 +10,7 @@ export const Lilies = ({ products, handleSelect }) => {
       {Lilies.map((item) => {
         return (
           <div
-            className="mainGrid"
+            className="itemBox"
             key={item.id}
             onClick={() => handleSelect(item)}
           >

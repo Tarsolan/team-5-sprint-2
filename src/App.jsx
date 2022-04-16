@@ -31,7 +31,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [authenticated, setAuthentication] = useState(false);
-  const [currentProduct, setCurrentProduct] = useState([]);
+  const [currentProduct, setCurrentProduct] = useState("");
 
   // Gets Products once, pass it to the main display component
   useEffect(() => {
@@ -173,6 +173,12 @@ function App() {
     setCurrentProduct(product);
   };
 
+  // Open ProductInfo.js with item selected - Don't do anything
+  const openSelect = (url) => {
+    setCurrentProduct = window.open(url, "./ProductInfo", "");
+    console.log(url);
+  };
+
   // Adds item to shopping cart
 
   return (
@@ -232,25 +238,49 @@ function App() {
 
           <Route
             path="/main"
-            element={<Main handleSelect={handleSelect} />}
+            element={
+              <Main handleSelect={handleSelect} openSelect={openSelect} />
+            }
           ></Route>
           <Route
             path="/lilies"
-            element={<Lilies products={products} handleSelect={handleSelect} />}
+            element={
+              <Lilies
+                products={products}
+                handleSelect={handleSelect}
+                openSelect={openSelect}
+              />
+            }
           ></Route>
           <Route
             path="/mixed"
-            element={<Mixed products={products} handleSelect={handleSelect} />}
+            element={
+              <Mixed
+                products={products}
+                handleSelect={handleSelect}
+                openSelect={openSelect}
+              />
+            }
           ></Route>
           <Route
             path="/carnations"
             element={
-              <Carnations products={products} handleSelect={handleSelect} />
+              <Carnations
+                products={products}
+                handleSelect={handleSelect}
+                openSelect={openSelect}
+              />
             }
           ></Route>
           <Route
             path="/roses"
-            element={<Roses products={products} handleSelect={handleSelect} />}
+            element={
+              <Roses
+                products={products}
+                handleSelect={handleSelect}
+                openSelect={openSelect}
+              />
+            }
           ></Route>
         </Routes>
       </div>

@@ -10,7 +10,7 @@ export const Mixed = ({ products, handleSelect }) => {
       {Mixed.map((item) => {
         return (
           <div
-            className="mainGrid"
+            className="itemBox"
             key={item.id}
             onClick={() => handleSelect(item)}
           >
