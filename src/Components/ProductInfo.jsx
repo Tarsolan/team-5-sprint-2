@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import products from "../data/products.json";
 
 const ProductInfo = ({
