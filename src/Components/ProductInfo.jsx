@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import products from "../data/products.json";
 
 const ProductInfo = ({
@@ -11,6 +11,7 @@ const ProductInfo = ({
   categories,
   product,
 }) => {
+  const [quantity, setQuantity] = useState();
   return (
     <div>
       <img src={image} alt="" />

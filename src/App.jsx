@@ -18,6 +18,7 @@ import Navigation from "./Components/Navigation";
 import Main from "./Components/Main";
 import EditAccount from "./Components/EditAccount";
 import ProductInfo from "./Components/ProductInfo";
+import ShoppingCart from "./Components/ShoppingCart";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -167,6 +168,8 @@ function App() {
     setCurrentProduct(product);
   };
 
+  // Adds item to shopping cart
+
   return (
     <Router>
       <header>
@@ -189,6 +192,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path="/cart" element={<ShoppingCart />} />
           <Route
             path="/createAcc"
             element={<CreateAccount onAdd={addUser} />}

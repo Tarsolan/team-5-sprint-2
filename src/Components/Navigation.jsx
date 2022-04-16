@@ -38,7 +38,7 @@ const Navigation = ({ loginCheck, name }) => {
                   Info - tester
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link as={NavLink} to="/home">
+              <Nav.Link as={NavLink} to="/cart">
                 Shopping Cart
               </Nav.Link>
               {/* Depending on if a user is logged in, the account button will take you to either the login page or the details page */}
