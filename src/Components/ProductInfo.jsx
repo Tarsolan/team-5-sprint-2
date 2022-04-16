@@ -11,6 +11,7 @@ const ProductInfo = ({
   categories,
   product,
 }) => {
+  const [quantity, setQuantity] = useState();
   return (
     <div>
       <img src={image} alt="" />
