@@ -13,7 +13,6 @@ export const Roses = ({ products, handleSelect, openSelect }) => {
             className="itemBox"
             key={item.id}
             onClick={() => handleSelect(item)}
-            onSelect={openSelect}
           >
             <figure>
               <img src={item.image} alt="image-JPG" />
