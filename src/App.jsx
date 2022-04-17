@@ -173,12 +173,6 @@ function App() {
     setCurrentProduct(product);
   };
 
-  // Open ProductInfo.js with item selected - Don't do anything
-  const openSelect = (url) => {
-    setCurrentProduct = window.open(url, "./ProductInfo", "");
-    console.log(url);
-  };
-
   // Adds item to shopping cart
 
   return (
@@ -238,49 +232,25 @@ function App() {
 
           <Route
             path="/main"
-            element={
-              <Main handleSelect={handleSelect} openSelect={openSelect} />
-            }
+            element={<Main handleSelect={handleSelect} />}
           ></Route>
           <Route
             path="/lilies"
-            element={
-              <Lilies
-                products={products}
-                handleSelect={handleSelect}
-                openSelect={openSelect}
-              />
-            }
+            element={<Lilies products={products} handleSelect={handleSelect} />}
           ></Route>
           <Route
             path="/mixed"
-            element={
-              <Mixed
-                products={products}
-                handleSelect={handleSelect}
-                openSelect={openSelect}
-              />
-            }
+            element={<Mixed products={products} handleSelect={handleSelect} />}
           ></Route>
           <Route
             path="/carnations"
             element={
-              <Carnations
-                products={products}
-                handleSelect={handleSelect}
-                openSelect={openSelect}
-              />
+              <Carnations products={products} handleSelect={handleSelect} />
             }
           ></Route>
           <Route
             path="/roses"
-            element={
-              <Roses
-                products={products}
-                handleSelect={handleSelect}
-                openSelect={openSelect}
-              />
-            }
+            element={<Roses products={products} handleSelect={handleSelect} />}
           ></Route>
         </Routes>
       </div>
