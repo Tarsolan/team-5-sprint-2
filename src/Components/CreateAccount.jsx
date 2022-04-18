@@ -13,6 +13,7 @@ const CreateAccount = ({ onAdd }) => {
   const [prov, setProv] = useState("");
   const [postal, setPostal] = useState("");
   const [captcha, setCaptcha] = useState(false);
+  const cart = [];
 
   const navigate = useNavigate();
   const goToAccountDetail = () => navigate("/AccDetails");
@@ -40,6 +41,7 @@ const CreateAccount = ({ onAdd }) => {
       city,
       prov,
       postal,
+      cart,
     });
 
     goToAccountDetail();

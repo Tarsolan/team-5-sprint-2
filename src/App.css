@@ -279,6 +279,18 @@ html {
   font-style: italic;
 }
 
+/* Shopping Cart */
+
+.cart-item {
+  display: grid;
+}
+
+.cart-item img {
+  grid-row: span 2;
+  height: 200px;
+  width: 200px;
+}
+
 /* Main Page + Categories */
 
 .mainContainer {

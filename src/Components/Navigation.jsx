@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 
-const Navigation = ({ loginCheck, name }) => {
+const Navigation = ({ loginCheck, name, cart }) => {
   return (
     <nav>
       <Navbar bg="custom" expand="xl" variant="flower">
@@ -38,9 +38,15 @@ const Navigation = ({ loginCheck, name }) => {
                   Info - tester
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link as={NavLink} to="/cart">
-                Shopping Cart
-              </Nav.Link>
+              {loginCheck && cart.length != 0 ? (
+                <Nav.Link as={NavLink} to="/cart">
+                  <i className="fas fa-shopping-cart"></i> Shopping Cart **
+                </Nav.Link>
+              ) : (
+                <Nav.Link as={NavLink} to="/login">
+                  <i className="fas fa-shopping-cart"></i> Shopping Cart
+                </Nav.Link>
+              )}
               {/* Depending on if a user is logged in, the account button will take you to either the login page or the details page */}
               {loginCheck ? (
                 <Nav.Link as={NavLink} to="/AccDetails">

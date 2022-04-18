@@ -36,6 +36,7 @@ const EditAccount = ({ user, onEdit }) => {
       postal,
     });
 
+    alert(`Edit confirmed. Changes have been saved.`);
     goToAccountDetail();
   };
 
@@ -165,10 +166,14 @@ const EditAccount = ({ user, onEdit }) => {
           </div>
         </div>
         <hr />
-        <button type="submit" className="btn btn-primary">
-          Confirm Edit
-        </button>
-        <Link to="/AccDetails">Cancel Changes</Link>
+        <div className="detailsRow">
+          <button type="submit" className="btn btn-primary">
+            Confirm Edit
+          </button>
+          <Link to="/AccDetails" style={{ fontSize: "12pt" }}>
+            Cancel Changes
+          </Link>
+        </div>
       </form>
     </div>
   );

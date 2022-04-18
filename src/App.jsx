@@ -33,7 +33,7 @@ function App() {
   const [authenticated, setAuthentication] = useState(false);
   const [currentProduct, setCurrentProduct] = useState("");
 
-  // Gets Products once, pass it to the main display component
+  // Gets Products & Users once, pass it to the main display component
   useEffect(() => {
     // const getProducts = async () => {
     //   const productsFromServer = await fetchProducts();
@@ -132,6 +132,8 @@ function App() {
     });
 
     const data = await res.json();
+
+    // Updates current user in current session
     setUsers(
       users.map((user) =>
         user.id === id ? { ...user, password: data.password } : user
@@ -163,7 +165,7 @@ function App() {
   // Logs a user out
   const logOut = () => {
     setLoggedIn(false);
-    alert("Logging out. Thank you for visiting.");
+    alert(`Logging you out, ${currentUser.firstName}. Thank you for visiting.`);
     setCurrentUser([]);
   };
 
@@ -174,6 +176,52 @@ function App() {
   };
 
   // Adds item to shopping cart
+  const addItemToCart = async (quantity, product) => {
+    // {
+    //   loggedIn
+    //     ? alert("Item added to cart")
+    //     : alert("Prompt to login or go as guest");
+    // }
+    if (!loggedIn) {
+      alert("Prompt to login or go as guest.");
+      return;
+    }
+    const userToEdit = await fetchUser(currentUser.id);
+    const updCart = {
+      ...userToEdit,
+      cart: [
+        ...userToEdit.cart,
+        {
+          quantity: quantity,
+          productId: product.id,
+          title: product.title,
+          description: product.description,
+          price: product.price,
+          image: product.image,
+        },
+      ],
+    };
+
+    const res = await fetch(`http://localhost:5000/users/${currentUser.id}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(updCart),
+    });
+
+    const data = await res.json();
+
+    // Updates user data states for current session
+    setUsers(
+      users.map((user) =>
+        user.id === currentUser.id ? { ...user, cart: data.cart } : user
+      )
+    );
+    setCurrentUser(data);
+
+    console.log("New cart:", currentUser.cart);
+    console.log(quantity, product);
+    alert("Item added to cart.");
+  };
 
   return (
     <Router>
@@ -182,6 +230,7 @@ function App() {
           loginCheck={loggedIn}
           logOut={logOut}
           name={currentUser.firstName}
+          cart={currentUser.cart}
         />
       </header>
 
@@ -197,14 +246,24 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/cart" element={<ShoppingCart />} />
+          <Route
+            path="/cart"
+            element={
+              <ShoppingCart userInfo={currentUser} products={products} />
+            }
+          />
           <Route
             path="/createAcc"
             element={<CreateAccount onAdd={addUser} />}
           ></Route>
           <Route
             path="/info"
-            element={<ProductInfo product={currentProduct} />}
+            element={
+              <ProductInfo
+                product={currentProduct}
+                addItemToCart={addItemToCart}
+              />
+            }
           ></Route>
           {/* Kind of a security thing, to prevent account details from being accessed if no one is logged in */}
           {loggedIn ? (
