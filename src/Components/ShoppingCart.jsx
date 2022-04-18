@@ -12,50 +12,72 @@ const ShoppingCart = ({ userInfo, products }) => {
     prov,
     cart,
   } = userInfo;
+
   const { id, title, description, price, image } = products;
   const [total, setTotal] = useState();
-  // let productList = cart.map((item) => {
-  //   products.map((product) => {
-  //     if (item.productId === product.Id) {
-  //       <h2>{product.title}</h2>;
-  //     }
-  //   });
-  // });
+  const [subTotal, setSubTotal] = useState();
+  const [hst, setHST] = useState();
 
   useEffect(() => {
-    let orderTotal = 0;
+    let subTotal = 0;
+    let hst = 0;
     cart.map((item) => {
-      orderTotal += item.price;
+      subTotal += item.price;
     });
-    setTotal(orderTotal);
+    setSubTotal(subTotal);
+    hst = subTotal * 0.15;
+    setHST(hst);
+
+    setTotal(subTotal + hst);
   }, [userInfo]);
 
   return (
-    <div>
-      <h2>Shopping Cart</h2>
-      <hr />
-      {cart.map((item) => {
-        return (
-          <div key={item.productId} className="cart-item">
-            <img src={item.image} alt="Flower Image" />
-            <h3>{item.title}</h3>
-            <h4>
-              {new Intl.NumberFormat("en-CA", {
-                style: "currency",
-                currency: "CAD",
-              }).format(item.price / 100)}
-            </h4>
-          </div>
-        );
-      })}
-      <hr />
-      <p>
-        Total:{" "}
-        {new Intl.NumberFormat("en-CA", {
-          style: "currency",
-          currency: "CAD",
-        }).format(total / 100)}
-      </p>
+    <div className="background">
+      <div className="shoppingCart">
+        {cart.map((item) => {
+          return (
+            <div key={item.productId} className="cart-item">
+              <img src={item.image} alt="Flower Image" />
+              <div className="cart-item-text">
+                <h3>{item.title}</h3>
+                <div className="cart-item-price=container">
+                  <span className="cart-item-quantity">{item.quantity}</span>
+                  <span className="cart-item-x"> X </span>
+                  <span className="cart-item-price">
+                    {new Intl.NumberFormat("en-CA", {
+                      style: "currency",
+                      currency: "CAD",
+                    }).format(item.price / 100)}
+                  </span>
+                </div>
+              </div>
+              <div className="cart-item-delete">X</div>
+            </div>
+          );
+        })}
+        <hr />
+        <p>
+          Subtotal:{" "}
+          {new Intl.NumberFormat("en-CA", {
+            style: "currency",
+            currency: "CAD",
+          }).format(subTotal / 100)}
+        </p>
+        <p>
+          HST:{" "}
+          {new Intl.NumberFormat("en-CA", {
+            style: "currency",
+            currency: "CAD",
+          }).format(hst / 100)}
+        </p>
+        <p>
+          Total:{" "}
+          {new Intl.NumberFormat("en-CA", {
+            style: "currency",
+            currency: "CAD",
+          }).format(total / 100)}
+        </p>
+      </div>
     </div>
   );
 };
