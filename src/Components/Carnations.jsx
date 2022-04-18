@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Carnations = ({ products, handleSelect }) => {
+export const Carnations = ({ products, navigateTo }) => {
   let Carnations = products.filter((item) => {
     return item.categories.includes("c3");
   });
@@ -12,7 +12,7 @@ export const Carnations = ({ products, handleSelect }) => {
           <div
             className="itemBox"
             key={item.id}
-            onClick={() => handleSelect(item)}
+            onClick={() => navigateTo(item)}
           >
             <figure>
               <img src={item.image} alt="image-JPG" />

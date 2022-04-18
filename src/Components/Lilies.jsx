@@ -1,6 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Lilies = ({ products, handleSelect }) => {
+export const Lilies = ({ products, navigateTo }) => {
   let Lilies = products.filter((item) => {
     return item.categories.includes("c2");
   });
@@ -12,7 +13,7 @@ export const Lilies = ({ products, handleSelect }) => {
           <div
             className="itemBox"
             key={item.id}
-            onClick={() => handleSelect(item)}
+            onClick={() => navigateTo(item)}
           >
             <figure>
               <img src={item.image} alt="image-JPG" />
