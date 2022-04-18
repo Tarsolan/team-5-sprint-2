@@ -23,8 +23,7 @@ html {
     180deg,
     rgba(140, 200, 224, 0.75) 0%,
     rgba(140, 200, 224, 0.4) 67.09%
-  ); */
-  padding-top: 48px;
+    padding-top: 48px;
 }
 
 /* Nav Bar */
@@ -322,7 +321,8 @@ html {
   margin: auto 383px auto 383px;
   padding-left: 48px;
   padding-right: 48px;
-  border: 1px solid rgba(82, 78, 78, 0.5);
+  border: 1px solid rgba(82, 78, 78, 0.35);
+  border-radius: 16px;
 }
 
 .mainContainer h1 {
@@ -350,6 +350,8 @@ html {
   background-color: rgba(244, 244, 244, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid #2b54bc;
+  width: 304px;
+  height: 424px;
 }
 
 .itemBox figure {
@@ -378,15 +380,14 @@ html {
   margin: 8px 0px 0px 16px;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1850px) {
   .gridContainer {
-    grid-template-columns: 304px 304px;
-    grid-template-rows: 424px 424px;
+    grid-template-columns: repeat(2, 0.3333fr);
     grid-column-gap: 27px;
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1450px) {
   .mainContainer {
     margin: auto;
     padding-left: 48px;
@@ -394,8 +395,7 @@ html {
     border: none;
   }
   .gridContainer {
-    grid-template-columns: 304px 304px;
-    grid-template-rows: 424px 424px;
+    grid-template-columns: repeat(2, 0.3333fr);
     grid-column-gap: 64px;
   }
 }
@@ -409,5 +409,11 @@ html {
   }
   .itemBox img {
     margin-left: 8px;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
