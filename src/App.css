@@ -18,13 +18,14 @@ html {
   margin: auto;
 }
 
-.background {
-  /* background: linear-gradient(
+/* .background {
+  background: linear-gradient(
     180deg,
     rgba(140, 200, 224, 0.75) 0%,
     rgba(140, 200, 224, 0.4) 67.09%
-    padding-top: 48px;
-}
+  );
+  padding-top: 48px;
+} */
 
 /* Nav Bar */
 
