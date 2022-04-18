@@ -17,17 +17,15 @@ const Main = ({ handleSelect }) => {
   };
 
   return (
-    <div className="background">
-      <div className="mainContainer">
-        <h1>Weapons... of love</h1>
-        <hr />
+    <div className="mainContainer">
+      <h1>Weapons... of love</h1>
+      <hr />
 
-        <div className="gridContainer">
-          <Roses products={products} navigateTo={navigateTo} />
-          <Lilies products={products} navigateTo={navigateTo} />
-          <Carnations products={products} navigateTo={navigateTo} />
-          <Mixed products={products} navigateTo={navigateTo} />
-        </div>
+      <div className="gridContainer">
+        <Roses products={products} navigateTo={navigateTo} />
+        <Lilies products={products} navigateTo={navigateTo} />
+        <Carnations products={products} navigateTo={navigateTo} />
+        <Mixed products={products} navigateTo={navigateTo} />
       </div>
     </div>
   );
