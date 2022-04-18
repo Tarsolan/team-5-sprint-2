@@ -5,15 +5,15 @@
 }
 
 /* Body CSS */
-html {
-  background: rgba(128, 172, 172, 0.329) 100%;
-}
+/* html {
+  background: rgba(140, 200, 224, 0.233);
+} */
 
 #root {
   background: linear-gradient(
     180deg,
     rgba(140, 200, 224, 0.75) 0%,
-    rgba(140, 200, 224, 0.4) 67.09%
+    rgba(140, 200, 224, 0.4) 100%
   );
   margin: auto;
 }
@@ -86,9 +86,9 @@ html {
   color: #ececec;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
-  margin: 3% 25% auto 25%;
+  margin: 3% 25% 3% 25%;
   padding: 5%;
-  background: #9a6d6d7e;
+  background: #9a6d6d;
   border: 1px solid #5f5f5f;
   box-sizing: border-box;
   box-shadow: 10px 10px 4px 3px rgba(0, 0, 0, 0.25);
@@ -198,7 +198,7 @@ html {
   color: #ececec;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
-  margin: 3% 35% auto 35%;
+  margin: 3% 35% 3% 35%;
   padding: 5%;
   background: #9a6d6d;
   border: 1px solid #5f5f5f;
@@ -353,6 +353,10 @@ html {
   border-bottom: 2px solid #2b54bc;
   width: 304px;
   height: 424px;
+}
+
+.itemBox:hover {
+  cursor: pointer;
 }
 
 .itemBox figure {

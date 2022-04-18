@@ -22,16 +22,16 @@ const Navigation = ({ loginCheck, name, cart }) => {
                   All Flowers
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item as={NavLink} to="/main#roses">
+                <NavDropdown.Item as={NavLink} to="/roses">
                   Roses
                 </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/main#lilies">
+                <NavDropdown.Item as={NavLink} to="/lilies">
                   Lilies
                 </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/main#carnations">
+                <NavDropdown.Item as={NavLink} to="/carnations">
                   Carnations
                 </NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/main#mixed">
+                <NavDropdown.Item as={NavLink} to="/mixed">
                   Mixed
                 </NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/info">
