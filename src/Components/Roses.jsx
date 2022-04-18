@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Roses = ({ products, handleSelect }) => {
+export const Roses = ({ products, handleSelect, openSelect }) => {
   let Roses = products.filter((item) => {
     return item.categories.includes("c1");
   });
@@ -10,7 +10,7 @@ export const Roses = ({ products, handleSelect }) => {
       {Roses.map((item) => {
         return (
           <div
-            className="mainGrid"
+            className="itemBox"
             key={item.id}
             onClick={() => handleSelect(item)}
           >

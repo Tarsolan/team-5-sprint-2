@@ -31,7 +31,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [authenticated, setAuthentication] = useState(false);
-  const [currentProduct, setCurrentProduct] = useState([]);
+  const [currentProduct, setCurrentProduct] = useState("");
 
   // Gets Products once, pass it to the main display component
   useEffect(() => {
