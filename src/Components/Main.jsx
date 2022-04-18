@@ -4,18 +4,8 @@ import Roses from "./Roses";
 import Lilies from "./Lilies";
 import Carnations from "./Carnations";
 import Mixed from "./Mixed";
-import { useNavigate } from "react-router-dom";
 
 const Main = ({ handleSelect }) => {
-  // Bring you to ProductInfo.jsx when you click of products
-  const navigate = useNavigate();
-  const goToAccountDetail = () => navigate("/info");
-
-  const navigateTo = (a) => {
-    handleSelect(a);
-    goToAccountDetail();
-  };
-
   return (
     <div className="mainContainer">
       <h1>Weapons... of love</h1>
