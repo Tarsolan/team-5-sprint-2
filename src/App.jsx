@@ -177,11 +177,6 @@ function App() {
 
   // Adds item to shopping cart
   const addItemToCart = async (quantity, product) => {
-    // {
-    //   loggedIn
-    //     ? alert("Item added to cart")
-    //     : alert("Prompt to login or go as guest");
-    // }
     if (!loggedIn) {
       alert("Prompt to login or go as guest.");
       return;
@@ -222,6 +217,9 @@ function App() {
     console.log(quantity, product);
     alert("Item added to cart.");
   };
+
+  // Delete item from cart
+  const removeItemFromCart = (id) => {};
 
   return (
     <Router>

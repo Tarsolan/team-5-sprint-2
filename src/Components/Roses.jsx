@@ -1,10 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Roses = ({ products, navigateTo }) => {
+export const Roses = ({ products, handleSelect }) => {
   let Roses = products.filter((item) => {
     return item.categories.includes("c1");
   });
 
+  // Bring you to ProductInfo.jsx when you click of products
+  const navigate = useNavigate();
+  const goToAccountDetail = () => navigate("/info");
+
+  const navigateTo = (a) => {
+    handleSelect(a);
+    goToAccountDetail();
+  };
   return (
     <>
       {Roses.map((item) => {

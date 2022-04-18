@@ -1,9 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export const Mixed = ({ products, navigateTo }) => {
+export const Mixed = ({ products, handleSelect }) => {
   let Mixed = products.filter((item) => {
     return item.categories.includes("c4");
   });
+
+  // Bring you to ProductInfo.jsx when you click of products
+  const navigate = useNavigate();
+  const goToAccountDetail = () => navigate("/info");
+
+  const navigateTo = (a) => {
+    handleSelect(a);
+    goToAccountDetail();
+  };
 
   return (
     <>
