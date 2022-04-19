@@ -40,6 +40,7 @@ export const Roses = ({ products, addItemToCart }) => {
                   type="number"
                   name="quantity"
                   onChange={(e) => setQuantity(e.target.value)}
+                  min="0"
                 />
 
                 <button type="submit" className="catCartBtn">

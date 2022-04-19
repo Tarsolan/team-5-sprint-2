@@ -5,9 +5,9 @@
 }
 
 /* Body CSS */
-/* html {
-  background: rgba(140, 200, 224, 0.233);
-} */
+html {
+  background: rgba(140, 200, 224, 0.4);
+}
 
 #root {
   background: linear-gradient(
@@ -16,13 +16,13 @@
     rgba(140, 200, 224, 0.4) 100%
   );
   margin: auto;
-  padding-bottom: 100px;
+  height: auto;
 }
 
 :root {
   --nav-color: #9a6d6d;
-  --main-color: #219a67;
-  --button-color: #c9cc4e;
+  --main-color: #219a8c;
+  --button-color: #c58e00;
 }
 /* .background {
   background: linear-gradient(
@@ -75,7 +75,7 @@
   font-size: 0.75em;
   border: 1px solid red;
   border-radius: 50%;
-  padding: 3px;
+  padding: 0px 3px;
   background-color: red;
 }
 

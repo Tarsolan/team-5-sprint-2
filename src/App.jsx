@@ -44,6 +44,20 @@ function App() {
     const getUsers = async () => {
       const usersFromServer = await fetchUsers();
       setUsers(usersFromServer);
+      setCurrentUser(usersFromServer[0]);
+      // This line sets the cart id to the guest checkout id - ideally it will actually reset the value to 0 but we'll do that later
+      try {
+        console.log(
+          usersFromServer[0].cart[usersFromServer[0].cart.length - 1]
+            .cartItemID + 1
+        );
+        updateCartID(
+          usersFromServer[0].cart[usersFromServer[0].cart.length - 1]
+            .cartItemID + 1
+        );
+      } catch (error) {
+        console.log("User has no shopping cart... yet.");
+      }
     };
     getUsers();
   }, []);
@@ -187,10 +201,11 @@ function App() {
 
   // Adds item to shopping cart
   const addItemToCart = async (quantity, product) => {
-    if (!loggedIn) {
-      alert("Prompt to login or go as guest.");
-      return;
-    }
+    // if (!loggedIn) {
+    //   alert("Prompt to login or go as guest.");
+    //   return;
+    // }
+    alert("Item added to cart.");
     const userToEdit = await fetchUser(currentUser.id);
     const updCart = {
       ...userToEdit,
@@ -227,7 +242,6 @@ function App() {
 
     console.log("New cart:", currentUser.cart);
     console.log(quantity, product);
-    alert("Item added to cart.");
   };
 
   // Delete item from cart

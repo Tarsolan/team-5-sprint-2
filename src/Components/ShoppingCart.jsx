@@ -39,7 +39,12 @@ const ShoppingCart = ({ userInfo, products, onDelete, loggedIn }) => {
                 <img src={item.image} alt="Flower Image" />
                 <div className="cart-item-text">
                   <h3>{item.title}</h3>
-                  <div className="delete-small">X</div>
+                  <div
+                    className="delete-small"
+                    onClick={() => onDelete(id, item.cartItemID)}
+                  >
+                    X
+                  </div>
                   <div className="cart-item-price=container">
                     <span className="cart-item-quantity">{item.quantity}</span>
                     <span className="cart-item-x"> X </span>

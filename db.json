@@ -264,6 +264,18 @@
   ],
   "users": [
     {
+      "id": "G",
+      "email": "notaperson@gmail.com",
+      "firstName": "Guest",
+      "lastName": "",
+      "phone": "",
+      "address": "",
+      "city": "",
+      "prov": "",
+      "postal": "",
+      "cart": []
+    },
+    {
       "id": 2,
       "email": "jb@gmail.com",
       "firstName": "Jacob",

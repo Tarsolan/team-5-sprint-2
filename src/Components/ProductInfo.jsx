@@ -38,6 +38,7 @@ const ProductInfo = ({
           name="quantity"
           id="quantity"
           onChange={(e) => setQuantity(e.target.value)}
+          min="0"
         />
         <button type="submit" className="addToCartBtn">
           <i className="fas fa-cart-plus"></i> Add to cart!
