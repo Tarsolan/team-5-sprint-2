@@ -18,10 +18,19 @@ export const Roses = ({ handleSelect, product, products, addItemToCart }) => {
     goToAccountDetail();
   };
 
+
   let Roses = products.filter((item) => {
     return item.categories.includes("c1");
   });
 
+  // Bring you to ProductInfo.jsx when you click of products
+  const navigate = useNavigate();
+  const goToAccountDetail = () => navigate("/info");
+
+  const navigateTo = (a) => {
+    handleSelect(a);
+    goToAccountDetail();
+  };
   return (
     <div className="catContainer">
       <h1>Roses</h1>

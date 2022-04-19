@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,6 +27,15 @@ export const Carnations = ({
   let Carnations = products.filter((item) => {
     return item.categories.includes("c3");
   });
+
+  // Bring you to ProductInfo.jsx when you click of products
+  const navigate = useNavigate();
+  const goToAccountDetail = () => navigate("/info");
+
+  const navigateTo = (a) => {
+    handleSelect(a);
+    goToAccountDetail();
+  };
 
   return (
     <div className="catContainer">
