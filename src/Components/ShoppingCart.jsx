@@ -22,7 +22,7 @@ const ShoppingCart = ({ userInfo, products }) => {
     let subTotal = 0;
     let hst = 0;
     cart.map((item) => {
-      subTotal += item.price;
+      subTotal += item.price * item.quantity;
     });
     setSubTotal(subTotal);
     hst = subTotal * 0.15;
@@ -57,27 +57,45 @@ const ShoppingCart = ({ userInfo, products }) => {
           );
         })}
         <hr />
-        <p>
-          Subtotal:{" "}
-          {new Intl.NumberFormat("en-CA", {
-            style: "currency",
-            currency: "CAD",
-          }).format(subTotal / 100)}
-        </p>
-        <p>
-          HST:{" "}
-          {new Intl.NumberFormat("en-CA", {
-            style: "currency",
-            currency: "CAD",
-          }).format(hst / 100)}
-        </p>
-        <p>
-          Total:{" "}
-          {new Intl.NumberFormat("en-CA", {
-            style: "currency",
-            currency: "CAD",
-          }).format(total / 100)}
-        </p>
+        <div className="total-background">
+          <div className="total-container">
+            <div>
+              <div className="total-detail">
+                <span>Subtotal: </span>
+                <span>
+                  {new Intl.NumberFormat("en-CA", {
+                    style: "currency",
+                    currency: "CAD",
+                  }).format(subTotal / 100)}
+                </span>
+              </div>
+              <div className="total-detail">
+                <span>HST:</span>{" "}
+                <span>
+                  {new Intl.NumberFormat("en-CA", {
+                    style: "currency",
+                    currency: "CAD",
+                  }).format(hst / 100)}
+                </span>
+              </div>
+              <div className="total-detail">
+                <span>Total: </span>
+                <span>
+                  {new Intl.NumberFormat("en-CA", {
+                    style: "currency",
+                    currency: "CAD",
+                  }).format(total / 100)}
+                </span>
+              </div>
+              <button className="checkout-btn-small">
+                <i className="fas fa-shopping-cart"></i> <span>Checkout!</span>
+              </button>
+            </div>
+            <button className="checkout-btn">
+              <i className="fas fa-shopping-cart"></i> <span>Checkout!</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
