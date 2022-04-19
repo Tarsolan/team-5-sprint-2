@@ -274,16 +274,7 @@
       "city": "Town",
       "prov": "NL",
       "postal": "A1B 4S3",
-      "cart": [
-        {
-          "quantity": "2",
-          "productId": "p3",
-          "title": "One Dozen Red Roses",
-          "description": "One dozen red roses are arranged with delicate white baby's breath in a clear glass vase. This romantic gift of 12 red roses is perfect for celebrating your love.",
-          "price": 8999,
-          "image": "https://i.ibb.co/VtMQkq9/One-Dozen-Red-Roses.jpg"
-        }
-      ]
+      "cart": []
     },
     {
       "email": "aridgeley@msn.com",
@@ -295,48 +286,7 @@
       "city": "St. John's",
       "prov": "NL",
       "postal": "A1B 5A9",
-      "cart": [
-        {
-          "quantity": "3",
-          "productId": "p26",
-          "title": "Teleflora's Full Of Love Bouquet",
-          "description": "Spring into pink! Delicate roses, tulips and carnations fill a graceful vase with a cheerful expression of your love. It's affection perfection! Includes pink roses, tulips, carnations and waxflower, accented with fresh pitta negra and variegated pittosporum. Delivered in a lovely glass vase.",
-          "price": 6499,
-          "image": "https://i.ibb.co/rQhYvLv/Telefloras-Full-Of-Love-Bouquet.jpg"
-        },
-        {
-          "quantity": "2",
-          "productId": "p8",
-          "title": "Casablanca Lilies",
-          "description": "Demonstrate your thoughts of sympathy and condolence with this angelic vase arrangement of all-white Casablanca lilies.",
-          "price": 7999,
-          "image": "https://i.ibb.co/Lz8tGnT/Casablanca-Lilies.jpg"
-        },
-        {
-          "quantity": "7",
-          "productId": "p2",
-          "title": "4 Red Roses",
-          "description": "4 red roses arranged in a glass vase with added greenery and baby's breath.",
-          "price": 3999,
-          "image": "https://i.ibb.co/K2Gb4Lk/4-Red-Roses.jpg"
-        },
-        {
-          "quantity": "6",
-          "productId": "p9",
-          "title": "Light In Your Honour Bouquet",
-          "description": "Light In Your Honour Bouquet is a beautifully bright arrangement bursting with elegant fragrance to convey your deepest sympathies for the loss of their loved one. A stunning bouquet of gorgeous Oriental lilies are accented with lush greens and seated in a clear glass vase to create a bouquet that is serenely sophisticated, offering comfort and peace in their time of need.",
-          "price": 9999,
-          "image": "https://i.ibb.co/C6tF2wk/Light-In-Your-Honour-Bouquet.jpg"
-        },
-        {
-          "quantity": "3",
-          "productId": "p8",
-          "title": "Casablanca Lilies",
-          "description": "Demonstrate your thoughts of sympathy and condolence with this angelic vase arrangement of all-white Casablanca lilies.",
-          "price": 7999,
-          "image": "https://i.ibb.co/Lz8tGnT/Casablanca-Lilies.jpg"
-        }
-      ],
+      "cart": [],
       "id": 3
     }
   ]

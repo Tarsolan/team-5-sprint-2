@@ -38,9 +38,12 @@ const Navigation = ({ loginCheck, name, cart }) => {
                   Info - tester
                 </NavDropdown.Item>
               </NavDropdown>
-              {loginCheck && cart.length != 0 ? (
+              {loginCheck ? (
                 <Nav.Link as={NavLink} to="/cart">
-                  <i className="fas fa-shopping-cart"></i> Shopping Cart **
+                  <i className="fas fa-shopping-cart"></i> Shopping Cart{" "}
+                  {cart.length > 0 && (
+                    <sup className="cart-counter">{cart.length}</sup>
+                  )}
                 </Nav.Link>
               ) : (
                 <Nav.Link as={NavLink} to="/login">

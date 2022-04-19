@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-export const Mixed = ({ handleSelect, product, products, addItemToCart }) => {
+export const Mixed = ({ products, addItemToCart }) => {
   const [quantity, setQuantity] = useState();
 
-  const sendDataToCart = (e) => {
+  const sendDataToCart = (e, product) => {
     e.preventDefault();
 
     addItemToCart(quantity, product);
@@ -13,15 +12,6 @@ export const Mixed = ({ handleSelect, product, products, addItemToCart }) => {
   let Mixed = products.filter((item) => {
     return item.categories.includes("c4");
   });
-
-  // Bring you to ProductInfo.jsx when you click of products
-  const navigate = useNavigate();
-  const goToAccountDetail = () => navigate("/info");
-
-  const navigateTo = (a) => {
-    handleSelect(a);
-    goToAccountDetail();
-  };
 
   return (
     <div className="catContainer">
@@ -42,18 +32,17 @@ export const Mixed = ({ handleSelect, product, products, addItemToCart }) => {
                   currency: "CAD",
                 }).format(item.price / 100)}
               </p>
-              <form className="catQuantity" onSubmit={sendDataToCart}>
+              <form
+                className="catQuantity"
+                onSubmit={(e) => sendDataToCart(e, item)}
+              >
                 <input
                   type="number"
                   name="quantity"
                   onChange={(e) => setQuantity(e.target.value)}
                 />
 
-                <button
-                  type="submit"
-                  className="catCartBtn"
-                  onClick={() => navigateTo(item)}
-                >
+                <button type="submit" className="catCartBtn">
                   <i className="fas fa-cart-plus"> Add to Cart</i>
                 </button>
                 <hr />

@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const ShoppingCart = ({ userInfo, products }) => {
-  const {
-    email,
-    address,
-    firstName,
-    lastName,
-    phone,
-    city,
-    postal,
-    prov,
-    cart,
-  } = userInfo;
+const ShoppingCart = ({ userInfo, products, onDelete, loggedIn }) => {
+  const { id, cart } = userInfo;
 
-  const { id, title, description, price, image } = products;
+  const { title, description, price, image } = products;
   const [total, setTotal] = useState();
   const [subTotal, setSubTotal] = useState();
   const [hst, setHST] = useState();
@@ -34,28 +25,43 @@ const ShoppingCart = ({ userInfo, products }) => {
   return (
     <div className="background">
       <div className="shoppingCart">
-        {cart.map((item) => {
-          return (
-            <div key={item.productId} className="cart-item">
-              <img src={item.image} alt="Flower Image" />
-              <div className="cart-item-text">
-                <h3>{item.title}</h3>
-                <div className="delete-small">X</div>
-                <div className="cart-item-price=container">
-                  <span className="cart-item-quantity">{item.quantity}</span>
-                  <span className="cart-item-x"> X </span>
-                  <span className="cart-item-price">
-                    {new Intl.NumberFormat("en-CA", {
-                      style: "currency",
-                      currency: "CAD",
-                    }).format(item.price / 100)}
-                  </span>
+        {cart.length === 0 ? (
+          <div className="cart-empty">
+            <h3>
+              It looks like your cart is empty. Check out our list of products{" "}
+              <Link to="/main">here</Link> and get shopping!
+            </h3>
+          </div>
+        ) : (
+          cart.map((item) => {
+            return (
+              <div key={item.cartItemID} className="cart-item">
+                <img src={item.image} alt="Flower Image" />
+                <div className="cart-item-text">
+                  <h3>{item.title}</h3>
+                  <div className="delete-small">X</div>
+                  <div className="cart-item-price=container">
+                    <span className="cart-item-quantity">{item.quantity}</span>
+                    <span className="cart-item-x"> X </span>
+                    <span className="cart-item-price">
+                      {new Intl.NumberFormat("en-CA", {
+                        style: "currency",
+                        currency: "CAD",
+                      }).format(item.price / 100)}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className="cart-item-delete"
+                  onClick={() => onDelete(id, item.cartItemID)}
+                >
+                  X
                 </div>
               </div>
-              <div className="cart-item-delete">X</div>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
+
         <hr />
         <div className="total-background">
           <div className="total-container">

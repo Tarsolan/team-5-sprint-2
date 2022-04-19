@@ -32,6 +32,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState([]);
   const [authenticated, setAuthentication] = useState(false);
   const [currentProduct, setCurrentProduct] = useState("");
+  const [cartID, updateCartID] = useState(0);
 
   // Gets Products & Users once, pass it to the main display component
   useEffect(() => {
@@ -150,6 +151,14 @@ function App() {
         setCurrentUser(user);
         setLoggedIn(true);
         user_found = true;
+
+        // This line fetches the most recent cartID, and will use it when creating new cart items
+        try {
+          console.log(user.cart[user.cart.length - 1].cartItemID + 1);
+          updateCartID(user.cart[user.cart.length - 1].cartItemID + 1);
+        } catch (error) {
+          console.log("User has no shopping cart... yet.");
+        }
         alert(`Welcome ${user.firstName}.`);
         return;
       }
@@ -167,6 +176,7 @@ function App() {
     setLoggedIn(false);
     alert(`Logging you out, ${currentUser.firstName}. Thank you for visiting.`);
     setCurrentUser([]);
+    updateCartID(0);
   };
 
   // Handle which product is selected in main.js to pass to info.js
@@ -187,6 +197,7 @@ function App() {
       cart: [
         ...userToEdit.cart,
         {
+          cartItemID: cartID,
           quantity: quantity,
           productId: product.id,
           title: product.title,
@@ -212,6 +223,7 @@ function App() {
       )
     );
     setCurrentUser(data);
+    updateCartID(data.cart[data.cart.length - 1].cartItemID + 1);
 
     console.log("New cart:", currentUser.cart);
     console.log(quantity, product);
@@ -219,7 +231,35 @@ function App() {
   };
 
   // Delete item from cart
-  const removeItemFromCart = (id) => {};
+  const removeItemFromCart = async (userID, cartItemID) => {
+    const userToEdit = await fetchUser(userID);
+    console.log("user to have cart item deleted:", userToEdit);
+
+    // Filters the cart to no longer include the selected item
+    const newCart = {
+      ...userToEdit,
+      cart: userToEdit.cart.filter((item) => {
+        return item.cartItemID !== cartItemID;
+      }),
+    };
+    console.log(newCart.cart);
+
+    const res = await fetch(`http://localhost:5000/users/${userID}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(newCart),
+    });
+
+    const data = await res.json();
+
+    // Updates current user in current session
+    setUsers(
+      users.map((user) =>
+        user.id === userID ? { ...user, cart: data.cart } : user
+      )
+    );
+    setCurrentUser(data);
+  };
 
   return (
     <Router>
@@ -247,7 +287,12 @@ function App() {
           <Route
             path="/cart"
             element={
-              <ShoppingCart userInfo={currentUser} products={products} />
+              <ShoppingCart
+                userInfo={currentUser}
+                products={products}
+                onDelete={removeItemFromCart}
+                loggedIn={loggedIn}
+              />
             }
           />
           <Route
@@ -293,21 +338,43 @@ function App() {
           ></Route>
           <Route
             path="/lilies"
-            element={<Lilies products={products} handleSelect={handleSelect} />}
+            element={
+              <Lilies
+                products={products}
+                handleSelect={handleSelect}
+                addItemToCart={addItemToCart}
+              />
+            }
           ></Route>
           <Route
             path="/mixed"
-            element={<Mixed products={products} handleSelect={handleSelect} />}
+            element={
+              <Mixed
+                products={products}
+                handleSelect={handleSelect}
+                addItemToCart={addItemToCart}
+              />
+            }
           ></Route>
           <Route
             path="/carnations"
             element={
-              <Carnations products={products} handleSelect={handleSelect} />
+              <Carnations
+                products={products}
+                handleSelect={handleSelect}
+                addItemToCart={addItemToCart}
+              />
             }
           ></Route>
           <Route
             path="/roses"
-            element={<Roses products={products} handleSelect={handleSelect} />}
+            element={
+              <Roses
+                products={products}
+                handleSelect={handleSelect}
+                addItemToCart={addItemToCart}
+              />
+            }
           ></Route>
         </Routes>
       </div>

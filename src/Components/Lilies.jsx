@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const Lilies = ({ handleSelect, product, products, addItemToCart }) => {
+export const Lilies = ({ products, addItemToCart }) => {
   const [quantity, setQuantity] = useState();
 
-  const sendDataToCart = (e) => {
+  const sendDataToCart = (e, product) => {
     e.preventDefault();
 
     addItemToCart(quantity, product);
@@ -14,14 +14,15 @@ export const Lilies = ({ handleSelect, product, products, addItemToCart }) => {
     return item.categories.includes("c2");
   });
 
-  // Bring you to ProductInfo.jsx when you click of products
-  const navigate = useNavigate();
-  const goToAccountDetail = () => navigate("/info");
+  // Keeping this useNavigate in case we want to use it for some other purpose
+  // // Bring you to ProductInfo.jsx when you click of products
+  // const navigate = useNavigate();
+  // const goToAccountDetail = () => navigate("/info");
 
-  const navigateTo = (a) => {
-    handleSelect(a);
-    goToAccountDetail();
-  };
+  // const navigateTo = (a) => {
+  //   handleSelect(a);
+  //   goToAccountDetail();
+  // };
 
   return (
     <div className="catContainer">
@@ -42,7 +43,10 @@ export const Lilies = ({ handleSelect, product, products, addItemToCart }) => {
                   currency: "CAD",
                 }).format(item.price / 100)}
               </p>
-              <form className="catQuantity" onSubmit={sendDataToCart}>
+              <form
+                className="catQuantity"
+                onSubmit={(e) => sendDataToCart(e, item)}
+              >
                 <input
                   type="number"
                   name="quantity"
@@ -52,7 +56,7 @@ export const Lilies = ({ handleSelect, product, products, addItemToCart }) => {
                 <button
                   type="submit"
                   className="catCartBtn"
-                  onClick={() => navigateTo(item)}
+                  //onClick={() => navigateTo(item)}
                 >
                   <i className="fas fa-cart-plus"> Add to Cart</i>
                 </button>
