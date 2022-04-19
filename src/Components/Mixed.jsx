@@ -10,14 +10,6 @@ export const Mixed = ({ handleSelect, product, products, addItemToCart }) => {
     addItemToCart(quantity, product);
   };
 
-  const navigate = useNavigate();
-  const goToAccountDetail = () => navigate("/cart");
-
-  const navigateTo = (a) => {
-    handleSelect(a);
-    goToAccountDetail();
-  };
-
   let Mixed = products.filter((item) => {
     return item.categories.includes("c4");
   });

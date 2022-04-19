@@ -10,15 +10,6 @@ export const Roses = ({ handleSelect, product, products, addItemToCart }) => {
     addItemToCart(quantity, product);
   };
 
-  const navigate = useNavigate();
-  const goToAccountDetail = () => navigate("/cart");
-
-  const navigateTo = (a) => {
-    handleSelect(a);
-    goToAccountDetail();
-  };
-
-
   let Roses = products.filter((item) => {
     return item.categories.includes("c1");
   });

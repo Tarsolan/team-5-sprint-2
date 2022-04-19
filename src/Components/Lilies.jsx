@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 export const Lilies = ({ handleSelect, product, products, addItemToCart }) => {
   const [quantity, setQuantity] = useState();
 
@@ -9,14 +8,6 @@ export const Lilies = ({ handleSelect, product, products, addItemToCart }) => {
     e.preventDefault();
 
     addItemToCart(quantity, product);
-  };
-
-  const navigate = useNavigate();
-  const goToAccountDetail = () => navigate("/cart");
-
-  const navigateTo = (a) => {
-    handleSelect(a);
-    goToAccountDetail();
   };
 
   let Lilies = products.filter((item) => {
