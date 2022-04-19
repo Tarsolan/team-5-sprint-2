@@ -523,7 +523,7 @@ html {
   height: 267px;
   margin: 16px;
   border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.25);
 }
 
 .itemBox h2 {
@@ -604,7 +604,7 @@ html {
 .itemRow {
   display: block;
   background-color: rgba(244, 244, 244, 0.5);
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid #2b54bc;
 }
 
@@ -614,7 +614,7 @@ html {
   height: 267px;
   margin: 16px;
   border-radius: 20px;
-  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.25);
 }
 
 .itemRow h2 {
@@ -663,4 +663,38 @@ html {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   margin-left: 8px;
+}
+
+@media only screen and (max-width: 1420px) {
+  .catContainer {
+    margin: 8px 10% auto 10%;
+  }
+  .itemRow {
+    max-width: 951.5px;
+  }
+  .descrip {
+    margin: 8px 26px auto 23%;
+  }
+}
+
+@media only screen and (max-width: 975px) {
+  .descrip {
+    margin: 8px 26px auto 26px;
+  }
+}
+
+@media only screen and (max-width: 712px) {
+  .itemRow figure {
+    display: flex;
+    justify-content: center;
+  }
+  .itemRow h2 {
+    margin-left: 16px;
+  }
+  .itemRow > p {
+    margin-left: 16px;
+  }
+  .itemRow input {
+    margin-left: 16px;
+  }
 }
