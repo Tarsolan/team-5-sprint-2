@@ -456,7 +456,7 @@
 
 .mainContainer {
   position: relative;
-  margin: auto 383px auto 383px;
+  margin: 48px 383px auto 383px;
   padding-left: 48px;
   padding-right: 48px;
   border: 1px solid rgba(82, 78, 78, 0.35);
@@ -478,7 +478,7 @@
   display: grid;
   grid-template-columns: 304px 304px 304px;
   grid-template-rows: 424px 424px 424px;
-  grid-column-gap: 64px;
+  grid-column-gap: 63px;
   grid-row-gap: 32px;
 }
 
@@ -486,7 +486,7 @@
 .itemBox {
   display: block;
   background-color: rgba(244, 244, 244, 0.5);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid #2b54bc;
   width: 304px;
   height: 424px;
@@ -505,7 +505,7 @@
   height: 267px;
   margin: 16px;
   border-radius: 20px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .itemBox h2 {
@@ -524,7 +524,7 @@
 
 @media only screen and (max-width: 1850px) {
   .gridContainer {
-    grid-template-columns: repeat(2, 0.3333fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 27px;
   }
 }
@@ -537,7 +537,7 @@
     border: none;
   }
   .gridContainer {
-    grid-template-columns: repeat(2, 0.3333fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 64px;
   }
 }
@@ -558,4 +558,91 @@
   .gridContainer {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+/* Categorie Pages */
+
+.catContainer {
+  margin: 8px 25% auto 25%;
+}
+
+.catContainer h1 {
+  margin: 0;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 42px;
+}
+
+.catContainer hr {
+  margin: 8px auto 24px auto;
+}
+
+.catGridContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-row-gap: 32px;
+}
+
+.itemRow {
+  display: block;
+  background-color: rgba(244, 244, 244, 0.5);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-bottom: 2px solid #2b54bc;
+}
+
+.itemRow img {
+  float: left;
+  width: 272px;
+  height: 267px;
+  margin: 16px;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.itemRow h2 {
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 34px;
+  margin-bottom: 0px;
+}
+
+.itemRow > p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 32px;
+  margin: 8px auto;
+}
+
+.itemRow hr {
+  margin: 8px 16px 8px auto;
+}
+
+.catQuantity input {
+  margin-right: 8px;
+  width: 2rem;
+}
+
+.catCartBtn {
+  width: 125px;
+  height: 32px;
+  border-radius: 8px;
+  color: #ffff;
+  background-color: #45b3f1;
+}
+
+.descrip {
+  margin: 8px 26px auto 33%;
+}
+
+.descrip h3 {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.descrip p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  margin-left: 8px;
 }
