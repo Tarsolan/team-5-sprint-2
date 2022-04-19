@@ -24,6 +24,7 @@ html {
   --main-color: #219a8c;
   --button-color: #c58e00;
 }
+
 /* .background {
   background: linear-gradient(
     180deg,
@@ -578,6 +579,126 @@ html {
   }
 }
 
+/* Product Info Page */
+
+.info-container {
+  margin: 3% 25%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 2fr;
+  background: rgba(140, 200, 224, 0.15);
+  border: 1px solid #5f5f5f;
+  box-sizing: border-box;
+  box-shadow: 10px 10px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 16px;
+  padding-top: 10px;
+  align-items: center;
+}
+
+.info-container h2 {
+  text-align: center;
+  text-decoration: underline;
+}
+
+.info-container hr {
+  display: none;
+}
+
+.addToCart {
+  display: flex;
+  justify-content: space-around;
+  margin: auto 15px;
+}
+
+.addToCart input {
+  background: rgba(182, 181, 181, 0.5);
+  border-radius: 8px 0px 0px 8px;
+  text-align: center;
+  font-weight: 700;
+  width: 50%;
+  padding: 10px;
+}
+
+.addToCart button {
+  background: #45b3f1;
+  border-radius: 0px 8px 8px 0px;
+  color: white;
+  padding: 10px;
+  width: 50%;
+}
+
+.info-container img {
+  grid-row: span 4;
+  height: 300px;
+  width: 300px;
+  box-shadow: 0px 5px 20px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin: auto;
+}
+
+.addToCart {
+  display: flex;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.descrip-box {
+  grid-column: span 2;
+  background: rgba(181, 203, 211, 0.97);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 0px 0px 16px 16px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.info-price-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 1275px) {
+  .info-container {
+    margin: 1%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+  }
+  .addToCart {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    grid-column: span 2;
+  }
+  .addToCart input {
+    padding: 10px;
+    width: fit-content;
+  }
+  .addToCart button {
+    width: 25%;
+  }
+  .addToCart button span {
+    display: none;
+  }
+  .info-container img {
+    grid-column: span 2;
+    margin: auto;
+  }
+  .info-container h2 {
+    grid-column: span 2;
+    margin-top: 20px;
+  }
+  .info-container hr {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    grid-column: span 2;
+  }
+  .descrip-box {
+    margin: auto;
+  }
+}
+
 /* Categorie Pages */
 
 .catContainer {
@@ -632,6 +753,7 @@ html {
 }
 
 .itemRow hr {
+  display: flex;
   margin: 8px 16px 8px auto;
 }
 

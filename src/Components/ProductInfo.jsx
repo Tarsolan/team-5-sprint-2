@@ -1,17 +1,7 @@
 import React, { useState } from "react";
 import products from "../data/products.json";
 
-const ProductInfo = ({
-  // id,
-  // image,
-  // title,
-  // description,
-  // price,
-  // discontinued,
-  // categories,
-  product,
-  addItemToCart,
-}) => {
+const ProductInfo = ({ product, addItemToCart }) => {
   const { id, title, description, price, image } = product;
   const [quantity, setQuantity] = useState();
 
@@ -22,16 +12,18 @@ const ProductInfo = ({
   };
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="info-container">
       <img src={image} alt="" />
-      <p>{description}</p>
-      <p>
-        {new Intl.NumberFormat("en-CA", {
-          style: "currency",
-          currency: "CAD",
-        }).format(price / 100)}
-      </p>
+      <h2>{title}</h2>
+      <div className="info-price-box">
+        <p>
+          {new Intl.NumberFormat("en-CA", {
+            style: "currency",
+            currency: "CAD",
+          }).format(price / 100)}
+        </p>
+        <p>Product ID: {id}</p>
+      </div>
       <form className="addToCart" onSubmit={sendDataToCart}>
         <input
           type="number"
@@ -41,24 +33,56 @@ const ProductInfo = ({
           min="0"
         />
         <button type="submit" className="addToCartBtn">
-          <i className="fas fa-cart-plus"></i> Add to cart!
+          <i className="fas fa-cart-plus"></i> <span>Add to cart!</span>
         </button>
       </form>
+
+      <hr />
+
+      <div className="descrip-box">
+        <h3>Description</h3>
+        <p>{description}</p>
+      </div>
     </div>
-    // <div>
-    //   <img src={image} alt="" />
-    //   <p>I am a {title}</p>
-    //   <p>{description}</p>
-    //   <p>
-    //     {new Intl.NumberFormat("en-CA", {
-    //       style: "currency",
-    //       currency: "CAD",
-    //     }).format(price / 100)}
-    //   </p>
-    //   <p>{product.title}</p>
-    // </div>
   );
 };
+// <div className="info-container">
+//   <h2>{title}</h2>
+//   <img src={image} alt="" />
+//   <p>{description}</p>
+//   <p>
+//     {new Intl.NumberFormat("en-CA", {
+//       style: "currency",
+//       currency: "CAD",
+//     }).format(price / 100)}
+//   </p>
+//   <form className="addToCart" onSubmit={sendDataToCart}>
+//     <input
+//       type="number"
+//       name="quantity"
+//       id="quantity"
+//       onChange={(e) => setQuantity(e.target.value)}
+//       min="0"
+//     />
+//     <button type="submit" className="addToCartBtn">
+//       <i className="fas fa-cart-plus"></i> Add to cart!
+//     </button>
+//   </form>
+// </div>
+// <div>
+//   <img src={image} alt="" />
+//   <p>I am a {title}</p>
+//   <p>{description}</p>
+//   <p>
+//     {new Intl.NumberFormat("en-CA", {
+//       style: "currency",
+//       currency: "CAD",
+//     }).format(price / 100)}
+//   </p>
+//   <p>{product.title}</p>
+// </div>
+//  );
+//};
 
 export default ProductInfo;
 

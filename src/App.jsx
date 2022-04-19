@@ -30,7 +30,7 @@ function App() {
   // const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
-  const [authenticated, setAuthentication] = useState(false);
+  // const [authenticated, setAuthentication] = useState(false);
   const [currentProduct, setCurrentProduct] = useState("");
   const [cartID, updateCartID] = useState(0);
 
@@ -64,7 +64,7 @@ function App() {
 
   // Fetch Products from server
   // const fetchProducts = async () => {
-  //   const res = await fetch("http://localhost:5000/products");
+  //   const res = await fetch("http://localhost:5002/products");
   //   const data = await res.json();
   //   console.log(data);
 
@@ -73,7 +73,7 @@ function App() {
 
   // Fetch Users from server
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:5000/users");
+    const res = await fetch("http://localhost:5002/users");
     const data = await res.json();
     console.log(data);
 
@@ -82,7 +82,7 @@ function App() {
 
   // Fetch a single User from server
   const fetchUser = async (id) => {
-    const res = await fetch(`http://localhost:5000/users/${id}`);
+    const res = await fetch(`http://localhost:5002/users/${id}`);
     const data = await res.json();
     console.log(data);
 
@@ -98,7 +98,7 @@ function App() {
 
     // Save new User to list of users
     const addNewUser = async (user) => {
-      const res = await fetch("http://localhost:5000/users", {
+      const res = await fetch("http://localhost:5002/users", {
         method: `POST`,
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(user),
@@ -119,7 +119,7 @@ function App() {
     const userToEdit = await fetchUser(userData.id);
     const updUser = { ...userData };
 
-    const res = await fetch(`http://localhost:5000/users/${userData.id}`, {
+    const res = await fetch(`http://localhost:5002/users/${userData.id}`, {
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(updUser),
@@ -132,7 +132,7 @@ function App() {
 
   //Delete User - NEEDS UPDATE
   const deleteUser = async (id) => {
-    await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
+    await fetch(`http://localhost:5002/users/${id}`, { method: "DELETE" });
   };
 
   // Changes Password
@@ -140,7 +140,7 @@ function App() {
     const userToEdit = await fetchUser(id);
     const updPass = { ...userToEdit, password: newPass };
 
-    const res = await fetch(`http://localhost:5000/users/${id}`, {
+    const res = await fetch(`http://localhost:5002/users/${id}`, {
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(updPass),
@@ -223,7 +223,7 @@ function App() {
       ],
     };
 
-    const res = await fetch(`http://localhost:5000/users/${currentUser.id}`, {
+    const res = await fetch(`http://localhost:5002/users/${currentUser.id}`, {
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(updCart),
@@ -258,7 +258,7 @@ function App() {
     };
     console.log(newCart.cart);
 
-    const res = await fetch(`http://localhost:5000/users/${userID}`, {
+    const res = await fetch(`http://localhost:5002/users/${userID}`, {
       method: "PUT",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(newCart),

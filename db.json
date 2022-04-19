@@ -298,7 +298,26 @@
       "city": "St. John's",
       "prov": "NL",
       "postal": "A1B 5A9",
-      "cart": [],
+      "cart": [
+        {
+          "cartItemID": 1,
+          "quantity": "6",
+          "productId": "p2",
+          "title": "4 Red Roses",
+          "description": "4 red roses arranged in a glass vase with added greenery and baby's breath.",
+          "price": 3999,
+          "image": "https://i.ibb.co/K2Gb4Lk/4-Red-Roses.jpg"
+        },
+        {
+          "cartItemID": 3,
+          "quantity": "4",
+          "productId": "p18",
+          "title": "Sympathies",
+          "description": "A pretty assortment of white and/or cream blooms rests in a clear glass bowl vase. Flowers include roses, carnations, alstroemeria and waxflower, plus complementary greenery.",
+          "price": 7499,
+          "image": "https://i.ibb.co/bbsm2hm/Sympathies.jpg"
+        }
+      ],
       "id": 3
     }
   ]
