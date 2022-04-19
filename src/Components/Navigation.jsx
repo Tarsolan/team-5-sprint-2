@@ -8,7 +8,7 @@ const Navigation = ({ loginCheck, name, cart }) => {
       <Navbar bg="custom" expand="xl" variant="flower">
         <Container>
           <Navbar.Brand>
-            <Link to="/home">Store Name and Icon will go here</Link>
+            <Link to="/main">Store Name and Icon will go here</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" color="">
