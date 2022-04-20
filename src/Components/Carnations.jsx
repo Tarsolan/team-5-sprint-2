@@ -23,7 +23,7 @@ export const Carnations = ({ products, addItemToCart }) => {
           return (
             <div className="itemRow" key={item.id}>
               <figure>
-                <img src={item.image} alt="image-JPG" />
+                <img src={item.image} alt="A Carnation" />
               </figure>
               <h2>{item.title}</h2>
               <p>

@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useCallback } from "react";
+import { React, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const EditAccount = ({ user, onEdit }) => {
@@ -7,15 +7,13 @@ const EditAccount = ({ user, onEdit }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [phone, setPhone] = useState(user.phone);
-  const [password, setPassword] = useState(user.password);
+  const password = user.password;
 
   // Might be fun to add a pop-up window that includes a 'confirm password to confirm changes' prompt.
-  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [address, setAddress] = useState(user.address);
   const [city, setCity] = useState(user.city);
   const [prov, setProv] = useState(user.prov);
   const [postal, setPostal] = useState(user.postal);
-  const [captcha, setCaptcha] = useState(false);
 
   const navigate = useNavigate();
   const goToAccountDetail = () => navigate("/AccDetails");

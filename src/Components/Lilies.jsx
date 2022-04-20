@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export const Lilies = ({ products, addItemToCart }) => {
   const [quantity, setQuantity] = useState();
@@ -34,7 +34,7 @@ export const Lilies = ({ products, addItemToCart }) => {
           return (
             <div className="itemRow" key={item.id}>
               <figure>
-                <img src={item.image} alt="image-JPG" />
+                <img src={item.image} alt="A Lily" />
               </figure>
               <h2>{item.title}</h2>
               <p>

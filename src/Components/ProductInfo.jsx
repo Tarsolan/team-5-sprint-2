@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import products from "../data/products.json";
 
 const ProductInfo = ({ product, addItemToCart }) => {
   const { id, title, description, price, image } = product;

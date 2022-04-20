@@ -1,9 +1,5 @@
 import React from "react";
 import products from "../data/products.json";
-import Roses from "./Roses";
-import Lilies from "./Lilies";
-import Carnations from "./Carnations";
-import Mixed from "./Mixed";
 import { useNavigate } from "react-router-dom";
 
 const Main = ({ handleSelect }) => {
@@ -52,7 +48,7 @@ const Main = ({ handleSelect }) => {
                 onClick={() => navigateTo(item)}
               >
                 <figure>
-                  <img src={item.image} alt="image-JPG" />
+                  <img src={item.image} alt="product" />
                 </figure>
                 <h2>{item.title}</h2>
                 <p>
@@ -76,7 +72,7 @@ const Main = ({ handleSelect }) => {
                 onClick={() => navigateTo(item)}
               >
                 <figure>
-                  <img src={item.image} alt="image-JPG" />
+                  <img src={item.image} alt="product" />
                 </figure>
                 <h2>{item.title}</h2>
                 <p>
@@ -100,7 +96,7 @@ const Main = ({ handleSelect }) => {
                 onClick={() => navigateTo(item)}
               >
                 <figure>
-                  <img src={item.image} alt="image-JPG" />
+                  <img src={item.image} alt="product" />
                 </figure>
                 <h2>{item.title}</h2>
                 <p>
@@ -124,7 +120,7 @@ const Main = ({ handleSelect }) => {
                 onClick={() => navigateTo(item)}
               >
                 <figure>
-                  <img src={item.image} alt="image-JPG" />
+                  <img src={item.image} alt="product" />
                 </figure>
                 <h2>{item.title}</h2>
                 <p>
