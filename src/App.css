@@ -70,6 +70,7 @@ html {
   --itemBoxBackground: rgba(78, 139, 65, 0.3);
   --deleteButton: red;
   --cartTotalBack: rgba(78, 139, 65, 0.3);
+  --cartInput: rgba(180, 179, 179, 0.877);
   --productInfoBack: rgba(78, 139, 65, 0.3);
   --productInfoDescrip: rgba(78, 139, 65, 0.7);
   --categoryProductBack: rgba(78, 139, 65, 0.3);
@@ -171,8 +172,10 @@ html {
 }
 
 .detailsRow button,
+.login-form button,
 .account-section button {
   background-color: var(--button-color);
+  color: black;
 }
 
 .account-section h2 {
@@ -662,14 +665,16 @@ html {
   display: flex;
   justify-content: space-around;
   margin: auto 15px;
+  border: 1px solid grey;
+  border-radius: 8px;
 }
 
 .addToCart input {
-  background: rgba(182, 181, 181, 0.5);
+  background: var(--cartInput);
   border-radius: 8px 0px 0px 8px;
   text-align: center;
   font-weight: 700;
-  width: 50%;
+  width: 20%;
   padding: 10px;
 }
 
@@ -678,7 +683,7 @@ html {
   border-radius: 0px 8px 8px 0px;
   color: white;
   padding: 10px;
-  width: 50%;
+  width: 80%;
 }
 
 .info-container img {
@@ -726,10 +731,10 @@ html {
   }
   .addToCart input {
     padding: 10px;
-    width: fit-content;
+    width: 50%;
   }
   .addToCart button {
-    width: 25%;
+    width: 50%;
   }
   .addToCart button span {
     display: none;
