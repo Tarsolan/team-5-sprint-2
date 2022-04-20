@@ -21,7 +21,7 @@ const Navigation = ({ loginCheck, name, cart }) => {
                 letterSpacing: "0.16em",
               }}
             >
-              <img src={logo} width="64px" height="64px" />
+              <img src={logo} width="64px" height="64px" alt="Store-Logo" />
               Flower Power
             </Link>
           </Navbar.Brand>

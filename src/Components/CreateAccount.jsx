@@ -1,5 +1,5 @@
-import { React, useState, useEffect, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { React, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreateAccount = ({ onAdd, users }) => {
   const [email, setEmail] = useState("");
@@ -14,6 +14,7 @@ const CreateAccount = ({ onAdd, users }) => {
   const [postal, setPostal] = useState("");
   const [captcha, setCaptcha] = useState(false);
   const cart = [];
+  const orders = [];
 
   const navigate = useNavigate();
   const goToAccountDetail = () => navigate("/AccDetails");
@@ -24,11 +25,7 @@ const CreateAccount = ({ onAdd, users }) => {
     e.preventDefault();
 
     // Validate what needs to be validated before saving anything!
-    users.map((user) => {
-      if (user.email === email) {
-        returnFlag = true;
-      }
-    });
+    users.map((user) => user.email === email && (returnFlag = true));
 
     if (returnFlag) {
       alert(
@@ -59,6 +56,7 @@ const CreateAccount = ({ onAdd, users }) => {
       prov,
       postal,
       cart,
+      orders,
     });
 
     goToAccountDetail();

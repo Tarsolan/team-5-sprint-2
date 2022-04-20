@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ShoppingCart = ({ userInfo, products, onDelete, loggedIn }) => {
+const ShoppingCart = ({ userInfo, onDelete, onCheckout }) => {
   const { id, cart } = userInfo;
-
-  const { title, description, price, image } = products;
   const [total, setTotal] = useState();
   const [subTotal, setSubTotal] = useState();
   const [hst, setHST] = useState();
@@ -12,15 +10,18 @@ const ShoppingCart = ({ userInfo, products, onDelete, loggedIn }) => {
   useEffect(() => {
     let subTotal = 0;
     let hst = 0;
-    cart.map((item) => {
-      subTotal += item.price * item.quantity;
-    });
+    cart.map((item) => (subTotal += item.price * item.quantity));
     setSubTotal(subTotal);
     hst = subTotal * 0.15;
     setHST(hst);
 
     setTotal(subTotal + hst);
-  }, [userInfo]);
+  }, [cart]);
+
+  const runCheckout = () => {
+    alert("Checkout complete! Thanks for your order!");
+    onCheckout({ subTotal, hst, total });
+  };
 
   return (
     <div className="background">
@@ -36,7 +37,7 @@ const ShoppingCart = ({ userInfo, products, onDelete, loggedIn }) => {
           cart.map((item) => {
             return (
               <div key={item.cartItemID} className="cart-item">
-                <img src={item.image} alt="Flower Image" />
+                <img src={item.image} alt="Flower" />
                 <div className="cart-item-text">
                   <h3>{item.title}</h3>
                   <div
@@ -98,11 +99,11 @@ const ShoppingCart = ({ userInfo, products, onDelete, loggedIn }) => {
                   }).format(total / 100)}
                 </span>
               </div>
-              <button className="checkout-btn-small">
+              <button className="checkout-btn-small" onClick={runCheckout}>
                 <i className="fas fa-shopping-cart"></i> <span>Checkout!</span>
               </button>
             </div>
-            <button className="checkout-btn">
+            <button className="checkout-btn" onClick={runCheckout}>
               <i className="fas fa-shopping-cart"></i> <span>Checkout!</span>
             </button>
           </div>

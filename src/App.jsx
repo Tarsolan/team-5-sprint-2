@@ -1,13 +1,5 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  NavLink,
-  useNavigate,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import CreateAccount from "./Components/CreateAccount";
@@ -30,9 +22,9 @@ function App() {
   // const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
-  // const [authenticated, setAuthentication] = useState(false);
   const [currentProduct, setCurrentProduct] = useState("");
   const [cartID, updateCartID] = useState(0);
+  const [orderID, updateOrderID] = useState(0);
 
   // Gets Products & Users once, pass it to the main display component
   useEffect(() => {
@@ -45,6 +37,7 @@ function App() {
       const usersFromServer = await fetchUsers();
       setUsers(usersFromServer);
       setCurrentUser(usersFromServer[0]);
+      setLoggedIn(false);
       // This line sets the cart id to the guest checkout id - ideally it will actually reset the value to 0 but we'll do that later
       try {
         console.log(
@@ -94,9 +87,6 @@ function App() {
     return data;
   };
 
-  // Set current user
-  const chooseCurrentUser = () => {};
-
   // Add User
   const addUser = (user) => {
     console.log(user);
@@ -121,7 +111,6 @@ function App() {
 
   // Edit User
   const editUser = async (userData) => {
-    const userToEdit = await fetchUser(userData.id);
     const updUser = { ...userData };
 
     const res = await fetch(`http://localhost:5002/users/${userData.id}`, {
@@ -136,9 +125,9 @@ function App() {
   };
 
   //Delete User - NEEDS UPDATE
-  const deleteUser = async (id) => {
-    await fetch(`http://localhost:5002/users/${id}`, { method: "DELETE" });
-  };
+  // const deleteUser = async (id) => {
+  //   await fetch(`http://localhost:5002/users/${id}`, { method: "DELETE" });
+  // };
 
   // Changes Password
   const updatePassword = async (id, newPass) => {
@@ -165,11 +154,10 @@ function App() {
   // Logs a user in
   const logIn = (email, password) => {
     let user_found = false;
-    users.map((user) => {
+    users.forEach((user) => {
       if (user.email === email && user.password === password) {
         setCurrentUser(user);
         setLoggedIn(true);
-        user_found = true;
 
         // This line fetches the most recent cartID, and will use it when creating new cart items
         try {
@@ -178,8 +166,15 @@ function App() {
         } catch (error) {
           console.log("User has no shopping cart... yet.");
         }
+        // This line fetches the most recent orderID, and will use it when creating new sales
+        try {
+          console.log(user.orders[user.orders.length - 1].orderID + 1);
+          updateCartID(user.orders[user.orders.length - 1].orderID + 1);
+        } catch (error) {
+          console.log("User has no orders... yet.");
+        }
         alert(`Welcome ${user.firstName}.`);
-        return;
+        return (user_found = true);
       }
     });
     if (user_found === false) {
@@ -280,6 +275,47 @@ function App() {
     setCurrentUser(data);
   };
 
+  // Handles a purchase
+  const onCheckout = async (orderInfo) => {
+    let newUser = {};
+    let checkoutInfo = { orderID, items: currentUser.cart, ...orderInfo };
+
+    // We do this because we don't need to save anything if a guest checkout is being done
+    if (currentUser.id === "G") {
+      newUser = {
+        ...currentUser,
+        cart: [],
+        orders: [],
+      };
+    } else {
+      newUser = {
+        ...currentUser,
+        cart: [],
+        orders: [...currentUser.orders, checkoutInfo],
+      };
+    }
+
+    const res = await fetch(`http://localhost:5002/users/${currentUser.id}`, {
+      method: "PUT",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(newUser),
+    });
+
+    const data = await res.json();
+
+    // Updates current user in current session
+    setUsers(
+      users.map((user) =>
+        user.id === currentUser.id
+          ? { ...user, cart: {}, orders: data.orders }
+          : user
+      )
+    );
+    setCurrentUser(data);
+    currentUser.id !== "G" &&
+      updateOrderID(data.orders[data.orders.length - 1].orderID + 1);
+  };
+
   return (
     <Router>
       <header>
@@ -309,9 +345,9 @@ function App() {
               element={
                 <ShoppingCart
                   userInfo={currentUser}
-                  products={products}
                   onDelete={removeItemFromCart}
                   loggedIn={loggedIn}
+                  onCheckout={onCheckout}
                 />
               }
             />
