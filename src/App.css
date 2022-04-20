@@ -37,8 +37,8 @@ html {
   --categoryProductBack: rgba(244, 244, 244, 0.5);
 } */
 
-/* Tester */
-:root {
+/* Tester - Green, Yellow, White */
+/* :root {
   --rootColor: rgba(249, 251, 252, 1);
   --htmlColor: rgba(249, 251, 252, 1);
   --nav-color: rgba(78, 139, 65, 1);
@@ -52,7 +52,29 @@ html {
   --productInfoBack: rgba(251, 213, 95, 0.2);
   --productInfoDescrip: rgba(78, 139, 65, 0.7);
   --categoryProductBack: rgba(251, 213, 95, 0.2);
+} */
+
+/* Tester - Green, Blue, White */
+:root {
+  --rootColor: linear-gradient(
+    180deg,
+    rgba(140, 200, 224, 0.75) 0%,
+    rgba(140, 200, 224, 0.4) 100%
+  );
+  --htmlColor: rgba(140, 200, 224, 0.4);
+  --nav-color: rgba(78, 139, 65, 1);
+  --main-color: rgba(78, 139, 65, 1);
+  --button-color: rgba(251, 213, 95, 1);
+  --button-color-hover: rgb(109, 93, 46);
+  --cartItemColor: rgba(78, 139, 65, 0.3);
+  --itemBoxBackground: rgba(78, 139, 65, 0.3);
+  --deleteButton: red;
+  --cartTotalBack: rgba(78, 139, 65, 0.3);
+  --productInfoBack: rgba(78, 139, 65, 0.3);
+  --productInfoDescrip: rgba(78, 139, 65, 0.7);
+  --categoryProductBack: rgba(78, 139, 65, 0.3);
 }
+
 /* .background {
   background: linear-gradient(
     180deg,
