@@ -813,7 +813,7 @@ html {
 
 .itemRow hr {
   display: flex;
-  margin: 8px 16px 8px auto;
+  margin: 8px 16px 8px 8px;
 }
 
 .catQuantity input {
