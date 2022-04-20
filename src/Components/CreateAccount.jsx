@@ -1,7 +1,7 @@
 import { React, useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const CreateAccount = ({ onAdd }) => {
+const CreateAccount = ({ onAdd, users }) => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -20,7 +20,23 @@ const CreateAccount = ({ onAdd }) => {
 
   // On Submit, save values to localstorage (to represent saving them to a server)
   const submitData = (e) => {
+    let returnFlag = false;
     e.preventDefault();
+
+    // Validate what needs to be validated before saving anything!
+    users.map((user) => {
+      if (user.email === email) {
+        returnFlag = true;
+      }
+    });
+
+    if (returnFlag) {
+      alert(
+        "Sorry, that email address is already in use. Please use another email."
+      );
+      return;
+    }
+
     if (!captcha) {
       alert(
         "You, my friend, are a robot. We don't take kindly to your kind around here."
@@ -31,6 +47,7 @@ const CreateAccount = ({ onAdd }) => {
       alert("Invalid entry. The two passwords do not match.");
       return;
     }
+
     onAdd({
       email,
       firstName,

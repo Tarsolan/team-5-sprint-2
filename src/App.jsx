@@ -62,6 +62,11 @@ function App() {
     getUsers();
   }, []);
 
+  // // When user changes, this will update the user-dependant states
+  // useEffect(() => {
+  //   updateCartID(currentUser.cart[currentUser.cart.length - 1].cartItemID + 1);
+  // }, [currentUser]);
+
   // Fetch Products from server
   // const fetchProducts = async () => {
   //   const res = await fetch("http://localhost:5002/products");
@@ -189,8 +194,8 @@ function App() {
   const logOut = () => {
     setLoggedIn(false);
     alert(`Logging you out, ${currentUser.firstName}. Thank you for visiting.`);
-    setCurrentUser([]);
-    updateCartID(0);
+    setCurrentUser(users[0]);
+    updateCartID(users[0].cart[users[0].cart.length - 1].cartItemID + 1);
   };
 
   // Handle which product is selected in main.js to pass to info.js
@@ -287,110 +292,115 @@ function App() {
       </header>
 
       <div>
-        <Routes>
-          <Route path="/home" element={<></>}></Route>
-          <Route
-            path="/changePass"
-            element={
-              <ChangePassword
-                currentUser={currentUser}
-                updatePass={updatePassword}
-              />
-            }
-          ></Route>
-          <Route
-            path="/cart"
-            element={
-              <ShoppingCart
-                userInfo={currentUser}
-                products={products}
-                onDelete={removeItemFromCart}
-                loggedIn={loggedIn}
-              />
-            }
-          />
-          <Route
-            path="/createAcc"
-            element={<CreateAccount onAdd={addUser} />}
-          ></Route>
-          <Route
-            path="/info"
-            element={
-              <ProductInfo
-                product={currentProduct}
-                addItemToCart={addItemToCart}
-              />
-            }
-          ></Route>
-          {/* Kind of a security thing, to prevent account details from being accessed if no one is logged in */}
-          {loggedIn ? (
+        <main>
+          <Routes>
+            <Route path="/home" element={<></>}></Route>
             <Route
-              path="/AccDetails"
-              element={<AccountDetails user={currentUser} logOut={logOut} />}
+              path="/changePass"
+              element={
+                <ChangePassword
+                  currentUser={currentUser}
+                  updatePass={updatePassword}
+                />
+              }
             ></Route>
-          ) : (
-            <Route path="/AccDetails" element={<Login logIn={logIn} />}></Route>
-          )}
-          <Route
-            path="/EditAcc"
-            element={<EditAccount user={currentUser} onEdit={editUser} />}
-          ></Route>
-
-          {/* Not sure if this was the right way to handle this - once logged in, the login path leads to the account details page */}
-          {loggedIn ? (
             <Route
-              path="/login"
-              element={<AccountDetails user={currentUser} logOut={logOut} />}
+              path="/cart"
+              element={
+                <ShoppingCart
+                  userInfo={currentUser}
+                  products={products}
+                  onDelete={removeItemFromCart}
+                  loggedIn={loggedIn}
+                />
+              }
+            />
+            <Route
+              path="/createAcc"
+              element={<CreateAccount onAdd={addUser} users={users} />}
             ></Route>
-          ) : (
-            <Route path="/login" element={<Login logIn={logIn} />}></Route>
-          )}
+            <Route
+              path="/info"
+              element={
+                <ProductInfo
+                  product={currentProduct}
+                  addItemToCart={addItemToCart}
+                />
+              }
+            ></Route>
+            {/* Kind of a security thing, to prevent account details from being accessed if no one is logged in */}
+            {loggedIn ? (
+              <Route
+                path="/AccDetails"
+                element={<AccountDetails user={currentUser} logOut={logOut} />}
+              ></Route>
+            ) : (
+              <Route
+                path="/AccDetails"
+                element={<Login logIn={logIn} />}
+              ></Route>
+            )}
+            <Route
+              path="/EditAcc"
+              element={<EditAccount user={currentUser} onEdit={editUser} />}
+            ></Route>
 
-          <Route
-            path="/main"
-            element={<Main handleSelect={handleSelect} />}
-          ></Route>
-          <Route
-            path="/lilies"
-            element={
-              <Lilies
-                products={products}
-                handleSelect={handleSelect}
-                addItemToCart={addItemToCart}
-              />
-            }
-          ></Route>
-          <Route
-            path="/mixed"
-            element={
-              <Mixed
-                products={products}
-                handleSelect={handleSelect}
-                addItemToCart={addItemToCart}
-              />
-            }
-          ></Route>
-          <Route
-            path="/carnations"
-            element={
-              <Carnations
-                products={products}
-                handleSelect={handleSelect}
-                addItemToCart={addItemToCart}
-              />
-            }
-          ></Route>
-          <Route
-            path="/roses"
-            element={
-              <Roses
-                products={products}
-                handleSelect={handleSelect}
-                addItemToCart={addItemToCart}
-              />
-            }
-          ></Route>
-        </Routes>
+            {/* Not sure if this was the right way to handle this - once logged in, the login path leads to the account details page */}
+            {loggedIn ? (
+              <Route
+                path="/login"
+                element={<AccountDetails user={currentUser} logOut={logOut} />}
+              ></Route>
+            ) : (
+              <Route path="/login" element={<Login logIn={logIn} />}></Route>
+            )}
+
+            <Route
+              path="/main"
+              element={<Main handleSelect={handleSelect} />}
+            ></Route>
+            <Route
+              path="/lilies"
+              element={
+                <Lilies
+                  products={products}
+                  handleSelect={handleSelect}
+                  addItemToCart={addItemToCart}
+                />
+              }
+            ></Route>
+            <Route
+              path="/mixed"
+              element={
+                <Mixed
+                  products={products}
+                  handleSelect={handleSelect}
+                  addItemToCart={addItemToCart}
+                />
+              }
+            ></Route>
+            <Route
+              path="/carnations"
+              element={
+                <Carnations
+                  products={products}
+                  handleSelect={handleSelect}
+                  addItemToCart={addItemToCart}
+                />
+              }
+            ></Route>
+            <Route
+              path="/roses"
+              element={
+                <Roses
+                  products={products}
+                  handleSelect={handleSelect}
+                  addItemToCart={addItemToCart}
+                />
+              }
+            ></Route>
+          </Routes>
+        </main>
       </div>
     </Router>
   );

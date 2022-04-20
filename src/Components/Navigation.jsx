@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
+import logo from "../ListingPics/FlowerLogo.png";
 
 const Navigation = ({ loginCheck, name, cart }) => {
   if (cart === undefined) {
@@ -12,7 +13,17 @@ const Navigation = ({ loginCheck, name, cart }) => {
       <Navbar bg="custom" expand="xl" variant="flower">
         <Container>
           <Navbar.Brand>
-            <Link to="/main">Store Name and Icon will go here</Link>
+            <Link
+              to="/main"
+              style={{
+                fontFamily: "Lobster Two, cursive",
+                fontStyle: "normal",
+                letterSpacing: "0.16em",
+              }}
+            >
+              <img src={logo} width="64px" height="64px" />
+              Flower Power
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" color="">

@@ -6,23 +6,34 @@
 
 /* Body CSS */
 html {
-  background: rgba(140, 200, 224, 0.4);
+  background: var(--htmlColor);
 }
 
 #root {
-  background: linear-gradient(
-    180deg,
-    rgba(140, 200, 224, 0.75) 0%,
-    rgba(140, 200, 224, 0.4) 100%
-  );
+  background: var(--rootColor);
   margin: auto;
   height: auto;
 }
 
+/* Color Variables */
 :root {
+  --rootColor: linear-gradient(
+    180deg,
+    rgba(140, 200, 224, 0.75) 0%,
+    rgba(140, 200, 224, 0.4) 100%
+  );
+  --htmlColor: rgba(140, 200, 224, 0.4);
   --nav-color: #9a6d6d;
-  --main-color: #219a8c;
-  --button-color: #c58e00;
+  --main-color: #9a6d6d;
+  --button-color: #45b3f1;
+  --button-color-hover: #27c500;
+  --cartItemColor: rgba(244, 244, 244, 0.5);
+  --itemBoxBackground: rgba(244, 244, 244, 0.5);
+  --deleteButton: red;
+  --cartTotalBack: rgba(244, 244, 244, 0.5);
+  --productInfoBack: rgba(140, 200, 224, 0.15);
+  --productInfoDescrip: rgba(181, 203, 211, 0.97);
+  --categoryProductBack: rgba(244, 244, 244, 0.5);
 }
 
 /* .background {
@@ -50,7 +61,11 @@ html {
 
 .navbar-flower {
   background: var(--nav-color);
-  padding: 0px;
+  padding: 0px !important;
+}
+
+.container {
+  max-width: 1140px !important;
 }
 
 .navbar-flower a:hover,
@@ -310,7 +325,7 @@ html {
   /* grid-template-columns: 1fr 1fr 1fr; */
   grid-template-columns: 0.25fr 1fr 0.05fr;
   margin: auto 12.5% 3% 12.5%;
-  background: rgba(244, 244, 244, 0.5);
+  background: var(--cartItemColor);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   width: auto;
@@ -331,7 +346,7 @@ html {
   margin: auto;
   display: none;
   color: white;
-  background-color: red;
+  background-color: var(--deleteButton);
 }
 
 .cart-item-delete {
@@ -339,7 +354,7 @@ html {
   padding: 5px 10px;
   margin: auto;
   color: white;
-  background-color: red;
+  background-color: var(--deleteButton);
 }
 
 .delete-small:hover,
@@ -353,7 +368,7 @@ html {
 
 .cart-empty {
   margin: auto 12.5% 3% 12.5%;
-  background: rgba(244, 244, 244, 0.5);
+  background: var(--cartItemColor);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   width: auto;
@@ -392,7 +407,7 @@ html {
 
 /* Shopping Cart - Totals */
 .total-background {
-  background: rgba(244, 244, 244, 0.5);
+  background: var(--cartTotalBack);
   border: 0.25px solid rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   margin: auto 12.5%;
@@ -504,7 +519,7 @@ html {
 /* top, right, bottom, left */
 .itemBox {
   display: block;
-  background-color: rgba(244, 244, 244, 0.5);
+  background-color: var(--itemBoxBackground);
   box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid #2b54bc;
   width: 304px;
@@ -586,7 +601,7 @@ html {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 2fr;
-  background: rgba(140, 200, 224, 0.15);
+  background: var(--productInfoBack);
   border: 1px solid #5f5f5f;
   box-sizing: border-box;
   box-shadow: 10px 10px 4px 3px rgba(0, 0, 0, 0.25);
@@ -620,7 +635,7 @@ html {
 }
 
 .addToCart button {
-  background: #45b3f1;
+  background: var(--button-color);
   border-radius: 0px 8px 8px 0px;
   color: white;
   padding: 10px;
@@ -644,7 +659,7 @@ html {
 
 .descrip-box {
   grid-column: span 2;
-  background: rgba(181, 203, 211, 0.97);
+  background: var(--productInfoDescrip);
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 0px 0px 16px 16px;
@@ -724,7 +739,7 @@ html {
 
 .itemRow {
   display: block;
-  background-color: rgba(244, 244, 244, 0.5);
+  background-color: var(--categoryProductBack);
   box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid #2b54bc;
 }
@@ -767,7 +782,7 @@ html {
   height: 32px;
   border-radius: 8px;
   color: #ffff;
-  background-color: #45b3f1;
+  background-color: var(--button-color);
 }
 
 .descrip {
