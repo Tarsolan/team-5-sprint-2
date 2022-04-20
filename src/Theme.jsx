@@ -21,6 +21,7 @@ const green_theme = `:root {
     --productInfoBack: rgba(251, 213, 95, 0.2);
     --productInfoDescrip: rgba(78, 139, 65, 0.7);
     --categoryProductBack: rgba(251, 213, 95, 0.2);
+    --checkout-button-hover: orange
   }`;
 
 const red_theme = `:root {

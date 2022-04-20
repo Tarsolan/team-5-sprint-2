@@ -52,6 +52,7 @@ html {
   --productInfoBack: rgba(251, 213, 95, 0.2);
   --productInfoDescrip: rgba(78, 139, 65, 0.7);
   --categoryProductBack: rgba(251, 213, 95, 0.2);
+  --checkout-button-hover: orange
 } */
 
 /* Tester - Green, Blue, White */
@@ -74,6 +75,7 @@ html {
   --productInfoBack: rgba(78, 139, 65, 0.3);
   --productInfoDescrip: rgba(78, 139, 65, 0.7);
   --categoryProductBack: rgba(78, 139, 65, 0.3);
+  --checkout-button-hover: orange
 } */
 
 /* .background {
@@ -173,9 +175,20 @@ html {
 
 .detailsRow button,
 .login-form button,
-.account-section button {
+.account-section button,
+.change-password-form button {
   background-color: var(--button-color);
   color: black;
+  transition: 0.2s;
+}
+
+.detailsRow button:hover,
+.login-form button:hover,
+.account-section button:hover,
+.change-password-form button:hover {
+  transition: 0.2s;
+  background-color: var(--checkout-button-hover);
+  color: #000000;
 }
 
 .account-section h2 {
@@ -338,8 +351,14 @@ html {
 
 .account-section-login button {
   background: var(--button-color);
+  transition: 0.2s;
   border-radius: 8px;
   padding: 10px 30px;
+}
+
+.account-section-login button:hover {
+  transition: 0.2s;
+  background-color: var(--checkout-button-hover);
 }
 
 .login-new-user {
@@ -472,7 +491,7 @@ html {
   align-self: center;
   background: var(--button-color);
   border-radius: 8px;
-  color: white;
+  color: black;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
@@ -490,6 +509,7 @@ html {
 .checkout-btn-small:hover {
   transition: 0.2s;
   color: black;
+  background-color: var(--checkout-button-hover);
 }
 
 .total-detail {
@@ -566,9 +586,12 @@ html {
   border-bottom: 2px solid #2b54bc;
   width: 304px;
   height: 424px;
+  transition: 0.2s;
 }
 
 .itemBox:hover {
+  transform: scale(1.25);
+  transition: 0.2s;
   cursor: pointer;
 }
 
@@ -663,10 +686,11 @@ html {
 
 .addToCart {
   display: flex;
-  justify-content: space-around;
-  margin: auto 15px;
+  justify-content: space-evenly;
+  margin: auto;
   border: 1px solid grey;
   border-radius: 8px;
+  width: auto;
 }
 
 .addToCart input {
@@ -674,7 +698,7 @@ html {
   border-radius: 8px 0px 0px 8px;
   text-align: center;
   font-weight: 700;
-  width: 20%;
+  width: auto;
   padding: 10px;
 }
 
@@ -683,7 +707,7 @@ html {
   border-radius: 0px 8px 8px 0px;
   color: white;
   padding: 10px;
-  width: 80%;
+  width: auto;
 }
 
 .info-container img {
@@ -697,7 +721,6 @@ html {
 
 .addToCart {
   display: flex;
-
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
