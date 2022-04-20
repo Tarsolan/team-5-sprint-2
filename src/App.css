@@ -6,74 +6,23 @@
 
 /* Body CSS */
 html {
-  background: var(--htmlColor);
+  background: rgba(140, 200, 224, 0.4);
 }
 
 #root {
-  background: var(--rootColor);
+  background: linear-gradient(
+    180deg,
+    rgba(140, 200, 224, 0.75) 0%,
+    rgba(140, 200, 224, 0.4) 100%
+  );
   margin: auto;
   height: auto;
 }
 
-/* Color Variables */
-/* Original */
-/* :root {
-  --rootColor: linear-gradient(
-    180deg,
-    rgba(140, 200, 224, 0.75) 0%,
-    rgba(140, 200, 224, 0.4) 100%
-  );
-  --htmlColor: rgba(140, 200, 224, 0.4);
-  --nav-color: #9a6d6d;
-  --main-color: #9a6d6d;
-  --button-color: #45b3f1;
-  --button-color-hover: #27c500;
-  --cartItemColor: rgba(244, 244, 244, 0.5);
-  --itemBoxBackground: rgba(244, 244, 244, 0.5);
-  --deleteButton: red;
-  --cartTotalBack: rgba(244, 244, 244, 0.5);
-  --productInfoBack: rgba(140, 200, 224, 0.15);
-  --productInfoDescrip: rgba(181, 203, 211, 0.97);
-  --categoryProductBack: rgba(244, 244, 244, 0.5);
-} */
-
-/* Tester - Green, Yellow, White */
-/* :root {
-  --rootColor: rgba(249, 251, 252, 1);
-  --htmlColor: rgba(249, 251, 252, 1);
-  --nav-color: rgba(78, 139, 65, 1);
-  --main-color: rgba(78, 139, 65, 1);
-  --button-color: rgba(251, 213, 95, 1);
-  --button-color-hover: rgb(109, 93, 46);
-  --cartItemColor: rgba(251, 213, 95, 0.2);
-  --itemBoxBackground: rgba(78, 139, 65, 0.3);
-  --deleteButton: red;
-  --cartTotalBack: rgba(251, 213, 95, 0.2);
-  --productInfoBack: rgba(251, 213, 95, 0.2);
-  --productInfoDescrip: rgba(78, 139, 65, 0.7);
-  --categoryProductBack: rgba(251, 213, 95, 0.2);
-} */
-
-/* Tester - Green, Blue, White */
 :root {
-  --rootColor: linear-gradient(
-    180deg,
-    rgba(140, 200, 224, 0.75) 0%,
-    rgba(140, 200, 224, 0.4) 100%
-  );
-  --htmlColor: rgba(140, 200, 224, 0.4);
-  --nav-color: rgba(78, 139, 65, 1);
-  --main-color: rgba(78, 139, 65, 1);
-  --button-color: rgba(251, 213, 95, 1);
-  --button-color-hover: rgb(109, 93, 46);
-  --cartItemColor: rgba(78, 139, 65, 0.3);
-  --itemBoxBackground: rgba(78, 139, 65, 0.3);
-  --deleteButton: red;
-  --cartTotalBack: rgba(78, 139, 65, 0.3);
-  --cartInput: rgba(180, 179, 179, 0.877);
-  --productInfoBack: rgba(78, 139, 65, 0.3);
-  --productInfoDescrip: rgba(78, 139, 65, 0.7);
-  --categoryProductBack: rgba(78, 139, 65, 0.3);
+  --nav-color: #9a6d6d;
+  --main-color: #219a8c;
+  --button-color: #c58e00;
 }
 
 /* .background {
@@ -101,11 +50,7 @@ html {
 
 .navbar-flower {
   background: var(--nav-color);
-  padding: 0px !important;
-}
-
-.container {
-  max-width: 1140px !important;
+  padding: 0px;
 }
 
 .navbar-flower a:hover,
@@ -172,10 +117,8 @@ html {
 }
 
 .detailsRow button,
-.login-form button,
 .account-section button {
   background-color: var(--button-color);
-  color: black;
 }
 
 .account-section h2 {
@@ -367,7 +310,7 @@ html {
   /* grid-template-columns: 1fr 1fr 1fr; */
   grid-template-columns: 0.25fr 1fr 0.05fr;
   margin: auto 12.5% 3% 12.5%;
-  background: var(--cartItemColor);
+  background: rgba(244, 244, 244, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   width: auto;
@@ -388,7 +331,7 @@ html {
   margin: auto;
   display: none;
   color: white;
-  background-color: var(--deleteButton);
+  background-color: red;
 }
 
 .cart-item-delete {
@@ -396,7 +339,7 @@ html {
   padding: 5px 10px;
   margin: auto;
   color: white;
-  background-color: var(--deleteButton);
+  background-color: red;
 }
 
 .delete-small:hover,
@@ -410,7 +353,7 @@ html {
 
 .cart-empty {
   margin: auto 12.5% 3% 12.5%;
-  background: var(--cartItemColor);
+  background: rgba(244, 244, 244, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   width: auto;
@@ -449,7 +392,7 @@ html {
 
 /* Shopping Cart - Totals */
 .total-background {
-  background: var(--cartTotalBack);
+  background: rgba(244, 244, 244, 0.5);
   border: 0.25px solid rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   margin: auto 12.5%;
@@ -561,7 +504,7 @@ html {
 /* top, right, bottom, left */
 .itemBox {
   display: block;
-  background-color: var(--itemBoxBackground);
+  background-color: rgba(244, 244, 244, 0.5);
   box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid #2b54bc;
   width: 304px;
@@ -643,7 +586,7 @@ html {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 2fr;
-  background: var(--productInfoBack);
+  background: rgba(140, 200, 224, 0.15);
   border: 1px solid #5f5f5f;
   box-sizing: border-box;
   box-shadow: 10px 10px 4px 3px rgba(0, 0, 0, 0.25);
@@ -665,25 +608,23 @@ html {
   display: flex;
   justify-content: space-around;
   margin: auto 15px;
-  border: 1px solid grey;
-  border-radius: 8px;
 }
 
 .addToCart input {
-  background: var(--cartInput);
+  background: rgba(182, 181, 181, 0.5);
   border-radius: 8px 0px 0px 8px;
   text-align: center;
   font-weight: 700;
-  width: 20%;
+  width: 50%;
   padding: 10px;
 }
 
 .addToCart button {
-  background: var(--button-color);
+  background: #45b3f1;
   border-radius: 0px 8px 8px 0px;
   color: white;
   padding: 10px;
-  width: 80%;
+  width: 50%;
 }
 
 .info-container img {
@@ -703,7 +644,7 @@ html {
 
 .descrip-box {
   grid-column: span 2;
-  background: var(--productInfoDescrip);
+  background: rgba(181, 203, 211, 0.97);
   border: 1px solid #000000;
   box-sizing: border-box;
   border-radius: 0px 0px 16px 16px;
@@ -731,10 +672,10 @@ html {
   }
   .addToCart input {
     padding: 10px;
-    width: 50%;
+    width: fit-content;
   }
   .addToCart button {
-    width: 50%;
+    width: 25%;
   }
   .addToCart button span {
     display: none;
@@ -783,7 +724,7 @@ html {
 
 .itemRow {
   display: block;
-  background-color: var(--categoryProductBack);
+  background-color: rgba(244, 244, 244, 0.5);
   box-shadow: 4px 6px 6px rgba(0, 0, 0, 0.25);
   border-bottom: 2px solid #2b54bc;
 }
@@ -826,7 +767,7 @@ html {
   height: 32px;
   border-radius: 8px;
   color: #ffff;
-  background-color: var(--button-color);
+  background-color: #45b3f1;
 }
 
 .descrip {
@@ -877,5 +818,8 @@ html {
   }
   .itemRow input {
     margin-left: 16px;
+  }
+  .itemRow hr {
+    margin-left: 8px;
   }
 }
