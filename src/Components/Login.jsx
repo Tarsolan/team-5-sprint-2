@@ -4,15 +4,11 @@ import { Link } from "react-router-dom";
 const Login = ({ logIn }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [captcha, toggleCaptcha] = useState(false);
+  const [remember, toggleRemember] = useState(false);
 
   const confirmLogin = (e) => {
     e.preventDefault();
-    if (!captcha) {
-      alert("You are a robot. You are forbidden.");
-      return;
-    }
-    logIn(email, password);
+    logIn(email, password, remember);
   };
 
   return (
@@ -55,11 +51,11 @@ const Login = ({ logIn }) => {
             type="checkbox"
             id="gridCheck"
             onChange={() => {
-              toggleCaptcha(!captcha);
+              toggleRemember(!remember);
             }}
           />
           <label className="form-check-label" htmlFor="gridCheck">
-            I am not a robot
+            Remember Me
           </label>
         </div>
         <br />

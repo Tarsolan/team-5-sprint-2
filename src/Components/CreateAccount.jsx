@@ -13,6 +13,7 @@ const CreateAccount = ({ onAdd, users }) => {
   const [prov, setProv] = useState("");
   const [postal, setPostal] = useState("");
   const [captcha, setCaptcha] = useState(false);
+  const [remember, setRemember] = useState(false);
   const cart = [];
   const orders = [];
 
@@ -45,19 +46,22 @@ const CreateAccount = ({ onAdd, users }) => {
       return;
     }
 
-    onAdd({
-      email,
-      firstName,
-      lastName,
-      phone,
-      password,
-      address,
-      city,
-      prov,
-      postal,
-      cart,
-      orders,
-    });
+    onAdd(
+      {
+        email,
+        firstName,
+        lastName,
+        phone,
+        password,
+        address,
+        city,
+        prov,
+        postal,
+        cart,
+        orders,
+      },
+      remember
+    );
 
     goToAccountDetail();
   };
@@ -219,6 +223,19 @@ const CreateAccount = ({ onAdd, users }) => {
             />
             <label className="form-check-label" htmlFor="gridCheck">
               I am not a robot!
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="gridCheck2"
+              onChange={() => {
+                setRemember(!remember);
+              }}
+            />
+            <label className="form-check-label" htmlFor="gridCheck2">
+              Log me in automatically!
             </label>
           </div>
         </div>

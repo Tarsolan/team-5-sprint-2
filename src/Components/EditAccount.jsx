@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const EditAccount = ({ user, onEdit }) => {
   const id = user.id;
+  const cart = user.cart;
+  const orders = user.orders;
   const [email, setEmail] = useState(user.email);
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
@@ -32,6 +34,8 @@ const EditAccount = ({ user, onEdit }) => {
       city,
       prov,
       postal,
+      cart,
+      orders,
     });
 
     alert(`Edit confirmed. Changes have been saved.`);

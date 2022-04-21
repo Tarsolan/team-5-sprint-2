@@ -56,27 +56,29 @@ html {
 } */
 
 /* Tester - Green, Blue, White */
-/* :root {
+:root {
   --rootColor: linear-gradient(
     180deg,
     rgba(140, 200, 224, 0.75) 0%,
     rgba(140, 200, 224, 0.4) 100%
   );
   --htmlColor: rgba(140, 200, 224, 0.4);
-  --nav-color: rgba(78, 139, 65, 1);
-  --main-color: rgba(78, 139, 65, 1);
+  --nav-color: rgba(72, 131, 58, 0.705);
+  --main-color: rgba(72, 131, 58, 0.705);
   --button-color: rgba(251, 213, 95, 1);
   --button-color-hover: rgb(109, 93, 46);
-  --cartItemColor: rgba(78, 139, 65, 0.3);
-  --itemBoxBackground: rgba(78, 139, 65, 0.3);
+  --info-button-color: #45b3f1;
+  --info-button-color-hover: #3790c4;
+  --cartItemColor: rgba(244, 244, 244, 0.5);
+  --itemBoxBackground: rgba(244, 244, 244, 0.5);
   --deleteButton: red;
-  --cartTotalBack: rgba(78, 139, 65, 0.3);
+  --cartTotalBack: rgba(244, 244, 244, 0.5);
   --cartInput: rgba(180, 179, 179, 0.877);
-  --productInfoBack: rgba(78, 139, 65, 0.3);
+  --productInfoBack: rgba(251, 213, 95, 0.2);
   --productInfoDescrip: rgba(78, 139, 65, 0.7);
-  --categoryProductBack: rgba(78, 139, 65, 0.3);
-  --checkout-button-hover: orange
-} */
+  --categoryProductBack: rgba(244, 244, 244, 0.5);
+  --checkout-button-hover: orange;
+}
 
 /* .background {
   background: linear-gradient(
@@ -104,6 +106,7 @@ html {
 .navbar-flower {
   background: var(--nav-color);
   padding: 0px !important;
+  border-bottom: 1px solid white !important;
 }
 
 .container {
@@ -551,10 +554,8 @@ html {
 /* Main Page + Categories */
 
 .mainContainer {
-  position: relative;
-  margin: 48px 383px auto 383px;
-  padding-left: 48px;
-  padding-right: 48px;
+  margin: 3% 12.5% 3% 12.5%;
+  padding: 10px 3%;
   border: 1px solid rgba(82, 78, 78, 0.35);
   border-radius: 16px;
 }
@@ -572,10 +573,14 @@ html {
 
 .gridContainer {
   display: grid;
-  grid-template-columns: 304px 304px 304px;
-  grid-template-rows: 424px 424px 424px;
-  grid-column-gap: 63px;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: auto;
+  /* grid-template-columns: 304px 304px 304px;
+    grid-template-rows: 424px 424px 424px; */
+  /* grid-column-gap: 64px;*/
   grid-row-gap: 32px;
+  margin: auto;
+  align-items: center;
 }
 
 /* top, right, bottom, left */
@@ -587,6 +592,7 @@ html {
   width: 304px;
   height: 424px;
   transition: 0.2s;
+  margin: auto;
 }
 
 .itemBox:hover {
@@ -621,27 +627,32 @@ html {
   margin: 8px 0px 0px 16px;
 }
 
-@media only screen and (max-width: 1850px) {
+@media only screen and (max-width: 1372px) {
   .gridContainer {
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 27px;
+    /* grid-column-gap: 27px; */
   }
 }
 
-@media only screen and (max-width: 1450px) {
-  .mainContainer {
+@media only screen and (max-width: 970px) {
+  /* .mainContainer {
     margin: auto;
     padding-left: 48px;
     padding-right: 48px;
     border: none;
-  }
+  } */
   .gridContainer {
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 64px;
+    grid-template-columns: repeat(1, 1fr);
+    margin: auto;
+    width: fit-content;
+    grid-column-gap: 48px;
+  }
+  .itemBox {
+    margin: auto;
   }
 }
 
-@media only screen and (max-width: 800px) {
+/* @media only screen and (max-width: 800px) {
   .gridContainer {
     grid-column-gap: 48px;
   }
@@ -649,15 +660,9 @@ html {
     margin-left: 16px;
   }
   .itemBox img {
-    margin-left: 8px;
+    margin-left: 16px;
   }
-}
-
-@media only screen and (max-width: 736px) {
-  .gridContainer {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
+} */
 
 /* Product Info Page */
 
@@ -705,9 +710,15 @@ html {
 .addToCart button {
   background: var(--button-color);
   border-radius: 0px 8px 8px 0px;
-  color: white;
+  color: black;
   padding: 10px;
   width: auto;
+  transition: 0.2s;
+}
+
+.addToCart button:hover {
+  background-color: var(--checkout-button-hover);
+  transition: 0.2s;
 }
 
 .info-container img {
@@ -837,6 +848,15 @@ html {
 .itemRow hr {
   display: flex;
   margin: 8px 16px 8px 8px;
+}
+
+.itemRow button {
+  background-color: var(--info-button-color);
+  transition: all 0.2s;
+}
+
+.itemRow button:hover {
+  background-color: var(--info-button-color-hover);
 }
 
 .catQuantity input {

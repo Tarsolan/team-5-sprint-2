@@ -16,12 +16,18 @@ import Lilies from "./Components/Lilies";
 import Roses from "./Components/Roses";
 import Carnations from "./Components/Carnations";
 import Mixed from "./Components/Mixed";
+import useLocalStorage from "use-local-storage";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   // const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState([]);
+  // const [currentUser, setCurrentUser] = useState([]);
+  const rememberMe = localStorage.getItem("rememberMe") === "true";
+  const [currentUser, setCurrentUser] = useLocalStorage(
+    "user",
+    rememberMe ? "user" : ""
+  );
   const [currentProduct, setCurrentProduct] = useState("");
   const [cartID, updateCartID] = useState(0);
   const [orderID, updateOrderID] = useState(0);
@@ -36,8 +42,15 @@ function App() {
     const getUsers = async () => {
       const usersFromServer = await fetchUsers();
       setUsers(usersFromServer);
-      setCurrentUser(usersFromServer[0]);
-      setLoggedIn(false);
+
+      // Should fetch userdata from local storage - password vulnerable here, obviously
+      const rememberMe = localStorage.getItem("rememberMe") === "true";
+      const user = rememberMe
+        ? JSON.parse(localStorage.getItem("user"))
+        : usersFromServer[0];
+      setCurrentUser(user);
+      rememberMe && setLoggedIn(true);
+
       // This line sets the cart id to the guest checkout id - ideally it will actually reset the value to 0 but we'll do that later
       try {
         console.log(
@@ -55,9 +68,9 @@ function App() {
     getUsers();
   }, []);
 
-  // // When user changes, this will update the user-dependant states
   // useEffect(() => {
-  //   updateCartID(currentUser.cart[currentUser.cart.length - 1].cartItemID + 1);
+  //   const rememberMe = localStorage.getItem("rememberMe") === "true";
+  //   localStorage.setItem("user", rememberMe ? JSON.stringify(currentUser) : "");
   // }, [currentUser]);
 
   // Fetch Products from server
@@ -88,7 +101,7 @@ function App() {
   };
 
   // Add User
-  const addUser = (user) => {
+  const addUser = (user, remember) => {
     console.log(user);
 
     // Save new User to list of users
@@ -102,6 +115,7 @@ function App() {
       setUsers([...users, data]);
 
       // Sets new user as current user
+      localStorage.setItem("rememberMe", remember);
       setCurrentUser(data);
       console.log("Current ID:", data.id);
       setLoggedIn(true);
@@ -152,12 +166,14 @@ function App() {
   };
 
   // Logs a user in
-  const logIn = (email, password) => {
+  const logIn = (email, password, remember) => {
     let user_found = false;
     users.forEach((user) => {
       if (user.email === email && user.password === password) {
         setCurrentUser(user);
         setLoggedIn(true);
+        localStorage.setItem("rememberMe", remember);
+        localStorage.setItem("user", remember ? JSON.stringify(user) : "");
 
         // This line fetches the most recent cartID, and will use it when creating new cart items
         try {
@@ -189,7 +205,9 @@ function App() {
   const logOut = () => {
     setLoggedIn(false);
     alert(`Logging you out, ${currentUser.firstName}. Thank you for visiting.`);
+    localStorage.setItem("rememberMe", false);
     setCurrentUser(users[0]);
+    localStorage.setItem("user", "");
     updateCartID(users[0].cart[users[0].cart.length - 1].cartItemID + 1);
   };
 
