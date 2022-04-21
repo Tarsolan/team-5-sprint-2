@@ -225,20 +225,6 @@
       "orders": []
     },
     {
-      "id": 2,
-      "email": "jb@gmail.com",
-      "firstName": "Jacob",
-      "lastName": "Pritchett",
-      "phone": "7095670540",
-      "password": "123",
-      "address": "19 Townton Street the second",
-      "city": "Town",
-      "prov": "NL",
-      "postal": "A1B 4S3",
-      "cart": [],
-      "orders": []
-    },
-    {
       "id": "27qy5oB",
       "email": "aridgeley@msn.com",
       "firstName": "Alex",
