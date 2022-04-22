@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
 export const Roses = ({ products, addItemToCart }) => {
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(0);
 
   const sendDataToCart = (e, product) => {
     e.preventDefault();
+    if (quantity === 0) {
+      alert("Error. Quantity must be greater than 0.");
+      return;
+    }
 
     addItemToCart(quantity, product);
   };

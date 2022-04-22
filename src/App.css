@@ -74,7 +74,7 @@ html {
   --deleteButton: red;
   --cartTotalBack: rgba(244, 244, 244, 0.5);
   --cartInput: rgba(180, 179, 179, 0.877);
-  --productInfoBack: rgba(251, 213, 95, 0.2);
+  --productInfoBack: rgba(244, 244, 244, 0.5);
   --productInfoDescrip: rgba(78, 139, 65, 0.7);
   --categoryProductBack: rgba(244, 244, 244, 0.5);
   --checkout-button-hover: #3790c4;
@@ -658,17 +658,16 @@ html {
   }
 }
 
-/* @media only screen and (max-width: 800px) {
-  .gridContainer {
-    grid-column-gap: 48px;
-  }
+@media only screen and (max-width: 400px) {
   .itemBox {
-    margin-left: 16px;
+    height: auto;
+    width: auto;
   }
   .itemBox img {
-    margin-left: 16px;
+    height: 250px;
+    width: 200px;
   }
-} */
+}
 
 /* Product Info Page */
 

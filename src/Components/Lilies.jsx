@@ -2,10 +2,14 @@ import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
 export const Lilies = ({ products, addItemToCart }) => {
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(0);
 
   const sendDataToCart = (e, product) => {
     e.preventDefault();
+    if (quantity === 0) {
+      alert("Error. Quantity must be greater than 0.");
+      return;
+    }
 
     addItemToCart(quantity, product);
   };

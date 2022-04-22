@@ -109,7 +109,7 @@ function App() {
       setUsers([...users, data]);
 
       // Sets new user as current user
-      localStorage.setItem("rememberMe", remember);
+      remember && localStorage.setItem("rememberMe", remember);
       setCurrentUser(data);
       console.log("Current ID:", data.id);
       setLoggedIn(true);

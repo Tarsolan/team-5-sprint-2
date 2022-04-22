@@ -3,13 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 const ProductInfo = ({ product, addItemToCart }) => {
   const { id, title, description, price, image } = product;
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(0);
 
   const navigate = useNavigate();
   const goToShoppingCart = () => navigate("/cart");
 
   const sendDataToCart = (e) => {
     e.preventDefault();
+    if (quantity === 0) {
+      alert("Error. Quantity must be greater than 0.");
+      return;
+    }
 
     addItemToCart(quantity, product);
     goToShoppingCart();
@@ -20,7 +24,7 @@ const ProductInfo = ({ product, addItemToCart }) => {
       <img src={image} alt="" />
       <h2>{title}</h2>
       <div className="info-price-box">
-        <p>
+        <p className="price">
           {new Intl.NumberFormat("en-CA", {
             style: "currency",
             currency: "CAD",
