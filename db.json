@@ -273,17 +273,7 @@
       "city": "",
       "prov": "",
       "postal": "",
-      "cart": [
-        {
-          "cartItemID": 0,
-          "quantity": "3",
-          "productId": "p2",
-          "title": "4 Red Roses",
-          "description": "4 red roses arranged in a glass vase with added greenery and baby's breath.",
-          "price": 3999,
-          "image": "https://i.ibb.co/K2Gb4Lk/4-Red-Roses.jpg"
-        }
-      ],
+      "cart": [],
       "orders": []
     },
     {
