@@ -23,7 +23,7 @@ const Navigation = ({ loginCheck, name, cart }) => {
               }}
             >
               <img src={logo} width="64px" height="64px" alt="Store-Logo" />
-              Flower Power
+              Growing Pains
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
