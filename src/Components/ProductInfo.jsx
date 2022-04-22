@@ -1,13 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductInfo = ({ product, addItemToCart }) => {
   const { id, title, description, price, image } = product;
   const [quantity, setQuantity] = useState();
 
+  const navigate = useNavigate();
+  const goToShoppingCart = () => navigate("/cart");
+
   const sendDataToCart = (e) => {
     e.preventDefault();
 
     addItemToCart(quantity, product);
+    goToShoppingCart();
   };
 
   return (

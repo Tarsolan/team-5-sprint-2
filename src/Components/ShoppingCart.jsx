@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ShoppingCart = ({ userInfo, onDelete, onCheckout }) => {
+const ShoppingCart = ({ userInfo, onDelete, onCheckout, loggedIn }) => {
   const { id, cart } = userInfo;
   const [total, setTotal] = useState();
   const [subTotal, setSubTotal] = useState();
@@ -25,6 +25,7 @@ const ShoppingCart = ({ userInfo, onDelete, onCheckout }) => {
 
   return (
     <div className="background">
+      {loggedIn ? null : <h2 className="cart-header">Guest Checkout</h2>}
       <div className="shoppingCart">
         {cart.length === 0 ? (
           <div className="cart-empty">

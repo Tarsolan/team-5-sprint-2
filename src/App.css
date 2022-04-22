@@ -384,6 +384,12 @@ html {
   margin-top: 3%;
 }
 
+.cart-header {
+  margin: 0px;
+  margin-top: 10px;
+  text-align: center;
+}
+
 .cart-item {
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr; */

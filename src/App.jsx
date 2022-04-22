@@ -16,18 +16,12 @@ import Lilies from "./Components/Lilies";
 import Roses from "./Components/Roses";
 import Carnations from "./Components/Carnations";
 import Mixed from "./Components/Mixed";
-import useLocalStorage from "use-local-storage";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   // const [products, setProducts] = useState([]);
   const [users, setUsers] = useState([]);
-  // const [currentUser, setCurrentUser] = useState([]);
-  const rememberMe = localStorage.getItem("rememberMe") === "true";
-  const [currentUser, setCurrentUser] = useLocalStorage(
-    "user",
-    rememberMe ? "user" : ""
-  );
+  const [currentUser, setCurrentUser] = useState([]);
   const [currentProduct, setCurrentProduct] = useState("");
   const [cartID, updateCartID] = useState(0);
   const [orderID, updateOrderID] = useState(0);
@@ -45,10 +39,10 @@ function App() {
 
       // Should fetch userdata from local storage - password vulnerable here, obviously
       const rememberMe = localStorage.getItem("rememberMe") === "true";
-      const user = rememberMe
-        ? JSON.parse(localStorage.getItem("user"))
-        : usersFromServer[0];
-      setCurrentUser(user);
+      const userID = rememberMe ? JSON.parse(localStorage.getItem("id")) : "G";
+
+      const userToFetch = await fetchUser(userID);
+      setCurrentUser(userToFetch);
       rememberMe && setLoggedIn(true);
 
       // This line sets the cart id to the guest checkout id - ideally it will actually reset the value to 0 but we'll do that later
@@ -173,7 +167,7 @@ function App() {
         setCurrentUser(user);
         setLoggedIn(true);
         localStorage.setItem("rememberMe", remember);
-        localStorage.setItem("user", remember ? JSON.stringify(user) : "");
+        remember && localStorage.setItem("id", JSON.stringify(user.id));
 
         // This line fetches the most recent cartID, and will use it when creating new cart items
         try {
@@ -205,9 +199,9 @@ function App() {
   const logOut = () => {
     setLoggedIn(false);
     alert(`Logging you out, ${currentUser.firstName}. Thank you for visiting.`);
-    localStorage.setItem("rememberMe", false);
     setCurrentUser(users[0]);
-    localStorage.setItem("user", "");
+    localStorage.removeItem("rememberMe");
+    localStorage.removeItem("id");
     updateCartID(users[0].cart[users[0].cart.length - 1].cartItemID + 1);
   };
 
@@ -348,7 +342,10 @@ function App() {
       <div>
         <main>
           <Routes>
-            <Route path="/home" element={<></>}></Route>
+            <Route
+              path="/"
+              element={<Main handleSelect={handleSelect} />}
+            ></Route>
             <Route
               path="/changePass"
               element={

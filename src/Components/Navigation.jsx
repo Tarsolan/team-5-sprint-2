@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../ListingPics/FlowerLogo.png";
+import { FiLogIn } from "react-icons/fi";
 
 const Navigation = ({ loginCheck, name, cart }) => {
   if (cart === undefined) {
@@ -72,7 +73,7 @@ const Navigation = ({ loginCheck, name, cart }) => {
                 </Nav.Link>
               ) : (
                 <Nav.Link as={NavLink} to="/login">
-                  <i className="fas fa-user-alt"></i> Account Management
+                  <FiLogIn /> Login
                 </Nav.Link>
               )}
             </Nav>
